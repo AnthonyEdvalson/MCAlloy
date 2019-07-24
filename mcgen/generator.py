@@ -34,7 +34,6 @@ class DatapackGenerator:
                         raise Exception("WARNING: Alloy has compiled the stack to an invalid state ({})".format(si.i))
 
     def generate_block(self, block: ILBlock, dp_folder, si):
-
         file_name = dp_folder + block.path.file() + ".mcfunction"
 
         folder_path = os.path.dirname(file_name)
@@ -56,7 +55,7 @@ class DatapackGenerator:
             self.generate_block(b, dp_folder, si2)
 
             if prev_result_i is not None and prev_result_i != si2.i:
-                raise Exception("Branching path leave stack in an undefined state")
+                raise Exception("Branching path left stack in an undefined state")
             prev_result_i = si2.i
 
         if prev_result_i is not None:

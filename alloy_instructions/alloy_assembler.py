@@ -82,14 +82,28 @@ class AlloyAssembler:
         self.frame = None
 
     def assemble_block(self, node: nodes.Block):
+        parent = self.block
+
         self.block = ILBlock(node.path)
-        if self.frame.root_block is None:
+        if parent is None:
             self.frame.root_block = self.block
+        else:
+            parent.targets.append(self.block)
 
         with CommentTags(self, str(node.path), node.line):
             [self.visit(n) for n in node.body]
 
-        self.block = None
+        if node.bridge is not None:
+            self.write(BlockBridge(node.bridge, None))
+        else:
+            # TODO store code object in frame, pull None from co_consts
+            self.write(LoadConst(ConstIndex(0), None))
+            self.assemble_return(nodes.Return(None))
+
+        for target in node.targets:
+            self.assemble_block(target)
+
+        self.block = parent
 
     def assemble_byte(self, node: nodes.Byte):
         write = self.write
@@ -142,9 +156,9 @@ class AlloyAssembler:
         func_ctx = AsmContext(self.ctx.st, self.ctx.doc, func.code, node)
         self.assemble_new_frame(func.path, node.frame, func.args, func_ctx)
 
-    def node_return(self, node, offset):
-        self.assemble_line_as_byte(node.lineno)  # TODO handle Return in bytecode? then we could remove offset as an arg
-        self.write(Return(offset))
+    def assemble_return(self, node):
+        # TODO handle Return in bytecode? then we could remove offset as an arg
+        self.write(Return(None))
         return True
 
     def assemble_if(self, node: nodes.If):
@@ -152,7 +166,6 @@ class AlloyAssembler:
         self.write(CallBlockIf(node.true_path, None, False))
         self.write(CallBlockIf(node.false_path, None, True))
         self.write(Seek(-1, None))
-        self.write(BlockBridge(node.cont_path, None))
 
         return True
 

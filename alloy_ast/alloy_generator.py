@@ -28,17 +28,17 @@ class AlloyGenerator(NodeVisitor):
         self.module.frames.append(self.frame)
         self.frame_stack.append(self.frame)
 
-        self.resolve_block(nodes, None, None)
+        self.resolve_block(nodes, None, None, None)
 
         self.frame_stack.pop()
         self.frame = self.frame_stack[-1]
         return path
 
-    def resolve_block(self, nodes, parent_block, name, next_block_path: Path):
+    def resolve_block(self, nodes, parent_block, name, next_block_path):
         old_block = self.block
         path = self.start_block(parent_block, name)
+        self.block.bridge = next_block_path
         [self.visit(node) for node in nodes]
-        self.visit()  # TODO
         self.block = old_block
         return path
 
@@ -46,6 +46,7 @@ class AlloyGenerator(NodeVisitor):
         block = Block(self.frame.path, name)
 
         if parent_block is not None:
+            block.bridge = parent_block.bridge
             parent_block.targets.append(block)
         else:
             self.frame.root_block = block
@@ -85,8 +86,8 @@ class AlloyGenerator(NodeVisitor):
         parent_block = self.block
 
         cont_path = self.start_block(parent_block, "{}cont".format(l))
-        true_path = self.resolve_block(node.body, parent_block, "{}true".format(l), cont_path)
         false_path = self.resolve_block(node.orelse, parent_block, "{}false".format(l), cont_path)
+        true_path = self.resolve_block(node.body, parent_block, "{}true".format(l), cont_path)
 
         self.write(If(l, true_path, false_path, cont_path), parent_block)
 

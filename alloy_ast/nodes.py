@@ -20,12 +20,20 @@ class AlloyNode:
 class Block(AlloyNode):
     def __init__(self, frame_path, name):
         super().__init__(None)
+        self.bridge = None
         self.targets = []
         self.body = []
         self.path = frame_path.altered(block=name)
 
     def __str__(self):
-        return str(self.path) + ":\n" + "\n".join([indent(item) for item in self.body])
+        return "\n".join([
+            str(self.path) + ":",
+            "  Body:",
+            "\n".join([indent(item, 4) for item in self.body]),
+            "  Bridge: " + str(self.bridge),
+            "  Targets:",
+            "\n".join([indent(item, 4) for item in self.targets])
+        ])
 
 
 class Frame(AlloyNode):

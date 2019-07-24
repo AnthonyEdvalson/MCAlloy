@@ -1,0 +1,77 @@
+x = 0
+if 1 >= 2:
+    x = 1
+    if 1 == 1:
+        x = 2
+    else:
+        x = 3
+    x = 4
+x = 5
+
+"""
+def print(x):
+    '/tellraw @a {"nbt":"ArmorItems[0].tag.Names.x.v","entity":"@s"}'
+    return None
+
+
+print(0)
+if 1 >= 2:
+    print(1)
+    if 1 == 1:
+        print(2)
+    else:
+        print(3)
+    print(4)
+print(5)
+print("05")
+"""
+"""
+if 1 == 2:
+    print(-2)
+elif 1 == 2:
+    print(-3)
+else:
+    print(-4)
+    if 2 == 2:
+        if 2 == 1:
+            print(-4)
+        else:
+            b += 2  # Incomplete compilation here
+
+print(a + b)
+"""
+
+"""
+def print(x):
+    '/tellraw @a {"nbt":"ArmorItems[0].tag.Names.x.v","entity":"@s"}'
+
+def f(x):
+    return x + 1
+
+a = 55
+b = -3
+
+# Function call in if statement
+if f(a + 5 * b) < 42:
+    if a == 55:
+        a /= 5
+    else:
+        print("hey")
+
+if 5 == 3:
+    pass
+elif 3 == 12:
+    pass
+else:
+    if 4 == 4:
+        if 5 == 3:
+            pass
+        else:
+            b += 55
+
+c = a + b
+c += 5
+
+# Two function calls in one eval, and nested calls
+print(a * f(3 + b) - f(f(60) * b))
+"""

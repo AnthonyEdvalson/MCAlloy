@@ -1,0 +1,3 @@
+def ___print(x: any) -> None:
+    '/tellraw @a {"nbt":"ArmorItems[0].tag.Array[0].v","entity":"@s"}'
+    '/data remove entity @s ArmorItems[0].tag.Array[0]'

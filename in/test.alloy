@@ -1,0 +1,21 @@
+"""
+def ___print(x: any) -> None:
+    '/tellraw @a {"nbt":"ArmorItems[0].tag.Array[0].v","entity":"@s"}'
+    '/data remove entity @s ArmorItems[0].tag.Array[0]'
+
+def f(x: int) -> int:
+    return x + 1
+
+a: int = 55
+b: int = -3
+
+# Function call in if statement
+if f(a + 5 * b) < 42:
+    a /= 5
+
+c: int = a + b
+c += 5
+
+# Two function calls in one eval
+print(a * f(3 + b) - f(12 * b))
+"""

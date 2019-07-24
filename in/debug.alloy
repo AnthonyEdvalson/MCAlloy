@@ -1,0 +1,7 @@
+"""
+def print_stack() -> None:
+    '/tellraw @a {"nbt":"ArmorItems[0].tag.Array[0]","entity":"@s"}'
+    '/tellraw @a {"nbt":"ArmorItems[0].tag.Array[1]","entity":"@s"}'
+    '/tellraw @a {"nbt":"ArmorItems[0].tag.Array[2]","entity":"@s"}'
+    '/tellraw @a {"nbt":"ArmorItems[0].tag.Array[3]","entity":"@s"}'
+"""

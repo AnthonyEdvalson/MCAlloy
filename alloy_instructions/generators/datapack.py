@@ -14,7 +14,7 @@ class ILDatapackGenerator:
         namespaces = []
         for namespace in os.listdir(self.folder_path):
             ns_path = os.path.join(self.folder_path, namespace)
-            path = Path(namespace)
+            path = Path(namespace=namespace)
 
             il_namespace_gen = ILNamespaceGenerator(path, ns_path)
             ns = il_namespace_gen.assemble()

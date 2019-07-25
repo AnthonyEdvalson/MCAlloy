@@ -2,8 +2,7 @@ from commands.base import Instr, TOS
 
 
 class BinaryOp(Instr):
-    def __init__(self, op, offset):
-        super().__init__(offset)
+    def __init__(self, op):
         self.op = op
 
     def gen(self, i):
@@ -18,8 +17,7 @@ class BinaryOp(Instr):
 
 
 class CompareOp(Instr):
-    def __init__(self, op, offset):
-        super().__init__(offset)
+    def __init__(self, op):
 
         if op == "!=":
             self.op = "="
@@ -31,12 +29,13 @@ class CompareOp(Instr):
     def gen(self, i):
 
         default = 1 if self.invert else 0
+        i_default = 1 - default
 
         yield "execute store result score t1 ..ASM run data get entity @s {}.v".format(repr(i))
         i.pop()
         yield "execute store result score t0 ..ASM run data get entity @s {}.v".format(repr(i))
         yield "scoreboard players set t2 ..ASM {}".format(default)
-        yield "execute if score t0 ..ASM {} t1 ..ASM run scoreboard players set t2 ..ASM {}".format(self.op, 1 - default)
+        yield "execute if score t0 ..ASM {} t1 ..ASM run scoreboard players set t2 ..ASM {}".format(self.op, i_default)
         yield "execute store result entity @s {}.v int 1 run scoreboard players get t2 ..ASM".format(repr(i))
 
     def str(self):

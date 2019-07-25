@@ -4,20 +4,19 @@ from commands.base import SimpleInstr, Instr, TOS
 class Direct(SimpleInstr):
     debug_before = True
 
-    def __init__(self, command: str, offset):
-        super().__init__("/", "{}", offset, command)
+    def __init__(self, command: str):
+        super().__init__("/", "{}", command)
 
 
 class Comment(SimpleInstr):
     warn_fail = False
 
-    def __init__(self, message, offset):
-        super().__init__("#", "# {}", offset, message)
+    def __init__(self, message):
+        super().__init__("#", "# {}", message)
 
 
 class Seek(Instr):
-    def __init__(self, delta, offset):
-        super().__init__(offset)
+    def __init__(self, delta):
         self.delta = delta
 
     def gen(self, i):
@@ -29,11 +28,11 @@ class Seek(Instr):
 
 
 class NOOP(Instr):
-    def __init__(self, offset):
-        super().__init__(offset)
+    def __init__(self):
+        pass
 
     def gen(self, i):
         yield from []
 
     def str(self):
-        return "NOOP", self.offset if self.offset is not None else "-"
+        return "NOOP"

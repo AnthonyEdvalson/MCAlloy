@@ -4,6 +4,7 @@ from typing import List
 
 from containers import ILNamespace, ILBlock
 from vm import StackIndex
+import json
 
 
 class DatapackGenerator:
@@ -15,12 +16,12 @@ class DatapackGenerator:
             os.makedirs(dp_folder)
 
         with open(dp_folder + "pack.mcmeta", "w+") as f:
-            f.write('{\n')
-            f.write('  "pack": {\n')
-            f.write('    "pack_format": 3,\n')
-            f.write('    "description": ""\n')
-            f.write('  }\n')
-            f.write('}\n')
+            json.dump({
+                "pack": {
+                    "pack_format": 3,
+                    "description": ""
+                }
+            }, f)
 
         for namespace in namespaces:
             shutil.rmtree(dp_folder + namespace.path.file(), ignore_errors=True)
@@ -48,15 +49,15 @@ class DatapackGenerator:
                 for command in instr.generate(si, self.gs):
                     output.write(command + "\n")
 
-        prev_result_i = None
+        # prev_result_i = None
 
         for b in block.targets:
             si2 = StackIndex(si.i)
             self.generate_block(b, dp_folder, si2)
 
-            if prev_result_i is not None and prev_result_i != si2.i:
-                raise Exception("Branching path left stack in an undefined state")
-            prev_result_i = si2.i
+            # if prev_result_i is not None and prev_result_i != si2.i:
+            #    raise Exception("Branching path left stack in an undefined state")
+            # prev_result_i = si2.i
 
-        if prev_result_i is not None:
-            si.i = prev_result_i
+        # if prev_result_i is not None:
+        #    si.i = prev_result_i

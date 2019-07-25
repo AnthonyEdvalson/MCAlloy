@@ -1,0 +1,25 @@
+########################################## <dpack:main>
+########################################## 11: """
+execute store success score pass ..ASM run data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]
+                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]"}]
+execute store success score pass ..ASM run data modify entity @s ArmorItems[0].tag.Names.__doc__ set from entity @s ArmorItems[0].tag.Stack[0]
+                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Names.__doc__ set from entity @s ArmorItems[0].tag.Stack[0]"}]
+########################################## 27: """
+execute store success score pass ..ASM run data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]
+                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]"}]
+execute store success score pass ..ASM run data modify entity @s ArmorItems[0].tag.Names.__doc__ set from entity @s ArmorItems[0].tag.Stack[0]
+                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Names.__doc__ set from entity @s ArmorItems[0].tag.Stack[0]"}]
+########################################## 30: x = 1
+execute store success score pass ..ASM run data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]
+                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]"}]
+execute store success score pass ..ASM run data modify entity @s ArmorItems[0].tag.Names.x set from entity @s ArmorItems[0].tag.Stack[0]
+                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Names.x set from entity @s ArmorItems[0].tag.Stack[0]"}]
+########################################## </dpack:main>
+execute store success score pass ..ASM run execute if score ret ..ASM matches 0 run function dpack:main_31test
+                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: execute if score ret ..ASM matches 0 run function dpack:main_31test"}]
+execute store success score pass ..ASM run data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]
+                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]"}]
+execute store success score pass ..ASM run scoreboard players set ret ..ASM 1
+                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: scoreboard players set ret ..ASM 1"}]
+execute store success score pass ..ASM run tag @s add .ret
+                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: tag @s add .ret"}]

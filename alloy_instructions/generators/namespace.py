@@ -1,6 +1,5 @@
 import os
 
-from alloy_instructions.alloy_assembler import assemble_alloy
 from alloy_instructions.generators.module import assemble_module
 from containers import ILNamespace
 from containers import Path

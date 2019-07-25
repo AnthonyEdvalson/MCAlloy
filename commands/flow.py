@@ -6,8 +6,7 @@ from containers import Path
 class Call(Instr):
     debug_before = True
 
-    def __init__(self, path: Path, offset):
-        super().__init__(offset)
+    def __init__(self, path: Path):
         self.path = path
 
     def gen(self, i):
@@ -18,16 +17,16 @@ class Call(Instr):
 
 
 class CallBlock(Call):
-    def __init__(self, path: Path, offset):
-        super().__init__(path, offset)
+    def __init__(self, path: Path):
+        super().__init__(path)
 
     def gen(self, i):
         yield "function {}".format(self.path)
 
 
 class BlockBridge(CallBlock):
-    def __init__(self, path, offset):
-        super().__init__(path, offset)
+    def __init__(self, path):
+        super().__init__(path)
 
     def gen(self, i):
         yield "execute if score ret ..ASM matches 0 run function {}".format(self.path)
@@ -39,8 +38,8 @@ class BlockBridge(CallBlock):
 class CallBlockIf(CallBlock):
     debug_before = True
 
-    def __init__(self, path: Path, offset, invert=False):
-        super().__init__(path, offset)
+    def __init__(self, path: Path, invert=False):
+        super().__init__(path)
         self.invert = invert
 
     def gen(self, i):
@@ -53,11 +52,11 @@ class CallBlockIf(CallBlock):
 
 
 class Return(Instr):
-    def __init__(self, offset):
-        super().__init__(offset)
+    def __init__(self):
+        pass
 
     def gen(self, i):
-        yield from SetASM("ret", 1, self.offset).gen(i)
+        yield from SetASM("ret", 1).gen(i)
         yield 'tag @s add .ret'
 
     def str(self):

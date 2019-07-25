@@ -1,13 +1,12 @@
 from typing import List
 
-from symbol_table import Const
+from symbol_table import to_nbt
 from vm import StackIndex, NameIndex
 from commands.base import SimpleInstr, Instr, TOS
 
 
 class InitContext(Instr):
-    def __init__(self, code, offset, obj_id=None):
-        super().__init__(offset)
+    def __init__(self, code, obj_id=None):
         self.is_object = obj_id is not None
         self.obj_id = obj_id
         self.height = code.co_stacksize
@@ -20,7 +19,7 @@ class InitContext(Instr):
         else:
             parts.append('UUIDMost:0L,UUIDLeast:{}L,'.format(self.obj_id))
 
-        cstr = ",".join(map(lambda c: Const(c).full_nbt(False), self.consts))
+        cstr = ",".join(map(lambda c: to_nbt(c, False), self.consts))
         sstr = ",".join(["{}"] * self.height)
 
         parts.append('ArmorItems:[{id:"minecraft:paper",Count:1b,tag:{'
@@ -34,13 +33,12 @@ class InitContext(Instr):
 
 
 class InitFrame(SimpleInstr):
-    def __init__(self, offset):
-        super().__init__("IFRM", "tag @s remove .dest", offset)
+    def __init__(self):
+        super().__init__("IFRM", "tag @s remove .dest")
 
 
 class CopyArgs(Instr):
-    def __init__(self, names: List[str], offset):
-        super().__init__(offset)
+    def __init__(self, names: List[str]):
         self.names = names
 
     def gen(self, i):
@@ -54,8 +52,8 @@ class CopyArgs(Instr):
 
 
 class EndCall(Instr):
-    def __init__(self, offset):
-        super().__init__(offset)
+    def __init__(self):
+        pass
 
     def gen(self, i):
         i.push()

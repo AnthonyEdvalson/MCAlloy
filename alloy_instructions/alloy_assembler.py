@@ -1,14 +1,9 @@
-import types
-
-from alloy_instructions.asmcontext import AsmContext
-
-from alloy_instructions.generators.util import FrameStub
 from commands import Comment, InitContext, Call, Return, CopyArgs, LoadConst, ConstIndex, NameIndex, LoadName, \
-    BinaryOp, CompareOp, Seek, StoreName, EndCall, NOOP, CallBlockIf, BlockBridge
+    BinaryOp, CompareOp, Seek, StoreName, EndCall, NOOP, CallBlockIf, BlockBridge, Direct
 from commands.base import BaseInstr
 from containers import ILBlock, Path, ILFrame, ILModule
 from symbol_table import Func, SymbolTable
-from alloy_ast import nodes
+from alloy import nodes
 
 
 def assemble_alloy(path: Path, doc: str, alloy: nodes.AlloyNode):
@@ -32,9 +27,9 @@ class AlloyAssembler:
 
     def visit(self, node: nodes.AlloyNode):
         if node.line is not None:
-            l = node.line
-            s = "{}: {}".format(l, self.doc.split("\n")[l - 1])
-            self.write(Comment(s, None))
+            line = node.line
+            s = "{}: {}".format(line, self.doc.split("\n")[line - 1])
+            self.write(Comment(s))
             print(s)
 
         visitor = getattr(self, "assemble_" + type(node).__name__.lower())
@@ -46,24 +41,22 @@ class AlloyAssembler:
     def write_start(self, command: BaseInstr):
         self.block.push_start(command)
 
-    def _error_msg(self, node, detail):
+    def _error_msg(self, node: nodes.AlloyNode, detail):
         if node is None:
             return detail
         else:
             msg = "\n"
-            pre = "[{}] ".format(node.lineno if hasattr(node, "lineno") else "?")
-            msg += "{}{}\n".format(pre, self.doc.split("\n")[node.lineno - 1])
-            if hasattr(node, "col_offset"):
-                msg += " " * (node.col_offset + len(pre)) + "^\n\n"
+            pre = "[{}] ".format(node.line if hasattr(node, "line") else "?")
+            msg += "{}{}\n".format(pre, self.doc.split("\n")[node.line - 1])
             msg += detail
             return msg
 
-    def call_function(self, func: Func, block: bool, offset: int):
-        self.write(InitContext(func.code, offset))
-        self.write(CopyArgs(func.args, None))
-        self.write(Call(func.path, None))
+    def call_function(self, func: Func, block: bool):
+        self.write(InitContext(func.code))
+        self.write(CopyArgs(func.args))
+        self.write(Call(func.path))
         if not block:
-            self.write(EndCall(None))
+            self.write(EndCall())
 
     def assemble_module(self, node: nodes.Module):
         self.module = ILModule(self.mod_path)
@@ -78,28 +71,32 @@ class AlloyAssembler:
 
         self.visit(node.root_block)
 
+        # TODO store code object in frame, pull None from co_consts
+        self.frame.root_block.push(LoadConst(ConstIndex(0)))
+        self.frame.root_block.push(Return())  # TODO repeated code, Return should go through assemble_return
+
         self.st.pop_layer()
         self.frame = None
 
     def assemble_block(self, node: nodes.Block):
         parent = self.block
-
         self.block = ILBlock(node.path)
-        if parent is None:
+
+        # Connect the new block into the block hierarchy
+        if self.frame.root_block is None:
             self.frame.root_block = self.block
         else:
             parent.targets.append(self.block)
 
+        # Assemble body
         with CommentTags(self, str(node.path), node.line):
             [self.visit(n) for n in node.body]
 
+        # Add a bridge to the next block, if it exists
         if node.bridge is not None:
-            self.write(BlockBridge(node.bridge, None))
-        else:
-            # TODO store code object in frame, pull None from co_consts
-            self.write(LoadConst(ConstIndex(0), None))
-            self.assemble_return(nodes.Return(None))
+            self.write(BlockBridge(node.bridge))
 
+        # Assemble children
         for target in node.targets:
             self.assemble_block(target)
 
@@ -110,67 +107,65 @@ class AlloyAssembler:
         special_stack = []
 
         for instr in node.bytecode:
-            off = instr.offset
-
             op = instr.opname
             if op == "LOAD_CONST":
-                write(LoadConst(ConstIndex(instr.arg), off))
+                write(LoadConst(ConstIndex(instr.arg)))
+
             elif op == "LOAD_NAME" or op == "LOAD_FAST":
                 sym = self.st.get_symbol(NameIndex(instr.argrepr))
                 if isinstance(sym, Func):
                     special_stack.append(sym)
-                    write(NOOP(off))
                 elif isinstance(sym, NameIndex):
-                    write(LoadName(sym, off))
+                    write(LoadName(sym))
                 else:
                     raise Exception("Unknown symbol type {}".format(type(sym)))
+
             elif op.startswith("BINARY_") or op.startswith("INPLACE_"):
-                write(BinaryOp(binops[op.split("_", 1)[1]], off))
+                write(BinaryOp(binops[op.split("_", 1)[1]]))
+
             elif op == "COMPARE_OP":
-                write(CompareOp(compops[instr.arg], off))
+                write(CompareOp(compops[instr.arg]))
+
             elif op == "CALL_FUNCTION":
                 func = special_stack.pop()
-                self.call_function(func, False, off)
+                self.call_function(func, False)
+
             elif op == "RETURN_VALUE":
-                write(Return(off))
+                write(Return())
+
             elif op == "POP_TOP":
-                write(Seek(-1, off))
+                write(Seek(-1))
+
             elif op == "STORE_NAME":
                 ni = NameIndex(instr.argval)
-                write(StoreName(ni, off))
+                write(StoreName(ni))
                 if not self.st.has_symbol(ni):
                     self.st.add_symbol(ni)
-            else:
-                raise Exception(self._error_msg(None, "Unknown op {}".format(op)))
 
-    def assemble_new_frame(self, path, body, args, ctx: AsmContext):
-        stub = FrameStub(path, body, ctx, args, self.frames)
-        self.frame_stubs.append(stub)
+            else:
+                raise Exception(self._error_msg(node, "Unknown op {}".format(op)))
 
     def assemble_functiondef(self, node: nodes.FunctionDef):
-        q = lambda x: isinstance(x, types.CodeType) and x.co_name == node.name
-        func_code = list(filter(q, self.ctx.code.co_consts))[0]
-
-        func = Func(self.path.altered(frame=node.name, block=0), node.args, func_code)
-        self.ctx.st.add_symbol(func)
-        func_ctx = AsmContext(self.ctx.st, self.ctx.doc, func.code, node)
-        self.assemble_new_frame(func.path, node.frame, func.args, func_ctx)
+        self.st.add_symbol(Func(node.frame.path, node.args, node.frame.code))
 
     def assemble_return(self, node):
-        # TODO handle Return in bytecode? then we could remove offset as an arg
-        self.write(Return(None))
+        self.write(Return())
         return True
 
     def assemble_if(self, node: nodes.If):
-        # test result is TOS
-        self.write(CallBlockIf(node.true_path, None, False))
-        self.write(CallBlockIf(node.false_path, None, True))
-        self.write(Seek(-1, None))
-
+        # test result should be TOS
+        self.write(CallBlockIf(node.true_path))
+        self.write(CallBlockIf(node.false_path, True))
+        self.write(Seek(-1))
         return True
 
-    def node_pass(self, node):
-        pass
+    def assemble_while(self, node: nodes.While):
+        self.write(CallBlockIf(node.while_path))
+        self.write(Seek(-1))
+        return True
+
+    def assemble_direct(self, node: nodes.Direct):
+        self.write(Direct(node.command))
 
 
 class CommentTags:
@@ -192,7 +187,7 @@ class CommentTags:
             s = ""
 
         s += "<{}{}>".format("" if start else "/", self.text)
-        self.ilbg.write(Comment(s, None))
+        self.ilbg.write(Comment(s))
         print(s)
 
 

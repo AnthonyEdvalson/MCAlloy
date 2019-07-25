@@ -1,0 +1,8 @@
+Performace Impact:
+
+All builtins have a performance impact to give the user an idea of how fast all of the builtin and library
+operations are. Scoring is calculated as follows:
+
+ 1 Point: Any command (/say, /data, etc...)
++1 Point: Any extra parts of an execute command (/execute if ... run ... is 2 points in total)
++1 Point: For any summon commands, since they require lots of allocations

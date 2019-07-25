@@ -1,5 +1,3 @@
-import sys
-
 from alloy_instructions.generators.datapack import ILDatapackGenerator
 from mcgen.generator import DatapackGenerator
 import sys
@@ -26,8 +24,6 @@ class GenerationSettings:
         self.comment = "NOCOMMENT" not in argv
 
 
-gs = GenerationSettings(sys.argv)
-
 comp(sys.argv[1],
      sys.argv[2],
-     gs)
+     GenerationSettings(sys.argv))

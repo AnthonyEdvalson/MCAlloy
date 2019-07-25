@@ -13,8 +13,7 @@ class TOS:
 
 
 class BaseInstr(ABC):
-    def __init__(self, offset):
-        self.offset = offset
+    pass
 
 
 class Instr(BaseInstr):
@@ -91,8 +90,7 @@ class Instr(BaseInstr):
 
 
 class SimpleInstr(Instr):
-    def __init__(self, name: str, form: str, offset, *args, stack_action="none"):
-        super().__init__(offset)
+    def __init__(self, name: str, form: str, *args, stack_action="none"):
         self.args = args
         self.form = form
         self.name = name
@@ -115,6 +113,6 @@ class SimpleInstr(Instr):
 
 
 class CopyInstr(SimpleInstr):
-    def __init__(self, name, offset, target: Union[TOS, VMIndex], source: Union[TOS, VMIndex], stack_action="none"):
+    def __init__(self, name, target: Union[TOS, VMIndex], source: Union[TOS, VMIndex], stack_action="none"):
         form = "data modify entity @s {} set from entity @s {}"
-        super().__init__(name, form, offset, target, source, stack_action=stack_action)
+        super().__init__(name, form, target, source, stack_action=stack_action)

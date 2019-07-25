@@ -5,6 +5,8 @@ from symbol_table import Arg
 
 
 def indent(s, amt=2):
+    if isinstance(s, list):
+        return "\n".join([indent(item, amt) for item in s])
     space = " " * amt
     return space + str(s).replace("\n", "\n" + space)
 
@@ -29,18 +31,32 @@ class Block(AlloyNode):
         return "\n".join([
             str(self.path) + ":",
             "  Body:",
-            "\n".join([indent(item, 4) for item in self.body]),
+            indent(self.body, 4),
             "  Bridge: " + str(self.bridge),
             "  Targets:",
-            "\n".join([indent(item, 4) for item in self.targets])
+            indent(self.targets, 4)
         ])
+
+    def bridge_to(self, block):
+        if isinstance(block, Block):
+            self.bridge = block.path
+        elif isinstance(block, Path):
+            self.bridge = block
+        elif block is None:
+            self.bridge = None
+        else:
+            raise TypeError()
+
+    def target(self, block):
+        self.targets.append(block)
 
 
 class Frame(AlloyNode):
-    def __init__(self, mod_path, name):
+    def __init__(self, mod_path, name, code):
         super().__init__(None)
         self.root_block = None
         self.path = mod_path.altered(frame=name)
+        self.code = code
 
     def __str__(self):
         return str(self.path) + ":\n" + indent(self.root_block)
@@ -53,7 +69,7 @@ class Module(AlloyNode):
         self.path = path
 
     def __str__(self):
-        return str(self.path) + ":\n" + "\n".join([indent(block) for block in self.frames])
+        return str(self.path) + ":\n" + indent(self.frames)
 
 
 class Direct(AlloyNode):
@@ -66,16 +82,16 @@ class Direct(AlloyNode):
 
 
 class FunctionDef(AlloyNode):
-    def __init__(self, line, name, args: List[Arg], frame_path: Path):
+    def __init__(self, line, name, args: List[Arg], frame):
         super().__init__(line)
         self.name = name
         self.args = args
-        self.frame_path = frame_path
+        self.frame = frame
 
     def __str__(self):
         return "\n".join([
             "FunctionDef: {}: ({})".format(self.name, ", ".join(map(str, self.args))),
-            indent(self.frame_path)
+            indent(self.frame.path)
         ])
 
 
@@ -105,6 +121,22 @@ class If(AlloyNode):
         ])
 
 
+class While(AlloyNode):
+    def __init__(self, line, test_path, while_path, cont_path):
+        super().__init__(line)
+        self.test_path = test_path
+        self.while_path = while_path
+        self.cont_path = cont_path
+
+    def __str__(self):
+        return "\n".join([
+            "While:",
+            "  Test: " + str(self.test_path),
+            "  While: " + str(self.while_path),
+            "  Cont: " + str(self.cont_path),
+        ])
+
+
 class Byte(AlloyNode):
     def __init__(self, line, code, bytecode):
         super().__init__(line)
@@ -112,4 +144,4 @@ class Byte(AlloyNode):
         self.bytecode = bytecode
 
     def __str__(self):
-        return "Byte:\n" + "\n".join([indent(instr) for instr in self.bytecode])
+        return "Byte:\n" + indent(self.bytecode)

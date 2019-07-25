@@ -22,14 +22,16 @@ class Path:
     def __str__(self):
         s = []
 
-        if self.namespace is not None:
-            s.append(self.namespace)
-        if self.module is not None:
-            s.append(":" + self.module)
-        if self.frame is not None:
-            s.append("." + self.frame)
-        if self.block is not None:
-            s.append("_" + self.block)
+        d = [
+            ("", self.namespace),
+            (":", self.module),
+            (".", self.frame),
+            ("_", self.block)
+        ]
+
+        for pre, text in d:
+            if text is not None:
+                s.append(pre + text)
 
         return "".join(s)
 

@@ -1,10 +1,26 @@
-########################################## <dpack:main.Counter>
-########################################## 5:     def __init__(self):
-########################################## 8:     def increase(self, v):
-########################################## </dpack:main.Counter>
-execute store success score pass ..ASM run data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]
-                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]"}]
-execute store success score pass ..ASM run scoreboard players set ret ..ASM 1
-                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: scoreboard players set ret ..ASM 1"}]
-execute store success score pass ..ASM run tag @s add .ret
-                                                                                                                                                                                                        execute if score pass ..ASM matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: tag @s add .ret"}]
+execute store success score pass __asm__ run tag @s remove __dest__
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: tag @s remove __dest__"}]
+execute store success score pass __asm__ run data modify entity @s ArmorItems[0].tag.Names.__fptr__ set from entity @s ArmorItems[0].tag.Pre[0]
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Names.__fptr__ set from entity @s ArmorItems[0].tag.Pre[0]"}]
+execute store success score pass __asm__ run data modify entity @s ArmorItems[0].tag set from value {Stack:[{},{}],Consts:[{v:"\"Counter\"", t:"str"},{},{v:"\"Counter.__init__\"", t:"str"},{},{v:"\"Counter.increase\"", t:"str"},{}],Names:{}}
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag set from value {Stack:[{},{}],Consts:[{v:\"\\\"Counter\\\"\", t:\"str\"},{},{v:\"\\\"Counter.__init__\\\"\", t:\"str\"},{},{v:\"\\\"Counter.increase\\\"\", t:\"str\"},{}],Names:{}}"}]
+execute store success score pass __asm__ run function __callfunc__
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: function __callfunc__"}]
+############################################ <dpack:main.Counter>
+############################################ 5:     def __init__(self):
+execute store success score pass __asm__ run data modify entity @s ArmorItems[0].tag.Stack[0] set from value {v: 1, t: "fptr"}
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Stack[0] set from value {v: 1, t: \"fptr\"}"}]
+execute store success score pass __asm__ run data modify entity @s Counter.__init__ set from entity @s ArmorItems[0].tag.Stack[0]
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s Counter.__init__ set from entity @s ArmorItems[0].tag.Stack[0]"}]
+############################################ 8:     def increase(self, v):
+execute store success score pass __asm__ run data modify entity @s ArmorItems[0].tag.Stack[0] set from value {v: 2, t: "fptr"}
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Stack[0] set from value {v: 2, t: \"fptr\"}"}]
+execute store success score pass __asm__ run data modify entity @s Counter.increase set from entity @s ArmorItems[0].tag.Stack[0]
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s Counter.increase set from entity @s ArmorItems[0].tag.Stack[0]"}]
+############################################ </dpack:main.Counter>
+execute store success score pass __asm__ run data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[0]"}]
+execute store success score pass __asm__ run scoreboard players set ret __asm__ 1
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: scoreboard players set ret __asm__ 1"}]
+execute store success score pass __asm__ run tag @s add __ret__
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: tag @s add __ret__"}]

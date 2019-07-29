@@ -19,9 +19,11 @@ class AlloyNode:
 
 
 class Block(AlloyNode):
-    def __init__(self, frame_path, name):
+    def __init__(self, frame_path, name, first, last):
         super().__init__(None)
         self.bridge = None
+        self.first = first
+        self.last = last
         self.targets = []
         self.body = []
         self.path = frame_path.altered(block=name)
@@ -54,6 +56,7 @@ class Frame(AlloyNode):
     def __init__(self, mod_path, name, code):
         super().__init__(None)
         self.root_block = None
+        self.tail_block = None
         self.path = mod_path.altered(frame=name)
         self.code = code
         self.args = []
@@ -82,11 +85,20 @@ class Direct(AlloyNode):
 
 
 class FunctionDef(AlloyNode):
+    id_counter = 0
+
     def __init__(self, line, name, args: List[str], frame):
         super().__init__(line)
         self.name = name
         self.args = args
         self.frame = frame
+        self.fptr = FunctionDef.get_fptr()
+
+    @classmethod
+    def get_fptr(cls):
+        v = FunctionDef.id_counter
+        FunctionDef.id_counter += 1
+        return v
 
     def __str__(self):
         return "\n".join([

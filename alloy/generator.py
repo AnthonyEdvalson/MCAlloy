@@ -24,18 +24,18 @@ class AlloyGenerator(NodeVisitor):
 
     def resolve_frame(self, nodes, code, name):
         old_frame = self.frame
-        frame = Frame(self.mod_path, name, code)
+        frame = Frame(self.module.path, name, code)
 
         self.frame = frame
-        root_block = self.resolve_block(nodes, None)
+        root_block = self.resolve_block(nodes, None, True, True)
         self.frame.root_block = root_block
 
         self.frame = old_frame
         return frame
 
-    def resolve_block(self, nodes, name):
+    def resolve_block(self, nodes, name, first=False, last=False):
         old_block = self.block
-        block = Block(self.frame.path, name)
+        block = Block(self.frame.path, name, first, last)
 
         self.block = block
         [self.visit(node) for node in nodes]
@@ -44,10 +44,14 @@ class AlloyGenerator(NodeVisitor):
         return block
 
     def start_block(self, parent_block, name):
-        block = Block(self.frame.path, name)
+        block = Block(self.frame.path, name, False, False)
 
         if parent_block is not None:
             block.bridge_to(parent_block.bridge)
+
+            block.last = parent_block.last
+            parent_block.last = False
+
             parent_block.bridge_to(block.path)
             parent_block.targets.append(block)
         else:
@@ -62,8 +66,8 @@ class AlloyGenerator(NodeVisitor):
         target.body.append(node)
 
     def visit_Module(self, node):
-        self.module = Module(self.frame)
-        frame = self.resolve_frame(node.body, compile(node, str(self.mod_path), "exec"), None)
+        self.module = Module(self.mod_path)
+        frame = self.resolve_frame(node.body, compile(node, str(self.mod_path), "exec"), "__module__")
         self.module.frames.append(frame)
         return self.module
 
@@ -121,7 +125,7 @@ class AlloyGenerator(NodeVisitor):
         self.write(While(line, test_block.path, while_block.path, cont_block.path), test_block)
 
     def visit_If(self, node):
-        """ Pre -> True  Pre -> False  Pre => Cont  True => X  False => X """
+        """ Pre -> True  Pre -> False  Pre => Cont """
         line = node.lineno
         self.visit_eval(node.test)
         parent_block = self.block
@@ -131,8 +135,8 @@ class AlloyGenerator(NodeVisitor):
         true_block = self.resolve_block(node.body, "{}true".format(line))
         false_block = self.resolve_block(node.orelse, "{}false".format(line))
 
-        self.block.targets.append(true_block)
-        self.block.targets.append(false_block)
+        parent_block.targets.insert(0, true_block)
+        parent_block.targets.insert(0, false_block)
 
         self.write(If(line, true_block.path, false_block.path, cont_path), parent_block)
 

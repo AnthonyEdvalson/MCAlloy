@@ -1,5 +1,6 @@
 import os
 import shutil
+from collections import OrderedDict
 from typing import List
 
 from containers import ILNamespace, ILBlock
@@ -10,7 +11,7 @@ import json
 class DatapackGenerator:
     def __init__(self, gs):
         self.gs = gs
-        self.stack_histories = {}
+        self.stack_histories = OrderedDict()
 
     def generate(self, dp_folder: str, namespaces: List[ILNamespace]):
         if not os.path.exists(dp_folder):
@@ -33,7 +34,7 @@ class DatapackGenerator:
 
                     self.generate_block(frame.root_block, dp_folder, si)
 
-                    if si.index != 0:
+                    if si.index != -1:
                         stack_detail = ""
                         for file, hist in self.stack_histories.items():
                             lines = [file]
@@ -42,7 +43,7 @@ class DatapackGenerator:
                         msg = "WARNING: Alloy has compiled the stack to an invalid state ({})\n{}"
                         raise Exception(msg.format(si.index, stack_detail))
 
-                    self.stack_histories = {}
+                    self.stack_histories = OrderedDict()
 
     def generate_block(self, block: ILBlock, dp_folder, si: StackIndex):
         file_name = dp_folder + block.path.file() + ".mcfunction"
@@ -59,6 +60,7 @@ class DatapackGenerator:
                 print(instr)
                 for command in instr.generate(si, self.gs):
                     output.write(command + "\n")
+
                 self.stack_histories[file_name].append((instr, si.index))
 
         # prev_result_i = None

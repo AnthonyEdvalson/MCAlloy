@@ -1,5 +1,0 @@
-# test.py
-x = 4
-if x == 4:
-    print("Yes")
-x = 15

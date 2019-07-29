@@ -7,10 +7,13 @@ class VMIndex:
         self.index = index
 
     def __repr__(self):
-        return "ArmorItems[0].tag." + str(self)
+        return "ArmorItems[0].tag.{}".format(self.nbt.format(self.index))
 
     def __str__(self):
-        return self.nbt.format(self.index)
+        # Very often I would use str() instead of repr() on a VMIndex before using it in a command,
+        # it used to be a huge pain to debug, so the angle brackets have been added so this function
+        # returns invalid NBT, immediately breaking the mcfunction parser, rather than a runtime fail
+        return "<{}>".format(self.nbt.format(self.index))
 
 
 class ConstIndex(VMIndex):
@@ -31,6 +34,10 @@ class StackIndex(VMIndex):
 
     def pop(self, n=1):
         self.alter(-n)
+
+
+class PreIndex(VMIndex):
+    nbt = "Pre[{}]"
 
 
 class NameIndex(VMIndex):

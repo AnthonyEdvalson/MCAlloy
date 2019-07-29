@@ -55,7 +55,7 @@ class Instr(BaseInstr):
     def generate(self, i: StackIndex, gs):
         buf = ' ' * 200
 
-        pad = 41 if gs.warn_fail else 0
+        pad = 43 if gs.warn_fail else 0
 
         if gs.debug and self.debug_before:
             for debug in self.debug_str(i):
@@ -70,9 +70,9 @@ class Instr(BaseInstr):
                 continue
 
             if self.warn_fail and gs.warn_fail:
-                yield "execute store success score pass ..ASM run " + command
+                yield "execute store success score pass __asm__ run " + command
                 fail = 'tellraw @a [{{"text": " !!!!!!!! FAIL: {}"}}]'.format(escape(command))
-                yield buf + 'execute if score pass ..ASM matches 0 run {}'.format(fail)
+                yield buf + 'execute if score pass __asm__ matches 0 run {}'.format(fail)
             elif not self.warn_fail and gs.warn_fail:
                 yield " " * pad + command
             else:

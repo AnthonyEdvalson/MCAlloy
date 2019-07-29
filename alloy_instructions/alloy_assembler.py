@@ -1,18 +1,18 @@
-from commands import Comment, InitContext, Return, CopyArgs, LoadConst, ConstIndex, NameIndex, LoadName, \
-    BinaryOp, CompareOp, Seek, StoreName, EndCall, CallBlockIf, BlockBridge, Direct, LoadAttr, Shuffle, StoreAttr
+from commands import Comment, InitContext, Return, LoadConst, ConstIndex, NameIndex, LoadName, \
+    BinaryOp, CompareOp, Seek, StoreName, EndCall, CallBlockIf, BlockBridge, Direct, LoadAttr, Shuffle, StoreAttr, \
+    LoadNBT, StartFrame
 from commands.base import BaseInstr
 from containers import ILBlock, Path, ILFrame, ILModule
 from alloy import nodes
 
 
-def assemble_alloy(path: Path, doc: str, alloy: nodes.AlloyNode):
-    asm = AlloyAssembler(path, doc, alloy)
+def assemble_alloy(doc: str, alloy: nodes.AlloyNode):
+    asm = AlloyAssembler(doc, alloy)
     return asm.assemble()
 
 
 class AlloyAssembler:
-    def __init__(self, path: Path, doc: str, alloy: nodes.AlloyNode):
-        self.mod_path = path
+    def __init__(self, doc: str, alloy: nodes.AlloyNode):
         self.alloy = alloy
         self.doc = doc
         self.module = None
@@ -50,23 +50,19 @@ class AlloyAssembler:
             return msg
 
     def call_function(self, arg_count, block: bool):
-        self.write(InitContext(arg_count))
-        if not block:
+        self.write(InitContext(arg_count + 1))
+        if not block:  # TODO remove?
             self.write(EndCall())
 
     def assemble_module(self, node: nodes.Module):
-        self.module = ILModule(self.mod_path)
+        self.module = ILModule(node.path)
         [self.visit(frame) for frame in node.frames]
 
     def assemble_frame(self, node: nodes.Frame):
-        self.frame = ILFrame(node.path)
+        self.frame = ILFrame(node.path, node.code)
         self.module.frames.append(self.frame)
 
         self.visit(node.root_block)
-
-        # TODO store code object in frame, pull None from co_consts
-        self.frame.root_block.push(LoadConst(ConstIndex(0)))
-        self.frame.root_block.push(Return())  # TODO repeated code, Return should go through assemble_return
 
         self.frame = None
 
@@ -91,6 +87,13 @@ class AlloyAssembler:
         # Assemble children
         for target in node.targets:
             self.assemble_block(target)
+
+        if node.last:
+            # TODO store code object in frame, pull None from co_consts
+            self.write(LoadConst(ConstIndex(0)))
+            self.write(Return())  # TODO repeated code, Return should go through assemble_return
+        if node.first:
+            self.frame.root_block.push_start(StartFrame(self.frame.code, True))
 
         self.block = parent
 
@@ -136,16 +139,23 @@ class AlloyAssembler:
                 write(StoreAttr(ni))
 
             elif op == "DUP_TOP":
-                write(Shuffle([(1, 0)]))
+                write(Shuffle([(1, 0)], 1))
+
+            elif op == "DUP_TOP_TWO":
+                write(Shuffle([(2, 0), (1, -1)], 2))
 
             elif op == "ROT_TWO":
-                write(Shuffle([(1, 0), (0, -1), (-1, 1)]))
+                write(Shuffle([(1, 0), (0, -1), (-1, 1)], 0))
+
+            elif op == "ROT_THREE":
+                write(Shuffle([(1, 0), (0, -1), (-1, -2), (-2, 1)], 0))
 
             else:
                 raise Exception(self._error_msg(node, "Unknown op {}".format(op)))
 
     def assemble_functiondef(self, node: nodes.FunctionDef):
-        pass
+        self.write(LoadNBT('{{v: {}, t: "fptr"}}'.format(node.fptr)))
+        self.write(StoreName(node.name))
 
     def assemble_classdef(self, node: nodes.ClassDef):
         pass

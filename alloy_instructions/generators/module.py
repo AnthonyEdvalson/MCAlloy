@@ -19,7 +19,7 @@ class ILModuleGenerator:
         self.file_path = file_path
         self.path = path.altered(module=name)
         self.module = ILModule(self.path)
-        self.mod_path = self.path.altered(frame="_.module")
+        self.mod_path = self.path.altered(frame="__module__")
 
     def assemble(self) -> ILModule:
         with open(self.file_path, "r") as f:
@@ -32,10 +32,10 @@ class ILModuleGenerator:
         alloy = gen.visit(tree)
         alloy.pprint()
 
-        return assemble_alloy(self.mod_path, source_text, alloy)
+        return assemble_alloy(source_text, alloy)
 
     def launch_frame(self, mod_ctx):
-        frame = ILFrame(self.path)
+        frame = ILFrame(self.path, mod_ctx.code)
         frame.root_block = ILBlock(self.path)
         frame.root_block.push(InitContext(mod_ctx.code))
         frame.root_block.push(Call(self.mod_path))

@@ -64,8 +64,9 @@ class ILBlock:
 
 
 class ILFrame:
-    def __init__(self, path: Path):
+    def __init__(self, path: Path, code):
         self.path = path
+        self.code = code
         self.root_block = None
 
 

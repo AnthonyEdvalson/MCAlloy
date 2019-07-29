@@ -5,6 +5,8 @@ from dis import Bytecode
 from alloy.nodes import *
 import types
 
+from alloy.reversion import reverted_bytes
+
 
 class AlloyGenerator(NodeVisitor):
     def __init__(self, mod_path):
@@ -65,18 +67,26 @@ class AlloyGenerator(NodeVisitor):
         self.module.frames.append(frame)
         return self.module
 
-    def find_function(self, name):
+    def find_code(self, name):
         for const in self.frame.code.co_consts:
             if isinstance(const, types.CodeType) and const.co_name == name:
                 return const
         raise NameError("No function named " + name)
 
     def visit_FunctionDef(self, node):
-        args = [Arg(arg.arg) for arg in node.args.args]
-        code = self.find_function(node.name)
+        args = [arg.arg for arg in node.args.args]
+        code = self.find_code(node.name)
+        frame_name = "{}.{}".format(self.frame.path.frame, node.name)
+        frame = self.resolve_frame(node.body, code, frame_name)
+        frame.args = args
+        self.module.frames.append(frame)
+        self.write(FunctionDef(node.lineno, frame_name, args, frame))
+
+    def visit_ClassDef(self, node):
+        code = self.find_code(node.name)
         frame = self.resolve_frame(node.body, code, node.name)
         self.module.frames.append(frame)
-        self.write(FunctionDef(node.lineno, node.name, args, frame))
+        self.write(ClassDef(node.lineno, node.name, frame))
 
     def visit_Return(self, node):
         self.resolve(node.value)
@@ -103,7 +113,7 @@ class AlloyGenerator(NodeVisitor):
         test_block.target(while_block)
         while_block.bridge_to(test_block)
 
-        # TODO current flow leaves a ton of stackframes behind, if the while loop run 100 times, those stackframes
+        # TODO current flow leaves a ton of stack frames behind, if the while loop run 100 times, those stackframes
         #  are not removed after exiting the loop, and will continue to accumulate as the program executes
         #  Current is  Pre => Test    Test -> While  Test => Cont  While => Test
         #  Better is   Pre call Test  Test -> While  Test => X     While => Test  Pre => Cont
@@ -133,12 +143,12 @@ class AlloyGenerator(NodeVisitor):
             self.visit_exec(node)
 
     def visit_exec(self, node):
-        code = compile(ast.Module(body=[node]), "", "exec")
+        code = reverted_bytes(node, "exec")
         byte_code = list(Bytecode(code))[:-2]
         self.write(Byte(node.lineno, code, byte_code))
 
     def visit_eval(self, node):
-        code = compile(ast.Expression(body=node, lineno=node.lineno, col_offset=node.col_offset), "", "eval")
+        code = reverted_bytes(node, "eval")
         byte_code = list(Bytecode(code))[:-1]
         self.write(Byte(node.lineno, code, byte_code))
 
@@ -162,12 +172,10 @@ class AlloyGenerator(NodeVisitor):
     visit_NameConstant = visit_eval
     visit_Constant = visit_eval
     visit_Name = visit_eval
+    visit_Attribute = visit_eval
 
     # Not Yet Implemented
     visit_IfExp = unsupported  # Should be identical to If
-
-    visit_ClassDef = unsupported
-    visit_Attribute = unsupported  # ClassDef
 
     visit_For = unsupported  # ClassDef
     visit_Break = unsupported
@@ -222,9 +230,3 @@ class AlloyGenerator(NodeVisitor):
     visit_Delete = unsupported  # Never used del, no idea why anyone would want it
     visit_ExtSlice = unsupported  # A bit much, I've never needed it, and it would probably be slow
     visit_Ellipsis = unsupported  # Didn't know it existed before starting this project, doesnt seem particularly useful
-
-
-
-
-
-

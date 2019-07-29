@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 from typing import Tuple, Union
 
 from containers import Path
-from symbol_table import Func
 from util import escape
 from vm import StackIndex, VMIndex, NameIndex, ConstIndex
 
@@ -35,11 +34,11 @@ class Instr(BaseInstr):
 
         dat2 = ['{{"text":" >>> {: <5}"}}'.format(escape(str(s[0])))]
         for d in s[1:]:
-            str_types = {str, Func, bool, int, Path, NameIndex, ConstIndex, StackIndex}
+            str_types = {str, bool, int, Path, NameIndex, ConstIndex, StackIndex}
             if type(d) in str_types:
                 dat2.append('{{"text":"{}"}}'.format(escape(str(d))))
             elif type(d) is TOS:
-                dat2.append('{{"text":"[{}]"}}'.format(i.i))
+                dat2.append('{{"text":"[{}]"}}'.format(i.index))
             else:
                 raise Exception("Illegal type {} in debug() of {}".format(type(d), type(self)))
 

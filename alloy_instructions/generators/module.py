@@ -1,11 +1,11 @@
 import ast
+import os
 from dis import dis
 
 from alloy.generator import AlloyGenerator
 from alloy_instructions.alloy_assembler import assemble_alloy
 from commands import InitContext, Call, LoadConst
 from containers import ILModule, ILFrame, ILBlock
-from symbol_table import SymbolTable
 from vm import ConstIndex
 
 
@@ -32,8 +32,6 @@ class ILModuleGenerator:
         alloy = gen.visit(tree)
         alloy.pprint()
 
-        st = SymbolTable()
-        st.push_builtins()
         return assemble_alloy(self.mod_path, source_text, alloy)
 
     def launch_frame(self, mod_ctx):

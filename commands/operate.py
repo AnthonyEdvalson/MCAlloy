@@ -40,3 +40,5 @@ class CompareOp(Instr):
 
     def str(self):
         return "COMP", TOS(), self.op
+
+

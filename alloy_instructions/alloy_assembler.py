@@ -1,8 +1,7 @@
-from commands import Comment, InitContext, Call, Return, CopyArgs, LoadConst, ConstIndex, NameIndex, LoadName, \
-    BinaryOp, CompareOp, Seek, StoreName, EndCall, NOOP, CallBlockIf, BlockBridge, Direct
+from commands import Comment, InitContext, Return, CopyArgs, LoadConst, ConstIndex, NameIndex, LoadName, \
+    BinaryOp, CompareOp, Seek, StoreName, EndCall, CallBlockIf, BlockBridge, Direct, LoadAttr, Shuffle, StoreAttr
 from commands.base import BaseInstr
 from containers import ILBlock, Path, ILFrame, ILModule
-from symbol_table import Func, SymbolTable
 from alloy import nodes
 
 
@@ -16,7 +15,6 @@ class AlloyAssembler:
         self.mod_path = path
         self.alloy = alloy
         self.doc = doc
-        self.st = SymbolTable()
         self.module = None
         self.frame = None
         self.block = None
@@ -51,23 +49,18 @@ class AlloyAssembler:
             msg += detail
             return msg
 
-    def call_function(self, func: Func, block: bool):
-        self.write(InitContext(func.code))
-        self.write(CopyArgs(func.args))
-        self.write(Call(func.path))
+    def call_function(self, arg_count, block: bool):
+        self.write(InitContext(arg_count))
         if not block:
             self.write(EndCall())
 
     def assemble_module(self, node: nodes.Module):
         self.module = ILModule(self.mod_path)
-        self.st.push_layer(str(self.mod_path))
         [self.visit(frame) for frame in node.frames]
-        self.st.pop_layer()
 
     def assemble_frame(self, node: nodes.Frame):
         self.frame = ILFrame(node.path)
         self.module.frames.append(self.frame)
-        self.st.push_layer(str(self.frame.path))
 
         self.visit(node.root_block)
 
@@ -75,7 +68,6 @@ class AlloyAssembler:
         self.frame.root_block.push(LoadConst(ConstIndex(0)))
         self.frame.root_block.push(Return())  # TODO repeated code, Return should go through assemble_return
 
-        self.st.pop_layer()
         self.frame = None
 
     def assemble_block(self, node: nodes.Block):
@@ -104,21 +96,16 @@ class AlloyAssembler:
 
     def assemble_byte(self, node: nodes.Byte):
         write = self.write
-        special_stack = []
 
         for instr in node.bytecode:
             op = instr.opname
             if op == "LOAD_CONST":
-                write(LoadConst(ConstIndex(instr.arg)))
+                ci = ConstIndex(instr.arg)
+                write(LoadConst(ci))
 
             elif op == "LOAD_NAME" or op == "LOAD_FAST":
-                sym = self.st.get_symbol(NameIndex(instr.argrepr))
-                if isinstance(sym, Func):
-                    special_stack.append(sym)
-                elif isinstance(sym, NameIndex):
-                    write(LoadName(sym))
-                else:
-                    raise Exception("Unknown symbol type {}".format(type(sym)))
+                sym = NameIndex(instr.argrepr)
+                write(LoadName(sym))
 
             elif op.startswith("BINARY_") or op.startswith("INPLACE_"):
                 write(BinaryOp(binops[op.split("_", 1)[1]]))
@@ -127,8 +114,7 @@ class AlloyAssembler:
                 write(CompareOp(compops[instr.arg]))
 
             elif op == "CALL_FUNCTION":
-                func = special_stack.pop()
-                self.call_function(func, False)
+                self.call_function(instr.arg, False)
 
             elif op == "RETURN_VALUE":
                 write(Return())
@@ -139,14 +125,30 @@ class AlloyAssembler:
             elif op == "STORE_NAME":
                 ni = NameIndex(instr.argval)
                 write(StoreName(ni))
-                if not self.st.has_symbol(ni):
-                    self.st.add_symbol(ni)
+
+            elif op == "LOAD_ATTR":
+                ni = NameIndex(instr.argval)
+                if isinstance(ni, NameIndex):
+                    write(LoadAttr(ni))
+
+            elif op == "STORE_ATTR":
+                ni = NameIndex(instr.argval)
+                write(StoreAttr(ni))
+
+            elif op == "DUP_TOP":
+                write(Shuffle([(1, 0)]))
+
+            elif op == "ROT_TWO":
+                write(Shuffle([(1, 0), (0, -1), (-1, 1)]))
 
             else:
                 raise Exception(self._error_msg(node, "Unknown op {}".format(op)))
 
     def assemble_functiondef(self, node: nodes.FunctionDef):
-        self.st.add_symbol(Func(node.frame.path, node.args, node.frame.code))
+        pass
+
+    def assemble_classdef(self, node: nodes.ClassDef):
+        pass
 
     def assemble_return(self, node):
         self.write(Return())

@@ -1,7 +1,6 @@
 from typing import List
 
 from containers import Path
-from symbol_table import Arg
 
 
 def indent(s, amt=2):
@@ -57,6 +56,7 @@ class Frame(AlloyNode):
         self.root_block = None
         self.path = mod_path.altered(frame=name)
         self.code = code
+        self.args = []
 
     def __str__(self):
         return str(self.path) + ":\n" + indent(self.root_block)
@@ -82,7 +82,7 @@ class Direct(AlloyNode):
 
 
 class FunctionDef(AlloyNode):
-    def __init__(self, line, name, args: List[Arg], frame):
+    def __init__(self, line, name, args: List[str], frame):
         super().__init__(line)
         self.name = name
         self.args = args
@@ -91,6 +91,19 @@ class FunctionDef(AlloyNode):
     def __str__(self):
         return "\n".join([
             "FunctionDef: {}: ({})".format(self.name, ", ".join(map(str, self.args))),
+            indent(self.frame.path)
+        ])
+
+
+class ClassDef(AlloyNode):
+    def __init__(self, line, name, frame):
+        super().__init__(line)
+        self.name = name
+        self.frame = frame
+
+    def __str__(self):
+        return "\n".join([
+            "ClassDef: {}".format(self.name),
             indent(self.frame.path)
         ])
 

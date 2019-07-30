@@ -30,7 +30,7 @@ command_re = re.compile(r'^[a-zA-Z]([a-zA-Z0-9_]*)$')
 class Distribution:
     """The core of the Distutils.  Most of the work hiding behind 'setup'
     is really done within a Distribution instance, which farms the work out
-    to the Distutils commands specified on the command line.
+    to the Distutils instrs specified on the command line.
 
     Setup scripts will almost never instantiate Distribution directly,
     unless the 'setup()' function is totally inadequate to their needs.
@@ -42,11 +42,11 @@ class Distribution:
     """
 
     # 'global_options' describes the command-line options that may be
-    # supplied to the setup script prior to any actual commands.
+    # supplied to the setup script prior to any actual instrs.
     # Eg. "./setup.py -n" or "./setup.py --quiet" both take advantage of
     # these global options.  This list should be kept to a bare minimum,
     # since every global option is also valid as a command option -- and we
-    # don't want to pollute the commands with too many options that they
+    # don't want to pollute the instrs with too many options that they
     # have minimal control over.
     # The fourth entry for verbose means that it can be repeated.
     global_options = [
@@ -61,16 +61,16 @@ class Distribution:
     # 'common_usage' is a short (2-3 line) string describing the common
     # usage of the setup script.
     common_usage = """\
-Common commands: (see '--help-commands' for more)
+Common instrs: (see '--help-instrs' for more)
 
   setup.py build      will build the package underneath 'build/'
   setup.py install    will install the package
 """
 
-    # options that are not propagated to the commands
+    # options that are not propagated to the instrs
     display_options = [
-        ('help-commands', None,
-         "list all available commands"),
+        ('help-instrs', None,
+         "list all available instrs"),
         ('name', None,
          "print package name"),
         ('version', 'V',
@@ -153,7 +153,7 @@ Common commands: (see '--help-commands' for more)
         # for the setup script to override command classes
         self.cmdclass = {}
 
-        # 'command_packages' is a list of packages in which commands
+        # 'command_packages' is a list of packages in which instrs
         # are searched for.  The factory for command 'foo' is expected
         # to be named 'foo' in the module 'foo' in one of the packages
         # named here.  This list is searched from the left; an error
@@ -175,7 +175,7 @@ Common commands: (see '--help-commands' for more)
         self.command_options = {}
 
         # 'dist_files' is the list of (command, pyversion, file) that
-        # have been created by any dist commands run so far. This is
+        # have been created by any dist instrs run so far. This is
         # filled regardless of whether the run is dry or not. pyversion
         # gives sysconfig.get_python_version() if the dist file is
         # specific to a Python version, 'any' if it is good for all
@@ -185,7 +185,7 @@ Common commands: (see '--help-commands' for more)
         # instead.
         self.dist_files = []
 
-        # These options are really the business of various commands, rather
+        # These options are really the business of various instrs, rather
         # than of the Distribution itself.  We provide aliases for them in
         # Distribution as a convenience to the developer.
         self.packages = None
@@ -302,7 +302,7 @@ Common commands: (see '--help-commands' for more)
             indent = indent + "  "
 
         if not commands:
-            self.announce(indent + "no commands known yet")
+            self.announce(indent + "no instrs known yet")
             return
 
         for cmd_name in commands:
@@ -430,18 +430,18 @@ Common commands: (see '--help-commands' for more)
         'script_args' instance attribute (which defaults to 'sys.argv[1:]'
         -- see 'setup()' in core.py).  This list is first processed for
         "global options" -- options that set attributes of the Distribution
-        instance.  Then, it is alternately scanned for Distutils commands
+        instance.  Then, it is alternately scanned for Distutils instrs
         and options for that command.  Each new command terminates the
         options for the previous command.  The allowed options for a
         command are determined by the 'user_options' attribute of the
         command class -- thus, we have to be able to load command classes
         in order to parse the command line.  Any error in that 'options'
         attribute raises DistutilsGetoptError; any error on the
-        command-line raises DistutilsArgError.  If no Distutils commands
+        command-line raises DistutilsArgError.  If no Distutils instrs
         were found on the command line, raises DistutilsArgError.  Return
         true if command-line was successfully parsed and we should carry
-        on with executing commands; false if no errors but we shouldn't
-        execute commands (currently, this only happens if user asks for
+        on with executing instrs; false if no errors but we shouldn't
+        execute instrs (currently, this only happens if user asks for
         help).
         """
         #
@@ -485,9 +485,9 @@ Common commands: (see '--help-commands' for more)
                             commands=self.commands)
             return
 
-        # Oops, no commands found -- an end-user error
+        # Oops, no instrs found -- an end-user error
         if not self.commands:
-            raise DistutilsArgError("no commands supplied")
+            raise DistutilsArgError("no instrs supplied")
 
         # All is well: return true
         return True
@@ -496,11 +496,11 @@ Common commands: (see '--help-commands' for more)
         """Return the non-display options recognized at the top level.
 
         This includes options that are recognized *only* at the top
-        level as well as options recognized for commands.
+        level as well as options recognized for instrs.
         """
         return self.global_options + [
             ("command-packages=", None,
-             "list of packages that provide distutils commands"),
+             "list of packages that provide distutils instrs"),
             ]
 
     def _parse_command_opts(self, parser, args):
@@ -509,7 +509,7 @@ Common commands: (see '--help-commands' for more)
         of arguments, starting with the current command (whose options
         we are about to parse).  Returns a new version of 'args' with
         the next command at the front of the list; will be the empty
-        list if there are no more commands on the command line.  Returns
+        list if there are no more instrs on the command line.  Returns
         None if the user asked for help on this command.
         """
         # late import because of mutual dependence between these modules
@@ -558,7 +558,7 @@ Common commands: (see '--help-commands' for more)
         else:
             help_options = []
 
-        # All commands support the global options too, just by adding
+        # All instrs support the global options too, just by adding
         # in 'global_options'.
         parser.set_option_table(self.global_options +
                                 cmd_class.user_options +
@@ -619,7 +619,7 @@ Common commands: (see '--help-commands' for more)
         --verbose, --dry-run, etc.  If 'display_options' is true, lists
         the "display-only" options: --name, --version, etc.  Finally,
         lists per-command help for every command name or command class
-        in 'commands'.
+        in 'instrs'.
         """
         # late import because of mutual dependence between these modules
         from distutils.core import gen_usage
@@ -638,7 +638,7 @@ Common commands: (see '--help-commands' for more)
             parser.set_option_table(self.display_options)
             parser.print_help(
                 "Information display options (just display " +
-                "information, ignore any commands)")
+                "information, ignore any instrs)")
             print('')
 
         for command in self.commands:
@@ -659,14 +659,14 @@ Common commands: (see '--help-commands' for more)
 
     def handle_display_options(self, option_order):
         """If there were any non-global "display-only" options
-        (--help-commands or the metadata display options) on the command
+        (--help-instrs or the metadata display options) on the command
         line, display the requested info and return true; else return
         false.
         """
         from distutils.core import gen_usage
 
-        # User just wants a list of commands -- we'll print it out and stop
-        # processing now (ie. if they ran "setup --help-commands foo bar",
+        # User just wants a list of instrs -- we'll print it out and stop
+        # processing now (ie. if they ran "setup --help-instrs foo bar",
         # we ignore "foo bar").
         if self.help_commands:
             self.print_commands()
@@ -698,7 +698,7 @@ Common commands: (see '--help-commands' for more)
         return any_display_options
 
     def print_command_list(self, commands, header, max_length):
-        """Print a subset of the list of all commands -- used by
+        """Print a subset of the list of all instrs -- used by
         'print_commands()'.
         """
         print(header + ":")
@@ -715,9 +715,9 @@ Common commands: (see '--help-commands' for more)
             print("  %-*s  %s" % (max_length, cmd, description))
 
     def print_commands(self):
-        """Print out a help message listing all available commands with a
-        description of each.  The list is divided into "standard commands"
-        (listed in distutils.command.__all__) and "extra commands"
+        """Print out a help message listing all available instrs with a
+        description of each.  The list is divided into "standard instrs"
+        (listed in distutils.command.__all__) and "extra instrs"
         (mentioned in self.cmdclass, but not a standard command).  The
         descriptions come from the command class attribute
         'description'.
@@ -739,18 +739,18 @@ Common commands: (see '--help-commands' for more)
                 max_length = len(cmd)
 
         self.print_command_list(std_commands,
-                                "Standard commands",
+                                "Standard instrs",
                                 max_length)
         if extra_commands:
             print()
             self.print_command_list(extra_commands,
-                                    "Extra commands",
+                                    "Extra instrs",
                                     max_length)
 
     def get_command_list(self):
         """Get a list of (command, description) tuples.
-        The list is divided into "standard commands" (listed in
-        distutils.command.__all__) and "extra commands" (mentioned in
+        The list is divided into "standard instrs" (listed in
+        distutils.command.__all__) and "extra instrs" (mentioned in
         self.cmdclass, but not a standard command).  The descriptions come
         from the command class attribute 'description'.
         """
@@ -782,7 +782,7 @@ Common commands: (see '--help-commands' for more)
     # -- Command class/object methods ----------------------------------
 
     def get_command_packages(self):
-        """Return a list of packages from which commands are loaded."""
+        """Return a list of packages from which instrs are loaded."""
         pkgs = self.command_packages
         if not isinstance(pkgs, list):
             if pkgs is None:
@@ -914,9 +914,9 @@ Common commands: (see '--help-commands' for more)
 
         'command' should be a command name (string) or command object.  If
         'reinit_subcommands' is true, also reinitializes the command's
-        sub-commands, as declared by the 'sub_commands' class attribute (if
+        sub-instrs, as declared by the 'sub_commands' class attribute (if
         it has one).  See the "install" command for an example.  Only
-        reinitializes the sub-commands that actually matter, ie. those
+        reinitializes the sub-instrs that actually matter, ie. those
         whose test predicates return true.
 
         Returns the reinitialized command object.
@@ -948,7 +948,7 @@ Common commands: (see '--help-commands' for more)
 
     def run_commands(self):
         """Run each command that was seen on the setup script command line.
-        Uses the list of commands found and cache of command objects
+        Uses the list of instrs found and cache of command objects
         created by 'get_command_obj()'.
         """
         for cmd in self.commands:

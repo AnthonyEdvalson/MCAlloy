@@ -2530,7 +2530,7 @@ def browse(port=0, *, open_browser=True):
         print(serverthread.error)
         return
     if serverthread.serving:
-        server_help_msg = 'Server commands: [b]rowser, [q]uit'
+        server_help_msg = 'Server instrs: [b]rowser, [q]uit'
         if open_browser:
             webbrowser.open(serverthread.url)
         try:

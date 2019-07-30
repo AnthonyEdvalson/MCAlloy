@@ -165,7 +165,7 @@ class RegisterTestCase(PyPIRCCommandTestCase):
         cmd.send_metadata()
 
         # dist.password should be set
-        # therefore used afterwards by other commands
+        # therefore used afterwards by other instrs
         self.assertEqual(cmd.distribution.password, 'password')
 
     def test_registering(self):

@@ -31,7 +31,7 @@ are strings, not numbers, since they are rarely used for calculations.
 # xover, xgtitle, xpath, date methods by Kevan Heydon
 
 # Incompatible changes from the 2.x nntplib:
-# - all commands are encoded as UTF-8 data (using the "surrogateescape"
+# - all instrs are encoded as UTF-8 data (using the "surrogateescape"
 #   error handler), except for raw message data (POST, IHAVE)
 # - all responses are decoded as UTF-8 data (using the "surrogateescape"
 #   error handler), except for raw message data (ARTICLE, HEAD, BODY)
@@ -253,7 +253,7 @@ def _parse_datetime(date_str, time_str=None):
 
 def _unparse_datetime(dt, legacy=False):
     """Format a date or datetime object as a pair of (date, time) strings
-    in the format required by the NEWNEWS and NEWGROUPS commands.  If a
+    in the format required by the NEWNEWS and NEWGROUPS instrs.  If a
     date object is passed, the time is assumed to be midnight (00h00).
 
     The returned representation depends on the legacy flag:
@@ -294,7 +294,7 @@ if _have_ssl:
 
 # The classes themselves
 class _NNTPBase:
-    # UTF-8 is the character set for all NNTP commands and responses: they
+    # UTF-8 is the character set for all NNTP instrs and responses: they
     # are automatically encoded (when sending) and decoded (and receiving)
     # by this class.
     # However, some multi-line data blocks can contain arbitrary bytes (for
@@ -320,7 +320,7 @@ class _NNTPBase:
 
         readermode is sometimes necessary if you are connecting to an
         NNTP server on the local machine and intend to call
-        reader-specific commands, such as `group'.  If you get
+        reader-specific instrs, such as `group'.  If you get
         unexpected NNTPPermanentErrors, you might need to set
         readermode.
         """
@@ -404,7 +404,7 @@ class _NNTPBase:
     def set_debuglevel(self, level):
         """Set the debugging level.  Argument 'level' means:
         0: no debugging output (default)
-        1: print commands and responses but not body text etc.
+        1: print instrs and responses but not body text etc.
         2: also print raw lines read and sent before stripping CR/LF"""
 
         self.debugging = level
@@ -1034,7 +1034,7 @@ class NNTP(_NNTPBase):
 
         readermode is sometimes necessary if you are connecting to an
         NNTP server on the local machine and intend to call
-        reader-specific commands, such as `group'.  If you get
+        reader-specific instrs, such as `group'.  If you get
         unexpected NNTPPermanentErrors, you might need to set
         readermode.
         """

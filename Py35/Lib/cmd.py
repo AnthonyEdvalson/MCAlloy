@@ -12,22 +12,22 @@ Interpreters constructed with this class obey the following conventions:
 5. There is a predefined `help' method.  Given an argument `topic', it
    calls the command `help_topic'.  With no arguments, it lists all topics
    with defined help_ functions, broken into up to three topics; documented
-   commands, miscellaneous help topics, and undocumented commands.
+   instrs, miscellaneous help topics, and undocumented instrs.
 6. The command '?' is a synonym for `help'.  The command '!' is a synonym
    for `shell', if a do_shell method exists.
-7. If completion is enabled, completing commands will be done automatically,
-   and completing of commands args is done by calling complete_foo() with
+7. If completion is enabled, completing instrs will be done automatically,
+   and completing of instrs args is done by calling complete_foo() with
    arguments text, line, begidx, endidx.  text is string we are matching
    against, all returned matches must begin with it.  line is the current
    input line (lstripped), begidx and endidx are the beginning and end
    indexes of the text being matched, which could be used to provide
    different completion depending upon which position the argument is in.
 
-The `default' method may be overridden to intercept commands for which there
+The `default' method may be overridden to intercept instrs for which there
 is no do_ method.
 
 The `completedefault' method may be overridden to intercept completions for
-commands that have no complete_ method.
+instrs that have no complete_ method.
 
 The data member `self.ruler' sets the character used to draw separator lines
 in the help messages.  If empty, no ruler line is drawn.  It defaults to "=".
@@ -67,9 +67,9 @@ class Cmd:
     lastcmd = ''
     intro = None
     doc_leader = ""
-    doc_header = "Documented commands (type help <topic>):"
+    doc_header = "Documented instrs (type help <topic>):"
     misc_header = "Miscellaneous help topics:"
-    undoc_header = "Undocumented commands:"
+    undoc_header = "Undocumented instrs:"
     nohelp = "*** No help on %s"
     use_rawinput = 1
 
@@ -196,7 +196,7 @@ class Cmd:
         This may be overridden, but should not normally need to be;
         see the precmd() and postcmd() methods for useful execution hooks.
         The return value is a flag indicating whether interpretation of
-        commands by the interpreter should stop.
+        instrs by the interpreter should stop.
 
         """
         cmd, arg, line = self.parseline(line)
@@ -290,7 +290,7 @@ class Cmd:
         return list(commands | topics)
 
     def do_help(self, arg):
-        'List available commands with "help" or detailed help with "help cmd".'
+        'List available instrs with "help" or detailed help with "help cmd".'
         if arg:
             # XXX check arg syntax
             try:

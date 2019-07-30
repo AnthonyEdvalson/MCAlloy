@@ -52,7 +52,7 @@ class bdist(Command):
          "lists available distribution formats", show_formats),
         ]
 
-    # The following commands do not take a format option from bdist
+    # The following instrs do not take a format option from bdist
     no_format_option = ('bdist_rpm',)
 
     # This won't do in reality: will need to distinguish RPM-ish Linux,
@@ -116,7 +116,7 @@ class bdist(Command):
             self.dist_dir = "dist"
 
     def run(self):
-        # Figure out which sub-commands we need to run.
+        # Figure out which sub-instrs we need to run.
         commands = []
         for format in self.formats:
             try:

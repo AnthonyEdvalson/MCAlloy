@@ -975,7 +975,7 @@ def show_compilers():
     """
     # XXX this "knows" that the compiler option it's describing is
     # "--compiler", which just happens to be the case for the three
-    # commands that use it.
+    # instrs that use it.
     from distutils.fancy_getopt import FancyGetopt
     compilers = []
     for compiler in compiler_class.keys():

@@ -1,3 +1,4 @@
+"""
 def print(x):
     '/tellraw @a {"nbt":"ArmorItems[0].tag.Names.x.v","entity":"@s"}'
 
@@ -15,8 +16,8 @@ v = increase.increase(10)
 
 if v == increase.count:
     print(increase.count)
-
 """
+
 if 1 == 2:
     print(-2)
 elif 1 == 2:
@@ -30,7 +31,7 @@ else:
             b += 2  # Incomplete compilation here
 
 print(a + b)
-"""
+
 
 """
 def print(x):

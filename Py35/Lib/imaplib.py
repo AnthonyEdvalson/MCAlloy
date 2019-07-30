@@ -131,10 +131,10 @@ class IMAP4:
             host - host's name (default: localhost);
             port - port number (default: standard IMAP4 port).
 
-    All IMAP4rev1 commands are supported by methods of the same
+    All IMAP4rev1 instrs are supported by methods of the same
     name (in lower-case).
 
-    All arguments to commands are converted to strings, except for
+    All arguments to instrs are converted to strings, except for
     AUTHENTICATE, and the last argument to APPEND which is passed as
     an IMAP4 literal.  If necessary (the string contains any
     non-printing characters or white-space and isn't enclosed with
@@ -165,7 +165,7 @@ class IMAP4:
     Note: to use this module, you must read the RFCs pertaining to the
     IMAP4 protocol, as the semantics of the arguments to each IMAP4
     command are left to the invoker, not to mention the results. Also,
-    most IMAP servers implement a sub-set of the commands available here.
+    most IMAP servers implement a sub-set of the instrs available here.
     """
 
     class error(Exception): pass    # Logical errors - debug required
@@ -176,7 +176,7 @@ class IMAP4:
         self.debug = Debug
         self.state = 'LOGOUT'
         self.literal = None             # A literal argument to a command
-        self.tagged_commands = {}       # Tagged commands awaiting response
+        self.tagged_commands = {}       # Tagged instrs awaiting response
         self.untagged_responses = {}    # {typ: [data, ...], ...}
         self.continuation_response = '' # Last continuation response
         self.is_readonly = False        # READ-ONLY desired state
@@ -358,7 +358,7 @@ class IMAP4:
 
 
 
-    #       IMAP4 commands
+    #       IMAP4 instrs
 
 
     def append(self, mailbox, flags, date_time, message):
@@ -877,7 +877,7 @@ class IMAP4:
 
 
     def xatom(self, name, *args):
-        """Allow simple extension commands
+        """Allow simple extension instrs
                 notified by server in CAPABILITY response.
 
         Assumes command is legal in current state.

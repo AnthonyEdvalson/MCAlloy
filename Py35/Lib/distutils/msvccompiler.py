@@ -624,7 +624,7 @@ class MSVCCompiler(CCompiler) :
         """Set environment variable 'name' to an MSVC path type value.
 
         This is equivalent to a SET command prior to execution of spawned
-        commands.
+        instrs.
         """
 
         if name == "lib":

@@ -126,7 +126,7 @@ class build(Command):
                 raise DistutilsOptionError("parallel should be an integer")
 
     def run(self):
-        # Run all relevant sub-commands.  This will be some subset of:
+        # Run all relevant sub-instrs.  This will be some subset of:
         #  - build_py      - pure Python modules
         #  - build_clib    - standalone C libraries
         #  - build_ext     - Python extensions

@@ -117,7 +117,7 @@ class BuildCLibTestCase(support.TempdirManager,
         cmd.build_clib = build_temp
 
         # before we run the command, we want to make sure
-        # all commands are present on the system
+        # all instrs are present on the system
         # by creating a compiler and checking its executables
         from distutils.ccompiler import new_compiler
         from distutils.sysconfig import customize_compiler

@@ -1,5 +1,3 @@
 TODO look into riding entities, may be able to access the rider / ridden entity in O(1) time
 
-TODO with everything stored on the stack, we could avoid switching to new entities for every function call, although recursion might blow the stack
-
 TODO debug by throwing everything into a massive storage object, then playing the data back afterwards.

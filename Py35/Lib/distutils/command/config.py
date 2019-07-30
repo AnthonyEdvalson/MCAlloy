@@ -4,7 +4,7 @@ Implements the Distutils 'config' command, a (mostly) empty command class
 that exists mainly to be sub-classed by specific module distributions and
 applications.  The idea is that while every "config" command is different,
 at least they're all named the same, and users always see "config" in the
-list of standard commands.  Also, this is a good place to put common
+list of standard instrs.  Also, this is a good place to put common
 configure-like tasks: "try to compile this C code", or "figure out where
 this header file lives".
 """
@@ -82,7 +82,7 @@ class config(Command):
     def run(self):
         pass
 
-    # Utility methods for actual "config" commands.  The interfaces are
+    # Utility methods for actual "config" instrs.  The interfaces are
     # loosely based on Autoconf macros of similar names.  Sub-classes
     # may use these freely.
 

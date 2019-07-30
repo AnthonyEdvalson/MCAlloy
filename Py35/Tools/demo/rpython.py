@@ -2,7 +2,7 @@
 
 """
 Remote python client.
-Execute Python commands remotely and send output back.
+Execute Python instrs remotely and send output back.
 """
 
 import sys

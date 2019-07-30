@@ -32,7 +32,7 @@ the command turtle.forward(15), and it moves (on-screen!) 15 pixels in
 the direction it is facing, drawing a line as it moves. Give it the
 command turtle.right(25), and it rotates in-place 25 degrees clockwise.
 
-By combining together these and similar commands, intricate shapes and
+By combining together these and similar instrs, intricate shapes and
 pictures can easily be drawn.
 
 ----- turtle.py
@@ -42,7 +42,7 @@ Python standard distribution up to Python 2.5. (See: http://www.python.org)
 
 It tries to keep the merits of turtle.py and to be (nearly) 100%
 compatible with it. This means in the first place to enable the
-learning programmer to use all the commands, classes and methods
+learning programmer to use all the instrs, classes and methods
 interactively when using the module from within IDLE run with
 the -n switch.
 
@@ -60,15 +60,15 @@ Roughly it has the following features added:
 - Fine control over turtle movement and screen updates via delay(),
   and enhanced tracer() and speed() methods.
 
-- Aliases for the most commonly used commands, like fd for forward etc.,
+- Aliases for the most commonly used instrs, like fd for forward etc.,
   following the early Logo traditions. This reduces the boring work of
-  typing long sequences of commands, which often occur in a natural way
+  typing long sequences of instrs, which often occur in a natural way
   when kids try to program fancy pictures on their first encounter with
   turtle graphics.
 
 - Turtles now have an undo()-method with configurable undo-buffer.
 
-- Some simple commands/methods for creating event driven programs
+- Some simple instrs/methods for creating event driven programs
   (mouse-, key-, timer-events). Especially useful for programming games.
 
 - A scrollable Canvas class. The default scrollable Canvas can be

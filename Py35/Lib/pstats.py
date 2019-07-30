@@ -54,7 +54,7 @@ class Stats:
     minor key of 'the name of the function'.  Look at the two tables in
     sort_stats() and get_sort_arg_defs(self) for more examples.
 
-    All methods return self, so you can string together commands like:
+    All methods return self, so you can string together instrs like:
         Stats('foo', 'goo').strip_dirs().sort_stats('calls').\
                             print_stats(5).print_callers(5)
     """

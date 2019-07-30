@@ -307,7 +307,7 @@ class Elinks(UnixBrowser):
 class Konqueror(BaseBrowser):
     """Controller for the KDE File Manager (kfm, or Konqueror).
 
-    See the output of ``kfmclient --commands``
+    See the output of ``kfmclient --instrs``
     for more information on the Konqueror remote-control interface.
     """
 

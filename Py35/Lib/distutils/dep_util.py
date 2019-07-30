@@ -60,9 +60,9 @@ def newer_group (sources, target, missing='error'):
     if it is "ignore", we silently drop any missing source files; if it is
     "newer", any missing source files make us assume that 'target' is
     out-of-date (this is handy in "dry-run" mode: it'll make you pretend to
-    carry out commands that wouldn't work because inputs are missing, but
+    carry out instrs that wouldn't work because inputs are missing, but
     that doesn't matter because you're not actually going to run the
-    commands).
+    instrs).
     """
     # If the target doesn't even exist, then it's definitely out-of-date.
     if not os.path.exists(target):

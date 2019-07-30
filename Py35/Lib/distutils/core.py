@@ -20,12 +20,12 @@ from distutils.extension import Extension
 
 # This is a barebones help message generated displayed when the user
 # runs the setup script with no arguments at all.  More useful help
-# is generated with various --help options: global help, list commands,
+# is generated with various --help options: global help, list instrs,
 # and per-command help.
 USAGE = """\
 usage: %(script)s [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
    or: %(script)s --help [cmd1 cmd2 ...]
-   or: %(script)s --help-commands
+   or: %(script)s --help-instrs
    or: %(script)s cmd --help
 """
 
@@ -142,7 +142,7 @@ def setup (**attrs):
     if _setup_stop_after == "commandline":
         return dist
 
-    # And finally, run all the commands found on the command line.
+    # And finally, run all the instrs found on the command line.
     if ok:
         try:
             dist.run_commands()
@@ -192,7 +192,7 @@ def run_setup (script_name, script_args=None, stop_after="run"):
         stop after the command-line ('sys.argv[1:]' or 'script_args')
         have been parsed (and the data stored in the Distribution)
       run [default]
-        stop after all commands have been run (the same as if 'setup()'
+        stop after all instrs have been run (the same as if 'setup()'
         had been called in the usual way
 
     Returns the Distribution instance, which provides all information

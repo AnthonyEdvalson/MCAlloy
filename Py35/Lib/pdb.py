@@ -21,7 +21,7 @@ traceback:
         >>> import pdb
         >>> pdb.pm()
 
-The commands recognized by the debugger are listed in the next
+The instrs recognized by the debugger are listed in the next
 section.  Most can be abbreviated as indicated; e.g., h(elp) means
 that 'help' can be typed as 'h' or 'help' (but not as 'he' or 'hel',
 nor as 'H' or 'Help' or 'HELP').  Optional arguments are enclosed in
@@ -43,8 +43,8 @@ The debugger supports aliases, which can save typing.  And aliases can
 have parameters (see the alias help entry) which allows one a certain
 level of adaptability to the context under examination.
 
-Multiple commands may be entered on a single line, separated by the
-pair ';;'.  No intelligence is applied to separating the commands; the
+Multiple instrs may be entered on a single line, separated by the
+pair ';;'.  No intelligence is applied to separating the instrs; the
 input is split at the first ';;', even if it is in the middle of a
 quoted string.
 
@@ -59,12 +59,12 @@ is implemented as a class from which you can derive your own debugger
 class, which you can make as fancy as you like.
 
 
-Debugger commands
+Debugger instrs
 =================
 
 """
 # NOTE: the actual command documentation is collected from docstrings of the
-# commands and is appended to __doc__ after the class has been defined.
+# instrs and is appended to __doc__ after the class has been defined.
 
 import os
 import re
@@ -390,7 +390,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
                 ii += 1
             line = line.replace("%*", ' '.join(args[1:]))
             args = line.split()
-        # split into ';;' separated commands
+        # split into ';;' separated instrs
         # unless it's an alias command
         if args[0] != 'alias':
             marker = line.find(';;')
@@ -434,7 +434,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
             func = getattr(self, 'do_' + cmd)
         except AttributeError:
             func = self.default
-        # one of the resuming commands
+        # one of the resuming instrs
         if func.__name__ in self.commands_resuming:
             self.commands_doprompt[self.commands_bnum] = False
             self.cmdqueue = []
@@ -509,23 +509,23 @@ class Pdb(bdb.Bdb, cmd.Cmd):
     # Return true to exit from the command loop
 
     def do_commands(self, arg):
-        """commands [bpnumber]
+        """instrs [bpnumber]
         (com) ...
         (com) end
         (Pdb)
 
-        Specify a list of commands for breakpoint number bpnumber.
-        The commands themselves are entered on the following lines.
-        Type a line containing just 'end' to terminate the commands.
-        The commands are executed when the breakpoint is hit.
+        Specify a list of instrs for breakpoint number bpnumber.
+        The instrs themselves are entered on the following lines.
+        Type a line containing just 'end' to terminate the instrs.
+        The instrs are executed when the breakpoint is hit.
 
-        To remove all commands from a breakpoint, type commands and
-        follow it immediately with end; that is, give no commands.
+        To remove all instrs from a breakpoint, type instrs and
+        follow it immediately with end; that is, give no instrs.
 
-        With no bpnumber argument, commands refers to the last
+        With no bpnumber argument, instrs refers to the last
         breakpoint set.
 
-        You can use breakpoint commands to start your program up
+        You can use breakpoint instrs to start your program up
         again.  Simply use the continue command, or step, or any other
         command that resumes execution.
 
@@ -541,7 +541,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
         If you use the 'silent' command in the command list, the usual
         message about stopping at a breakpoint is not printed.  This
         may be desirable for breakpoints that are to print a specific
-        message and then continue.  If none of the other commands
+        message and then continue.  If none of the other instrs
         print anything, you will see no sign that the breakpoint was
         reached.
         """
@@ -551,7 +551,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
             try:
                 bnum = int(arg)
             except:
-                self.error("Usage: commands [bnum]\n        ...\n        end")
+                self.error("Usage: instrs [bnum]\n        ...\n        end")
                 return
         self.commands_bnum = bnum
         # Save old definitions for the case of a keyboard interrupt.
@@ -580,7 +580,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
                 del self.commands[bnum]
                 del self.commands_doprompt[bnum]
                 del self.commands_silent[bnum]
-            self.error('command definition aborted, old commands restored')
+            self.error('command definition aborted, old instrs restored')
         finally:
             self.commands_defining = False
             self.prompt = prompt_back
@@ -909,7 +909,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
         """w(here)
         Print a stack trace, with the most recent frame at the bottom.
         An arrow indicates the "current frame", which determines the
-        context of most commands.  'bt' is an alias for this command.
+        context of most instrs.  'bt' is an alias for this command.
         """
         self.print_stack_trace()
     do_w = do_where
@@ -1382,7 +1382,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
 
         Aliases may be nested and can contain anything that can be
         legally typed at the pdb prompt.  Note!  You *can* override
-        internal pdb commands with aliases!  Those internal commands
+        internal pdb instrs with aliases!  Those internal instrs
         are then hidden until the alias is removed.  Aliasing is
         recursively applied to the first word of the command line; all
         other words in the line are left alone.
@@ -1418,7 +1418,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
     def complete_unalias(self, text, line, begidx, endidx):
         return [a for a in self.aliases if a.startswith(text)]
 
-    # List of all the commands making the program resume execution.
+    # List of all the instrs making the program resume execution.
     commands_resuming = ['do_continue', 'do_step', 'do_next', 'do_return',
                          'do_quit', 'do_jump']
 
@@ -1426,7 +1426,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
     # The most recently entered frame is printed last;
     # this is different from dbx and gdb, but consistent with
     # the Python interpreter's stack trace.
-    # It is also consistent with the up/down commands (which are
+    # It is also consistent with the up/down instrs (which are
     # compatible with dbx and gdb: up moves towards 'main()'
     # and down moves towards the most recent stack frame).
 
@@ -1450,7 +1450,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
 
     def do_help(self, arg):
         """h(elp)
-        Without argument, print the list of available commands.
+        Without argument, print the list of available instrs.
         With a command name as argument, print help about that command.
         "help pdb" shows the full pdb documentation.
         "help exec" gives help on the ! command.
@@ -1547,7 +1547,7 @@ if __doc__ is not None:
     # unfortunately we can't guess this order from the class definition
     _help_order = [
         'help', 'where', 'down', 'up', 'break', 'tbreak', 'clear', 'disable',
-        'enable', 'ignore', 'condition', 'commands', 'step', 'next', 'until',
+        'enable', 'ignore', 'condition', 'instrs', 'step', 'next', 'until',
         'jump', 'return', 'retval', 'run', 'continue', 'list', 'longlist',
         'args', 'p', 'pp', 'whatis', 'source', 'display', 'undisplay',
         'interact', 'alias', 'unalias', 'debug', 'quit',
@@ -1615,9 +1615,9 @@ usage: pdb.py [-c command] ... pyfile [arg] ...
 
 Debug the Python program given by pyfile.
 
-Initial commands are read from .pdbrc files in your home directory
+Initial instrs are read from .pdbrc files in your home directory
 and in the current directory, if they exist.  Commands supplied with
--c are executed after commands from .pdbrc files.
+-c are executed after instrs from .pdbrc files.
 
 To let the script run until an exception occurs, use "-c continue".
 To let the script run up to a given line X in the debugged file, use

@@ -376,7 +376,7 @@ class BaseHTTPRequestHandler(socketserver.StreamRequestHandler):
 
         You normally don't need to override this method; see the class
         __doc__ string for information on how to handle specific HTTP
-        commands such as GET and POST.
+        instrs such as GET and POST.
 
         """
         try:
@@ -610,7 +610,7 @@ class BaseHTTPRequestHandler(socketserver.StreamRequestHandler):
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
-    """Simple HTTP request handler with GET and HEAD commands.
+    """Simple HTTP request handler with GET and HEAD instrs.
 
     This serves files from the current directory and any of its
     subdirectories.  The MIME type for files is determined by
@@ -639,7 +639,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             f.close()
 
     def send_head(self):
-        """Common code for GET and HEAD commands.
+        """Common code for GET and HEAD instrs.
 
         This sends the response code and MIME headers.
 
@@ -896,7 +896,7 @@ def executable(path):
 
 class CGIHTTPRequestHandler(SimpleHTTPRequestHandler):
 
-    """Complete HTTP server with GET, HEAD and POST commands.
+    """Complete HTTP server with GET, HEAD and POST instrs.
 
     GET and HEAD also support running CGI scripts.
 

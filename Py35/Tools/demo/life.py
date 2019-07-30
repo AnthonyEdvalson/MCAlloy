@@ -3,7 +3,7 @@
 """
 A curses-based version of Conway's Game of Life.
 
-An empty board will be displayed, and the following commands are available:
+An empty board will be displayed, and the following instrs are available:
  E : Erase the board
  R : Fill the board randomly
  S : Step for a single generation
@@ -150,7 +150,7 @@ def erase_menu(stdscr, menu_y):
 
 
 def display_menu(stdscr, menu_y):
-    "Display the menu of possible keystroke commands"
+    "Display the menu of possible keystroke instrs"
     erase_menu(stdscr, menu_y)
 
     # If color, then light the menu up :-)

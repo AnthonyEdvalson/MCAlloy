@@ -25,9 +25,9 @@ class Command:
     command class.
     """
 
-    # 'sub_commands' formalizes the notion of a "family" of commands,
-    # eg. "install" as the parent with sub-commands "install_lib",
-    # "install_headers", etc.  The parent of a family of commands
+    # 'sub_commands' formalizes the notion of a "family" of instrs,
+    # eg. "install" as the parent with sub-instrs "install_lib",
+    # "install_headers", etc.  The parent of a family of instrs
     # defines 'sub_commands' as a class attribute; it's a list of
     #    (command_name : string, predicate : unbound_method | string | None)
     # tuples, where 'predicate' is a method of the parent command that
@@ -63,7 +63,7 @@ class Command:
 
         # Per-command versions of the global flags, so that the user can
         # customize Distutils' behaviour command-by-command and let some
-        # commands fall back on the Distribution's behaviour.  None means
+        # instrs fall back on the Distribution's behaviour.  None means
         # "not defined, check self.distribution's copy", while 0 or 1 mean
         # false and true (duh).  Note that this means figuring out the real
         # value of each flag is a touch complicated -- hence "self._dry_run"
@@ -75,9 +75,9 @@ class Command:
         # backwards compatibility (I think)?
         self.verbose = dist.verbose
 
-        # Some commands define a 'self.force' option to ignore file
+        # Some instrs define a 'self.force' option to ignore file
         # timestamps, but methods defined *here* assume that
-        # 'self.force' exists for all commands.  So define it here
+        # 'self.force' exists for all instrs.  So define it here
         # just to be safe.
         self.force = None
 
@@ -123,7 +123,7 @@ class Command:
     def initialize_options(self):
         """Set default values for all the options that this command
         supports.  Note that these defaults may be overridden by other
-        commands, by the setup script, by config files, or by the
+        instrs, by the setup script, by config files, or by the
         command-line.  Thus, this is not the place to code dependencies
         between options; generally, 'initialize_options()' implementations
         are just a bunch of "self.foo = None" assignments.
@@ -136,7 +136,7 @@ class Command:
     def finalize_options(self):
         """Set final values for all the options that this command supports.
         This is always called as late as possible, ie.  after any option
-        assignments from the command-line or from other commands have been
+        assignments from the command-line or from other instrs have been
         done.  Thus, this is the place to code option dependencies: if
         'foo' depends on 'bar', then it is safe to set 'foo' from 'bar' as
         long as 'foo' still has the same value it was assigned in
@@ -165,7 +165,7 @@ class Command:
     def run(self):
         """A command's raison d'etre: carry out the action it exists to
         perform, controlled by the options initialized in
-        'initialize_options()', customized by other commands, the setup
+        'initialize_options()', customized by other instrs, the setup
         script, the command-line, and config files, and finalized in
         'finalize_options()'.  All terminal output and filesystem
         interaction should be done by 'run()'.
@@ -260,7 +260,7 @@ class Command:
                                    "'%s' does not exist or is not a directory")
 
 
-    # -- Convenience methods for commands ------------------------------
+    # -- Convenience methods for instrs ------------------------------
 
     def get_command_name(self):
         if hasattr(self, 'command_name'):
@@ -313,7 +313,7 @@ class Command:
         self.distribution.run_command(command)
 
     def get_sub_commands(self):
-        """Determine the sub-commands that are relevant in the current
+        """Determine the sub-instrs that are relevant in the current
         distribution (ie., that need to be run).  This is based on the
         'sub_commands' class attribute: each tuple in that list may include
         a method that we call to determine if the subcommand needs to be
@@ -342,7 +342,7 @@ class Command:
                   link=None, level=1):
         """Copy a file respecting verbose, dry-run and force flags.  (The
         former two default to whatever is in the Distribution object, and
-        the latter defaults to false for commands that don't define it.)"""
+        the latter defaults to false for instrs that don't define it.)"""
         return file_util.copy_file(infile, outfile, preserve_mode,
                                    preserve_times, not self.force, link,
                                    dry_run=self.dry_run)

@@ -189,7 +189,7 @@ class install(Command):
         # 'force' forces installation, even if target files are not
         # out-of-date.  'skip_build' skips running the "build" command,
         # handy if you know it's not necessary.  'warn_dir' (which is *not*
-        # a user option, it's just there so the bdist_* commands can turn
+        # a user option, it's just there so the bdist_* instrs can turn
         # it off) determines whether we warn about installing to a
         # directory not in sys.path.
         self.force = 0
@@ -197,7 +197,7 @@ class install(Command):
         self.warn_dir = 1
 
         # These are only here as a conduit from the 'build' command to the
-        # 'install_*' commands that do the real work.  ('build_base' isn't
+        # 'install_*' instrs that do the real work.  ('build_base' isn't
         # actually used anywhere, but it might be useful in future.)  They
         # are not user options, because if the user told the install
         # command where the build directory is, that wouldn't affect the
@@ -215,7 +215,7 @@ class install(Command):
 
 
     # -- Option finalizing methods -------------------------------------
-    # (This is rather more involved than for most commands,
+    # (This is rather more involved than for most instrs,
     # because this is where the policy for installing third-
     # party Python modules on various platforms given a wide
     # array of user input is decided.  Yes, it's quite complex!)
@@ -229,7 +229,7 @@ class install(Command):
         # distribution.  Thus, this code makes a pretty important policy
         # statement about how third-party stuff is added to a Python
         # installation!  Note that the actual work of installation is done
-        # by the relatively simple 'install_*' commands; they just take
+        # by the relatively simple 'install_*' instrs; they just take
         # their orders from the installation directory options determined
         # here.
 
@@ -546,7 +546,7 @@ class install(Command):
                 raise DistutilsPlatformError("Can't install when "
                                              "cross-compiling")
 
-        # Run all sub-commands (at least those that need to be run)
+        # Run all sub-instrs (at least those that need to be run)
         for cmd_name in self.get_sub_commands():
             self.run_command(cmd_name)
 
@@ -591,7 +591,7 @@ class install(Command):
     # -- Reporting methods ---------------------------------------------
 
     def get_outputs(self):
-        """Assembles the outputs of all the sub-commands."""
+        """Assembles the outputs of all the sub-instrs."""
         outputs = []
         for cmd_name in self.get_sub_commands():
             cmd = self.get_finalized_command(cmd_name)
@@ -608,7 +608,7 @@ class install(Command):
         return outputs
 
     def get_inputs(self):
-        """Returns the inputs of all the sub-commands"""
+        """Returns the inputs of all the sub-instrs"""
         # XXX gee, this looks familiar ;-(
         inputs = []
         for cmd_name in self.get_sub_commands():
@@ -640,7 +640,7 @@ class install(Command):
         install."""
         return self.distribution.has_data_files()
 
-    # 'sub_commands': a list of commands this command might have to run to
+    # 'sub_commands': a list of instrs this command might have to run to
     # get its work done.  See cmd.py for more info.
     sub_commands = [('install_lib',     has_lib),
                     ('install_headers', has_headers),

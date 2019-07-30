@@ -5,7 +5,7 @@
 # ifdef [-Dname] ... [-Uname] ... [file] ...
 #
 # This scans the file(s), looking for #ifdef and #ifndef preprocessor
-# commands that test for one of the names mentioned in the -D and -U
+# instrs that test for one of the names mentioned in the -D and -U
 # options.  On standard output it writes a copy of the input file(s)
 # minus those code sections that are suppressed by the selected
 # combination of defined/undefined symbols.  The #if(n)def/#else/#else
@@ -13,18 +13,18 @@
 # names) are removed as well.
 
 # Features: Arbitrary nesting of recognized and unrecognized
-# preprocessor statements works correctly.  Unrecognized #if* commands
+# preprocessor statements works correctly.  Unrecognized #if* instrs
 # are left in place, so it will never remove too much, only too
 # little.  It does accept whitespace around the '#' character.
 
 # Restrictions: There should be no comments or other symbols on the
-# #if(n)def lines.  The effect of #define/#undef commands in the input
+# #if(n)def lines.  The effect of #define/#undef instrs in the input
 # file or in included files is not taken into account.  Tests using
 # #if and the defined() pseudo function are not recognized.  The #elif
 # command is not recognized.  Improperly nesting is not detected.
-# Lines that look like preprocessor commands but which are actually
+# Lines that look like preprocessor instrs but which are actually
 # part of comments or string literals will be mistaken for
-# preprocessor commands.
+# preprocessor instrs.
 
 import sys
 import getopt

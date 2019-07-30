@@ -394,7 +394,7 @@ class SMTPChannel(asynchat.async_chat):
             else:
                 self.push(status)
 
-    # SMTP and ESMTP commands
+    # SMTP and ESMTP instrs
     def smtp_HELO(self, arg):
         if not arg:
             self.push('501 Syntax: HELO hostname')
@@ -497,10 +497,10 @@ class SMTPChannel(asynchat.async_chat):
             elif lc_arg == 'VRFY':
                 self.push('250 Syntax: VRFY <address>')
             else:
-                self.push('501 Supported commands: EHLO HELO MAIL RCPT '
+                self.push('501 Supported instrs: EHLO HELO MAIL RCPT '
                           'DATA RSET NOOP QUIT VRFY')
         else:
-            self.push('250 Supported commands: EHLO HELO MAIL RCPT DATA '
+            self.push('250 Supported instrs: EHLO HELO MAIL RCPT DATA '
                       'RSET NOOP QUIT VRFY')
 
     def smtp_VRFY(self, arg):
@@ -836,7 +836,7 @@ class MailmanProxy(PureProxy):
             refused = self._deliver(mailfrom, rcpttos, data)
             # TBD: what to do with refused addresses?
             print('we got refusals:', refused, file=DEBUGSTREAM)
-        # Now deliver directly to the list commands
+        # Now deliver directly to the list instrs
         mlists = {}
         s = StringIO(data)
         msg = Message.Message(s)

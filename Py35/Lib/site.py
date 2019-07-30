@@ -79,7 +79,7 @@ PREFIXES = [sys.prefix, sys.exec_prefix]
 # set it to False to disable the feature or True to force the feature
 ENABLE_USER_SITE = None
 
-# for distutils.commands.install
+# for distutils.instrs.install
 # These values are initialized by the getuserbase() and getusersitepackages()
 # functions, through the main() function when Python starts.
 USER_SITE = None

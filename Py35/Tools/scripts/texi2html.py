@@ -207,7 +207,7 @@ class TexinfoParser:
 
     # Initialize an instance
     def __init__(self):
-        self.unknown = {}       # statistics about unknown @-commands
+        self.unknown = {}       # statistics about unknown @-instrs
         self.filenames = {}     # Check for identical filenames
         self.debugging = 0      # larger values produce more output
         self.print_headers = 0  # always print headers?
@@ -379,7 +379,7 @@ class TexinfoParser:
             self.node = None
         self.nodename = ''
 
-    # Process a list of lines, expanding embedded @-commands
+    # Process a list of lines, expanding embedded @-instrs
     # This mostly distinguishes between menus and normal text
     def process(self, accu):
         if self.debugging > 1:
@@ -429,7 +429,7 @@ class TexinfoParser:
             stack = stack[:-1]
         return (stack and stack[-1] == 'menu')
 
-    # Write a string, expanding embedded @-commands
+    # Write a string, expanding embedded @-instrs
     def expand(self, text):
         stack = []
         i = 0
@@ -512,7 +512,7 @@ class TexinfoParser:
         if stack:
             print('*** Stack not empty at para:', stack)
 
-    # --- Handle unknown embedded @-commands ---
+    # --- Handle unknown embedded @-instrs ---
 
     def unknown_open(self, cmd):
         print('*** No open func for @' + cmd + '{...}')
@@ -542,7 +542,7 @@ class TexinfoParser:
 
     # XXX The following sections should be ordered as the texinfo docs
 
-    # --- Embedded @-commands without {} argument list --
+    # --- Embedded @-instrs without {} argument list --
 
     def handle_noindent(self): pass
 
@@ -777,7 +777,7 @@ class TexinfoParser:
 
     # --- Marking Words and Phrases ---
 
-    # --- Other @xxx{...} commands ---
+    # --- Other @xxx{...} instrs ---
 
     def open_(self): pass # Used by {text enclosed in braces}
     def close_(self): pass
@@ -1075,7 +1075,7 @@ class TexinfoParser:
             self.write(label, ': <A HREF="', addr, '" TYPE="',
                        label, '">', nodename, '</A>  \n')
 
-    # --- Sectioning commands ---
+    # --- Sectioning instrs ---
 
     def popstack(self, type):
         if (self.node):
@@ -1203,7 +1203,7 @@ class TexinfoParser:
 
     # --- Page lay-out ---
 
-    # These commands are only meaningful in printed text
+    # These instrs are only meaningful in printed text
 
     def do_page(self, args): pass
 
@@ -1628,7 +1628,7 @@ class TexinfoParser:
 
     def report(self):
         if self.unknown:
-            print('--- Unrecognized commands ---')
+            print('--- Unrecognized instrs ---')
             cmds = sorted(self.unknown.keys())
             for cmd in cmds:
                 print(cmd.ljust(20), self.unknown[cmd])

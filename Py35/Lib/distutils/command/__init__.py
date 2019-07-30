@@ -1,7 +1,7 @@
 """distutils.command
 
 Package containing implementation of all the standard Distutils
-commands."""
+instrs."""
 
 __all__ = ['build',
            'build_py',

@@ -9,7 +9,7 @@ Notes:
 
 Please remember, when doing ESMTP, that the names of the SMTP service
 extensions are NOT the same thing as the option keywords for the RCPT
-and MAIL commands!
+and MAIL instrs!
 
 Example:
 
@@ -419,7 +419,7 @@ class SMTP:
         self.putcmd(cmd, args)
         return self.getreply()
 
-    # std smtp commands
+    # std smtp instrs
     def helo(self, name=''):
         """SMTP 'helo' command.
         Hostname to send for this command defaults to the FQDN of the local
@@ -787,8 +787,8 @@ class SMTP:
             - msg          : The message to send.
             - mail_options : List of ESMTP options (such as 8bitmime) for the
                              mail command.
-            - rcpt_options : List of ESMTP options (such as DSN commands) for
-                             all the rcpt commands.
+            - rcpt_options : List of ESMTP options (such as DSN instrs) for
+                             all the rcpt instrs.
 
         msg may be a string containing characters in the ASCII range, or a byte
         string.  A string is encoded to bytes using the ascii codec, and lone

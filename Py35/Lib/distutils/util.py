@@ -535,9 +535,9 @@ def copydir_run_2to3(src, dest, template=None, fixer_names=None,
     return copied
 
 class Mixin2to3:
-    '''Mixin class for commands that run 2to3.
+    '''Mixin class for instrs that run 2to3.
     To configure 2to3, setup scripts may either change
-    the class variables, or inherit from individual commands
+    the class variables, or inherit from individual instrs
     to override how 2to3 is invoked.'''
 
     # provide list of fixers to run;

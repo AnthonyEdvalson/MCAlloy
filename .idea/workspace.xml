@@ -1,41 +1,982 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="Code" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="60e8f5ba-9830-4dc4-a707-9aef454b6e64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/tony_edvalson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.print.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module___16cont.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module___16false.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module___16true.mcfunction" afterDir="false" />
+    <list default="true" id="60e8f5ba-9830-4dc4-a707-9aef454b6e64" name="Default Changelist" comment="Lost of little fixes, function calls move further towards the fptr system">
+      <change afterPath="$PROJECT_DIR$/MCAlloy/alloy/generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/alloy/nodes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/assembler/alloy_assembler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/assembler/builtins/blocks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/assembler/builtins/builtin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/assembler/builtins/notes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/assembler/datapack.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/assembler/module.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/assembler/namespace.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/containers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/instrs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/instrs/assign.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/instrs/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/instrs/flow.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/instrs/frame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/instrs/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/instrs/operate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/mcalloy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/mcgen/generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MCAlloy/vm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MCAlloy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MCAlloy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_TECHNICAL.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_TECHNICAL.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alloy/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/alloy/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alloy/nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/alloy/nodes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alloy_instructions/alloy_assembler.py" beforeDir="false" afterPath="$PROJECT_DIR$/alloy_instructions/alloy_assembler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alloy_instructions/generators/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/alloy_instructions/generators/module.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/assign.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/assign.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/flow.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/flow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/operate.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/operate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/containers.py" beforeDir="false" afterPath="$PROJECT_DIR$/containers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/in/dpack/dpack/boop.alloy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mcgen/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/mcgen/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/boop.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/boop_3cont.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/boop_3false.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/boop_3true.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.__init__.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.__init__.mcfunction" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase.mcfunction" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase_10return.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase_10return.mcfunction" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.mcfunction" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.None.print.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_16cont.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_16false.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_16true.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm.py" beforeDir="false" afterPath="$PROJECT_DIR$/vm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCAlloy/functions/main.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCAlloy/functions/main_2cont.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCAlloy/functions/main_2false.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCAlloy/functions/main_2true.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCAlloy/functions/main_4cont.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCAlloy/functions/main_4false.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCAlloy/functions/main_4true.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_bz2.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_ctypes.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_ctypes_test.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_decimal.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_elementtree.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_hashlib.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_lzma.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_msi.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_multiprocessing.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_overlapped.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_socket.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_sqlite3.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_ssl.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_testbuffer.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_testcapi.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/_testimportmultiple.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/py.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/pyc.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/pyexpat.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/python3.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/select.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/sqlite3.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/unicodedata.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/DLLs/winsound.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/__future__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/__phello__.foo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_bootlocale.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_collections_abc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_compat_pickle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_dummy_thread.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_markupbase.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_osx_support.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_pyio.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_sitebuiltins.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_strptime.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_threading_local.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/_weakrefset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/abc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/aifc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/antigravity.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/argparse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ast.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asynchat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/base_events.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/base_subprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/constants.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/events.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/futures.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/locks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/log.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/proactor_events.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/protocols.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/queues.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/selector_events.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/streams.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/subprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/tasks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/test_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/transports.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/unix_events.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/windows_events.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncio/windows_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/asyncore.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/base64.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/bdb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/binhex.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/bisect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/bz2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/cProfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/calendar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/cgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/cgitb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/chunk.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/cmd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/codecs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/codeop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/collections/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/collections/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/collections/abc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/colorsys.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/compileall.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/concurrent/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/concurrent/futures/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/concurrent/futures/_base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/concurrent/futures/process.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/concurrent/futures/thread.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/configparser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/contextlib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/copy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/copyreg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/crypt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/csv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/_endian.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/macholib/README.ctypes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/macholib/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/macholib/dyld.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/macholib/dylib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/macholib/fetch_macholib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/macholib/fetch_macholib.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/macholib/framework.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ctypes/wintypes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/curses/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/curses/ascii.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/curses/has_key.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/curses/panel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/curses/textpad.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/datetime.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/dbm/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/dbm/dumb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/dbm/gnu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/dbm/ndbm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/decimal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/difflib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/dis.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/archive_util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/bcppcompiler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/ccompiler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/cmd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/bdist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/bdist_dumb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/bdist_msi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/bdist_rpm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/bdist_wininst.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/build.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/build_clib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/build_ext.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/build_py.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/build_scripts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/check.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/clean.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/command_template" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/install.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/install_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/install_egg_info.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/install_headers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/install_lib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/install_scripts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/register.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/sdist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/upload.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/wininst-10.0-amd64.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/wininst-10.0.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/wininst-6.0.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/wininst-7.1.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/wininst-8.0.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/wininst-9.0-amd64.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/command/wininst-9.0.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/core.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/cygwinccompiler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/debug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/dep_util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/dir_util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/dist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/errors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/extension.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/fancy_getopt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/file_util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/filelist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/log.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/msvc9compiler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/msvccompiler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/spawn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/sysconfig.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/text_file.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/unixccompiler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/distutils/versionpredicate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/doctest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/dummy_threading.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/_encoded_words.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/_header_value_parser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/_parseaddr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/_policybase.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/architecture.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/base64mime.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/charset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/contentmanager.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/encoders.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/errors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/feedparser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/generator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/header.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/headerregistry.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/iterators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/message.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/mime/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/alloy/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/mime/application.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/mime/audio.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/mime/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/mime/image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/mime/message.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/mime/multipart.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/mime/nonmultipart.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/mime/text.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/parser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/policy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/quoprimime.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/email/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/aliases.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/ascii.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/base64_codec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/big5.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/big5hkscs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/bz2_codec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/charmap.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp037.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1006.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1026.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1125.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1140.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1250.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1251.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1252.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1253.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1254.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1255.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1256.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1257.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp1258.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp273.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp424.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp437.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp500.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp65001.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp720.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp737.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp775.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp850.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp852.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp855.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp856.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp857.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp858.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp860.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp861.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp862.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp863.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp864.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp865.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp866.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp869.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp874.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp875.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp932.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp949.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/cp950.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/euc_jis_2004.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/euc_jisx0213.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/euc_jp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/euc_kr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/gb18030.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/gb2312.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/gbk.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/hex_codec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/hp_roman8.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/hz.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/idna.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso2022_jp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso2022_jp_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso2022_jp_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso2022_jp_2004.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso2022_jp_3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso2022_jp_ext.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso2022_kr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_10.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_11.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_13.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_14.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_15.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_16.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_5.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_6.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_7.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_8.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/iso8859_9.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/johab.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/koi8_r.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/koi8_u.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/latin_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_arabic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_centeuro.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_croatian.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_cyrillic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_farsi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_greek.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_iceland.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_latin2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_roman.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_romanian.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mac_turkish.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/mbcs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/palmos.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/ptcp154.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/punycode.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/quopri_codec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/raw_unicode_escape.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/rot_13.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/shift_jis.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/shift_jis_2004.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/shift_jisx0213.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/tis_620.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/undefined.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/unicode_escape.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/unicode_internal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/utf_16.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/utf_16_be.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/utf_16_le.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/utf_32.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/utf_32_be.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/utf_32_le.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/utf_7.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/utf_8.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/utf_8_sig.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/uu_codec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/encodings/zlib_codec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ensurepip/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ensurepip/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ensurepip/_bundled/pip-1.5.4-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ensurepip/_bundled/setuptools-2.1-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ensurepip/_uninstall.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/enum.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/filecmp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/fileinput.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/fnmatch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/formatter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/fractions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ftplib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/functools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/genericpath.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/getopt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/getpass.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/gettext.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/glob.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/gzip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/hashlib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/heapq.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/hmac.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/html/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/html/entities.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/html/parser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/http/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/http/client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/http/cookiejar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/http/cookies.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/http/server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/imaplib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/imghdr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/imp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/importlib/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/importlib/_bootstrap.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/importlib/abc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/importlib/machinery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/importlib/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/inspect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/io.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ipaddress.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/json/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/json/decoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/json/encoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/json/scanner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/json/tool.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/keyword.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/Grammar.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/PatternGrammar.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/btm_matcher.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/btm_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixer_base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixer_util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_apply.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_asserts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_basestring.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_buffer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_callable.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_dict.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_except.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_exec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_execfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_exitfunc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_filter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_funcattrs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_future.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_getcwdu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_has_key.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_idioms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_import.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_imports.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_imports2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_input.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_intern.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_isinstance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_itertools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_itertools_imports.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_long.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_map.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_metaclass.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_methodattrs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_ne.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_next.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_nonzero.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_numliterals.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_operator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_paren.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_print.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_raise.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_raw_input.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_reduce.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_reload.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_renames.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_repr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_set_literal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_standarderror.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_sys_exc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_throw.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_tuple_params.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_types.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_unicode.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_urllib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_ws_comma.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_xrange.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_xreadlines.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/fixes/fix_zip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/patcomp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pgen2/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pgen2/conv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pgen2/driver.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pgen2/grammar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pgen2/literals.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pgen2/parse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pgen2/pgen.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pgen2/token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pgen2/tokenize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pygram.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/pytree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lib2to3/refactor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/linecache.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/locale.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/logging/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/logging/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/logging/handlers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/lzma.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/macpath.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/macurl2path.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/mailbox.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/mailcap.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/mimetypes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/modulefinder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/msilib/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/msilib/schema.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/msilib/sequence.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/msilib/text.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/connection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/context.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/dummy/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/dummy/connection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/forkserver.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/heap.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/managers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/pool.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/popen_fork.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/popen_forkserver.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/popen_spawn_posix.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/popen_spawn_win32.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/process.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/queues.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/reduction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/resource_sharer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/semaphore_tracker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/sharedctypes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/spawn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/synchronize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/multiprocessing/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/netrc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/nntplib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ntpath.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/nturl2path.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/numbers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/opcode.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/operator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/optparse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/os.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pathlib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pdb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pickle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pickletools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pipes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pkgutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/platform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/plistlib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/poplib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/posixpath.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pprint.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/profile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pstats.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pty.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/py_compile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pyclbr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pydoc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pydoc_data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/assembler/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pydoc_data/_pydoc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/pydoc_data/topics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/queue.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/quopri.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/random.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/re.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/reprlib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/rlcompleter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/runpy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/sched.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/selectors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/shelve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/shlex.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/shutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/site-packages/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/site.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/smtpd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/smtplib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/sndhdr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/socket.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/socketserver.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/sqlite3/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/sqlite3/dbapi2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/sqlite3/dump.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/sre_compile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/sre_constants.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/sre_parse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/ssl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/stat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/statistics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/string.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/stringprep.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/struct.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/subprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/sunau.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/symbol.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/symtable.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/sysconfig.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/tabnanny.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/tarfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/telnetlib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/tempfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/textwrap.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/this.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/threading.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/timeit.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/tokenize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/trace.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/traceback.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/tracemalloc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/tty.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/turtle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/types.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/case.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/loader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/mock.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/result.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/runner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/signals.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/suite.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/unittest/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/urllib/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/assembler/builtins/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/urllib/error.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/urllib/parse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/urllib/request.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/urllib/response.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/urllib/robotparser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/uu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/uuid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/venv/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/venv/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/venv/scripts/nt/Activate.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/venv/scripts/nt/activate.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/venv/scripts/nt/deactivate.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/venv/scripts/posix/activate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/venv/scripts/posix/activate.csh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/venv/scripts/posix/activate.fish" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/warnings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/wave.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/weakref.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/webbrowser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/wsgiref/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/wsgiref/handlers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/wsgiref/headers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/wsgiref/simple_server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/wsgiref/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/wsgiref/validate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xdrlib.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/dom/NodeFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/dom/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/dom/domreg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/dom/expatbuilder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/dom/minicompat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/dom/minidom.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/dom/pulldom.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/dom/xmlbuilder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/etree/ElementInclude.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/etree/ElementPath.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/etree/ElementTree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/etree/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/etree/cElementTree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/parsers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/parsers/expat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/sax/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/sax/_exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/sax/expatreader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/sax/handler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/sax/saxutils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xml/sax/xmlreader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xmlrpc/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xmlrpc/client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/xmlrpc/server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Lib/zipfile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/NEWS.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/2to3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/assembler/builtins/entities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/abitype.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/analyze_dxp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/byext.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/byteyears.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/checkpip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/checkpyc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/cleanfuture.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/combinerefs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/copytime.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/crlf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/db2pickle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/diff.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/dutree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/eptags.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/find-uname.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/find_recursionlimit.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/finddiv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/findlinksto.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/findnocoding.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/fixcid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/fixdiv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/fixheader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/fixnotice.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/fixps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/ftpmirror.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/get-remote-certificate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/google.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/gprof2html.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/h2py.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/highlight.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/ifdef.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/import_diagnostics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/lfcr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/linktree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/lll.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/mailerdaemon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/make_ctype.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/md5sum.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/mkreal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/ndiff.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/nm2def.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/objgraph.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/parse_html5_entities.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/parseentities.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/patchcheck.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/pathfix.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/pdeps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/pickle2db.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/pindent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/ptags.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/pydoc3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/pysource.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/pyvenv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/reindent-rst.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/reindent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/rgrep.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/run_tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/serve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/suff.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/svneol.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/texi2html.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/treesync.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/untabify.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/which.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/Scripts/win_add2path.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/assembler/builtins/scores.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/i18n/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/mcgen/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/i18n/makelocalealias.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/i18n/msgfmt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/i18n/pygettext.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/ChipViewer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/ColorDB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/DetailsViewer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/ListViewer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/Main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/PyncheWidget.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/StripViewer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/Switchboard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/TextViewer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/TypeinViewer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/X/rgb.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/X/xlicense.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/html40colors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/namedcolors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/pyColorChooser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/pynche.pyw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/webcolors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/Tools/pynche/websafe.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/Python-ast.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/Python.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/abstract.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/accu.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/asdl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/ast.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/bitset.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/bltinmodule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/boolobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/bytearrayobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/bytes_methods.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/bytesobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/cellobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/ceval.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/classobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/code.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/codecs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/compile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/complexobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/datetime.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/descrobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/dictobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/dtoa.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/dynamic_annotations.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/enumobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/errcode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/eval.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/fileobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/fileutils.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/floatobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/frameobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/funcobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/genobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/graminit.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/grammar.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/import.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/intrcheck.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/iterobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/listobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/longintrepr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/longobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/marshal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/memoryobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/metagrammar.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/methodobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/modsupport.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/moduleobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/namespaceobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/node.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/object.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/objimpl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/opcode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/osdefs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/parsetok.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/patchlevel.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pgen.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pgenheaders.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/py_curses.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pyarena.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pyatomic.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pycapsule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pyconfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pyctype.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pydebug.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pyerrors.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pyexpat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pyfpe.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pygetopt.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pyhash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pymacconfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pymacro.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pymath.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pymem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pyport.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pystate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pystrcmp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pystrtod.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pythonrun.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pythread.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/pytime.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/rangeobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/setobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/sliceobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/structmember.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/structseq.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/symtable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/sysmodule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/token.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/traceback.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/tupleobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/typeslots.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/ucnhash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/unicodeobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/warnings.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/include/weakrefobject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_bz2.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_ctypes.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_ctypes_test.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_decimal.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_elementtree.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_hashlib.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_lzma.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_msi.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_multiprocessing.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_overlapped.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_socket.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_sqlite3.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_ssl.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_testbuffer.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_testcapi.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_testimportmultiple.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/_tkinter.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/pyexpat.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/python3.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/python34.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/select.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/unicodedata.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/libs/winsound.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/python.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py34/pythonw.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/_compat_pickle.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/_compat_pickle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/bdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/bdb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/cmd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/ccompiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/ccompiler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/cmd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/command/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/command/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/command/bdist.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/command/bdist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/command/build.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/command/build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/command/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/command/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/command/install.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/command/install.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/command/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/command/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/command/sdist.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/command/sdist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/dep_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/dep_util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/dist.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/dist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/msvccompiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/msvccompiler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/tests/support.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/tests/support.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/tests/test_build_clib.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/tests/test_build_clib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/tests/test_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/tests/test_register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/distutils/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/distutils/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/ftplib.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/ftplib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/html/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/html/parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/http/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/http/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/imaplib.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/imaplib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/lib2to3/fixes/fix_imports.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/lib2to3/fixes/fix_imports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/nntplib.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/nntplib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/pdb.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/pdb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/platform.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/platform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/poplib.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/poplib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/pstats.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/pstats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/pydoc.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/pydoc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/pydoc_data/topics.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/pydoc_data/topics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/site.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/site.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/smtpd.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/smtpd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/smtplib.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/smtplib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/subprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/subprocess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/turtle.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/turtle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Lib/webbrowser.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Lib/webbrowser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Tools/demo/life.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Tools/demo/life.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Tools/demo/rpython.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Tools/demo/rpython.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Tools/demo/rpythond.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Tools/demo/rpythond.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Tools/scripts/ifdef.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Tools/scripts/ifdef.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py35/Tools/scripts/texi2html.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py35/Tools/scripts/texi2html.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy/generator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy/nodes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy/reversion.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy/reverter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/alloy_assembler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/builtins/blocks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/builtins/builtin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/builtins/entities.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/builtins/notes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/builtins/scores.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/generators/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/generators/datapack.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/generators/module.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alloy_instructions/generators/namespace.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/assign.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/flow.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/frame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/misc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/operate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/containers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/errors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/in/dpack/dpack/main.alloy" beforeDir="false" afterPath="$PROJECT_DIR$/in/dpack/dpack/main.alloy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mcalloy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mcgen/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mcgen/generator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.__init__.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase_10return.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.mcfunction" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.print.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module___16cont.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module___16false.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module___16true.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/pack.mcmeta" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/pack.mcmeta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symbol_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,14 +986,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/alloy/generator.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="94" column="11" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="11" />
+            <state relative-caret-position="439">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/nodes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/alloy_assembler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MCAlloy/mcgen/generator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MCAlloy/containers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -78,6 +1061,7 @@
       <find>.volatile</find>
       <find>__ASM__</find>
       <find>.deref</find>
+      <find>MCAlloy.</find>
     </findStrings>
     <replaceStrings>
       <replace>Post</replace>
@@ -85,10 +1069,12 @@
       <replace>__volatile__</replace>
       <replace>__asm__</replace>
       <replace>__deref__</replace>
+      <replace />
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\tony.edvalson\PycharmProjects\MCAlloy\Py34</dir>
       <dir>C:\Users\tony.edvalson\PycharmProjects\MCAlloy</dir>
+      <dir>C:\Users\tony.edvalson\PycharmProjects\MCAlloy\MCAlloy</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -97,10 +1083,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/alloy_ast/converter.py" />
-        <option value="$PROJECT_DIR$/commands/misc.py" />
-        <option value="$PROJECT_DIR$/alloy_instructions/generators/util.py" />
-        <option value="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.mcfunction" />
         <option value="$PROJECT_DIR$/alloy_ast/alloy_generator.py" />
         <option value="$PROJECT_DIR$/alloy_instructions/builtins/builtin.alloy" />
         <option value="$PROJECT_DIR$/alloy_instructions/builtins/scores.alloy" />
@@ -113,10 +1095,8 @@
         <option value="$PROJECT_DIR$/alloy_instructions/generators/namespace.py" />
         <option value="$PROJECT_DIR$/alloy_instructions/generators/datapack.py" />
         <option value="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_31while.mcfunction" />
-        <option value="$PROJECT_DIR$/symbol_table.py" />
         <option value="$PROJECT_DIR$/alloy/reverter.py" />
         <option value="$PROJECT_DIR$/alloy/reversion.py" />
-        <option value="$PROJECT_DIR$/in/dpack/dpack/main.alloy" />
         <option value="$APPLICATION_CONFIG_DIR$/idea.properties" />
         <option value="$PROJECT_DIR$/in/dpack/dpack/boop.alloy" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -129,25 +1109,48 @@
         <option value="$PROJECT_DIR$/commands/flow.py" />
         <option value="$PROJECT_DIR$/commands/base.py" />
         <option value="$PROJECT_DIR$/vm.py" />
-        <option value="$PROJECT_DIR$/alloy_instructions/alloy_assembler.py" />
-        <option value="$PROJECT_DIR$/alloy_instructions/generators/module.py" />
         <option value="$PROJECT_DIR$/alloy/nodes.py" />
         <option value="$PROJECT_DIR$/alloy/generator.py" />
+        <option value="$PROJECT_DIR$/alloy_instructions/generators/module.py" />
+        <option value="$PROJECT_DIR$/alloy_instructions/alloy_assembler.py" />
+        <option value="$PROJECT_DIR$/symbol_table.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/mcalloy.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/containers.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/commands/operate.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/commands/base.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/mcgen/generator.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/commands/__init__.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/alloy_instructions/generators/datapack.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/alloy_instructions/alloy_assembler.py" />
+        <option value="$PROJECT_DIR$/notes.txt" />
+        <option value="$PROJECT_DIR$/MCAlloy/assembler/namespace.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/assembler/builtins/blocks.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/alloy/reversion.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/instrs/flow.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/instrs/assign.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/symbol_table.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/instrs/operate.py" />
+        <option value="$PROJECT_DIR$/in/dpack/dpack/main.alloy" />
+        <option value="$PROJECT_DIR$/MCAlloy/alloy/nodes.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/alloy/generator.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/assembler/alloy_assembler.py" />
       </list>
     </option>
   </component>
+  <component name="NamedScopeManager">
+    <scope name="Code" pattern="file[MCAlloy]:MCAlloy//*" />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="512" />
-    <option name="y" value="-44" />
-    <option name="width" value="1472" />
-    <option name="height" value="1752" />
+    <option name="x" value="700" />
+    <option name="y" value="73" />
+    <option name="width" value="1787" />
+    <option name="height" value="1754" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,95 +1161,43 @@
             <path>
               <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
               <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
+              <item name="in" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
+              <item name="in" type="462c0819:PsiDirectoryNode" />
+              <item name="dpack" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
+              <item name="in" type="462c0819:PsiDirectoryNode" />
+              <item name="dpack" type="462c0819:PsiDirectoryNode" />
+              <item name="dpack" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
+              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
+              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
               <item name="alloy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
               <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="alloy_instructions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
               <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="in" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="in" type="462c0819:PsiDirectoryNode" />
-              <item name="dpack" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="in" type="462c0819:PsiDirectoryNode" />
-              <item name="dpack" type="462c0819:PsiDirectoryNode" />
-              <item name="dpack" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="mcgen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="datapacks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="datapacks" type="462c0819:PsiDirectoryNode" />
-              <item name="dpack" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="datapacks" type="462c0819:PsiDirectoryNode" />
-              <item name="dpack" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="datapacks" type="462c0819:PsiDirectoryNode" />
-              <item name="dpack" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="dpack" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MCAlloy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MCAlloy" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="datapacks" type="462c0819:PsiDirectoryNode" />
-              <item name="dpack" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="dpack" type="462c0819:PsiDirectoryNode" />
-              <item name="functions" type="462c0819:PsiDirectoryNode" />
+              <item name="assembler" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -260,8 +1211,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\tony.edvalson\PycharmProjects\MCAlloy" />
+      <recent name="C:\Users\tony.edvalson\PycharmProjects\MCAlloy\MCAlloy\assembler" />
       <recent name="C:\Users\tony.edvalson\PycharmProjects\MCAlloy\MCAlloy" />
+      <recent name="C:\Users\tony.edvalson\PycharmProjects\MCAlloy\src" />
+      <recent name="C:\Users\tony.edvalson\PycharmProjects\MCAlloy" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -285,12 +1238,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\tony.edvalson\PycharmProjects\MCAlloy\Py35\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MCAlloy" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mcalloy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MCAlloy/mcalloy.py" />
       <option name="PARAMETERS" value="C:\Users\tony.edvalson\PycharmProjects\MCAlloy\in\dpack\ C:\Users\tony.edvalson\PycharmProjects\MCAlloy\out" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -316,7 +1269,8 @@
       <workItem from="1564147564392" duration="14000" />
       <workItem from="1564162297756" duration="4438000" />
       <workItem from="1564167713964" duration="6471000" />
-      <workItem from="1564405627127" duration="20037000" />
+      <workItem from="1564405627127" duration="21897000" />
+      <workItem from="1564495773933" duration="13331000" />
     </task>
     <task id="LOCAL-00001" summary="Finished if and while implementation, untested">
       <created>1564060729968</created>
@@ -332,25 +1286,42 @@
       <option name="project" value="LOCAL" />
       <updated>1564405988487</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Lost of little fixes, function calls move further towards the fptr system">
+      <created>1564427476952</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1564427476952</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70961000" />
+    <option name="totallyTimeSpent" value="86152000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1659" height="1002" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25046846" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25733915" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295063" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34902412" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.45235363" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3685419" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.22273248" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3295063" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
@@ -413,10 +1384,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished if and while implementation, untested" />
     <MESSAGE value="More updates, started on classes, removed symbol table, changing function calls to fptr" />
-    <option name="LAST_COMMIT_MESSAGE" value="More updates, started on classes, removed symbol table, changing function calls to fptr" />
+    <MESSAGE value="Lost of little fixes, function calls move further towards the fptr system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lost of little fixes, function calls move further towards the fptr system" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MCAlloy$mcalloy.coverage" NAME="mcalloy Coverage Results" MODIFIED="1564427400045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MCAlloy$mcalloy.coverage" NAME="mcalloy Coverage Results" MODIFIED="1564513623242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MCAlloy" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -463,101 +1435,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_31test.mcfunction" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/typing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Py34/python.exe">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-706" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Py34/Lib/code.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4666" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/1097516109/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Py34/Lib/dis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alloy_instructions/generators/datapack.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symbol_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/dis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="139" selection-start-line="139" selection-end-line="139" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Py35/Lib/subprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="1027" column="8" selection-start-line="1027" selection-start-column="8" selection-end-line="1027" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/subprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-599">
-          <caret line="913" selection-start-line="913" selection-end-line="913" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/ast.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="261" selection-start-line="261" selection-end-line="261" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/base64.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Py34/Lib/base64.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="448" selection-start-line="448" selection-end-line="448" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_stdin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Py34/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -572,60 +1449,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alloy/reversion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alloy/reverter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/in/dpack/dpack/main.alloy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="8" selection-start-line="11" selection-end-line="11" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notes.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/errors.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/boop.mcfunction">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/in/dpack/dpack/boop.alloy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/misc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/operate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/boop.mcfunction" />
+    <entry file="file://$PROJECT_DIR$/in/dpack/dpack/boop.alloy" />
     <entry file="file://$PROJECT_DIR$/README_TECHNICAL.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -643,54 +1468,6 @@
             <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcalloy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/assign.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/flow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alloy_instructions/builtins/builtin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -713,97 +1490,369 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_16true.mcfunction">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_16false.mcfunction">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_16cont.mcfunction">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.None.print.mcfunction">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_16true.mcfunction" />
+    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_16false.mcfunction" />
+    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main_16cont.mcfunction" />
+    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.None.print.mcfunction" />
     <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase_10return.mcfunction">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vm.py">
+    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.mcfunction" />
+    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.mcfunction">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        <state relative-caret-position="-153" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/functions/main.mcfunction">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220" />
+      </provider>
+    </entry>
+    <entry file="uml://Python/#C:/Users/tony.edvalson/PycharmProjects/MCAlloy/MCAlloy">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#C:/Users/tony.edvalson/PycharmProjects/MCAlloy/MCAlloy</OriginalElement>
+          <nodes>
+            <node x="" y="">MCAlloy.alloy_instructions.alloy_assembler.CommentTags</node>
+            <node x="" y="">MCAlloy.alloy.nodes.Module</node>
+            <node x="" y="">MCAlloy.containers.Path</node>
+            <node x="" y="">MCAlloy.alloy_instructions.alloy_assembler.AlloyAssembler</node>
+            <node x="" y="">MCAlloy.commands.misc.NOOP</node>
+            <node x="" y="">MCAlloy.containers.ILBlock</node>
+            <node x="" y="">MCAlloy.commands.base.SimpleInstr</node>
+            <node x="" y="">MCAlloy.alloy_instructions.generators.module.ILModuleGenerator</node>
+            <node x="" y="">object</node>
+            <node x="" y="">MCAlloy.vm.NameIndex</node>
+            <node x="" y="">MCAlloy.alloy.nodes.Byte</node>
+            <node x="" y="">MCAlloy.commands.misc.Seek</node>
+            <node x="" y="">MCAlloy.alloy.nodes.If</node>
+            <node x="" y="">MCAlloy.commands.assign.StoreAttr</node>
+            <node x="" y="">MCAlloy.alloy_instructions.generators.namespace.ILNamespaceGenerator</node>
+            <node x="" y="">MCAlloy.commands.misc.Comment</node>
+            <node x="" y="">Exception</node>
+            <node x="" y="">MCAlloy.commands.flow.CallBlockIf</node>
+            <node x="" y="">MCAlloy.alloy_instructions.generators.datapack.ILDatapackGenerator</node>
+            <node x="" y="">MCAlloy.commands.assign.LoadName</node>
+            <node x="" y="">MCAlloy.alloy.nodes.AlloyNode</node>
+            <node x="" y="">MCAlloy.commands.operate.CompareOp</node>
+            <node x="" y="">MCAlloy.commands.assign.LoadNBT</node>
+            <node x="" y="">MCAlloy.commands.flow.BlockBridge</node>
+            <node x="" y="">MCAlloy.alloy.nodes.Return</node>
+            <node x="" y="">MCAlloy.errors.NotFoundError</node>
+            <node x="" y="">MCAlloy.alloy.nodes.Frame</node>
+            <node x="" y="">MCAlloy.alloy.generator.AlloyGenerator</node>
+            <node x="" y="">BaseException</node>
+            <node x="" y="">MCAlloy.vm.StackIndex</node>
+            <node x="" y="">MCAlloy.commands.misc.Direct</node>
+            <node x="" y="">MCAlloy.commands.flow.Call</node>
+            <node x="" y="">_collections_abc.Iterable</node>
+            <node x="" y="">MCAlloy.commands.operate.BinaryOp</node>
+            <node x="" y="">MCAlloy.commands.frame.StartCall</node>
+            <node x="" y="">MCAlloy.containers.ILNamespace</node>
+            <node x="" y="">MCAlloy.commands.frame.InitContext</node>
+            <node x="" y="">MCAlloy.commands.assign.StoreName</node>
+            <node x="" y="">abc.ABC</node>
+            <node x="" y="">MCAlloy.containers.ILModule</node>
+            <node x="" y="">MCAlloy.alloy.nodes.ClassDef</node>
+            <node x="" y="">MCAlloy.mcalloy.ParseException</node>
+            <node x="" y="">MCAlloy.alloy.nodes.While</node>
+            <node x="" y="">ast.NodeVisitor</node>
+            <node x="" y="">MCAlloy.alloy.nodes.Block</node>
+            <node x="" y="">_collections_abc.Hashable</node>
+            <node x="" y="">MCAlloy.commands.base.BaseInstr</node>
+            <node x="" y="">MCAlloy.vm.ConstIndex</node>
+            <node x="" y="">MCAlloy.commands.flow.Return</node>
+            <node x="" y="">MCAlloy.commands.frame.EndCall</node>
+            <node x="" y="">MCAlloy.commands.base.CopyInstr</node>
+            <node x="" y="">MCAlloy.commands.assign.SetASM</node>
+            <node x="" y="">MCAlloy.commands.flow.CallBlock</node>
+            <node x="" y="">_collections_abc.Iterator</node>
+            <node x="" y="">MCAlloy.mcalloy.GenerationSettings</node>
+            <node x="" y="">MCAlloy.commands.assign.Shuffle</node>
+            <node x="" y="">MCAlloy.alloy.nodes.Direct</node>
+            <node x="" y="">MCAlloy.containers.ILFrame</node>
+            <node x="" y="">abc.ABCMeta</node>
+            <node x="" y="">MCAlloy.mcgen.generator.DatapackGenerator</node>
+            <node x="" y="">MCAlloy.vm.VMIndex</node>
+            <node x="" y="">MCAlloy.alloy.nodes.FunctionDef</node>
+            <node x="" y="">MCAlloy.commands.base.TOS</node>
+            <node x="" y="">MCAlloy.vm.PreIndex</node>
+            <node x="" y="">MCAlloy.commands.assign.LoadConst</node>
+            <node x="" y="">MCAlloy.commands.frame.StartFrame</node>
+            <node x="" y="">MCAlloy.commands.base.Instr</node>
+            <node x="" y="">MCAlloy.commands.assign.LoadAttr</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.1040244969378825" x="5019.484428243126" y="290.3895712814011" />
+          <SelectedNodes />
+          <Categories />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alloy_instructions/generators/module.py">
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/misc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/reverter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Py35/Lib/types.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="169" column="6" selection-start-line="169" selection-start-column="6" selection-end-line="169" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/reversion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/builtins/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/builtins/blocks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/builtins/builtin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/builtins/entities.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="81" column="48" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/flow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/datapack.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/namespace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/errors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/symbol_table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/mcalloy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/vm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/operate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/assign.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Py35/Lib/pathlib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="1093" column="26" selection-start-line="1093" selection-start-column="26" selection-end-line="1093" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Py35/Lib/ast.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="240" column="8" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="1757" selection-start-line="1757" selection-end-line="1757" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/dpack/dpack/main.alloy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.mcfunction">
+    <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/nodes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+        <state relative-caret-position="99">
+          <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/containers.py">
+    <entry file="file://$PROJECT_DIR$/MCAlloy/containers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="226">
+          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Py35/Lib/ast.py">
+    <entry file="file://$PROJECT_DIR$/MCAlloy/mcgen/generator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="244" selection-start-line="244" selection-end-line="244" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcgen/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        <state relative-caret-position="175">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alloy_instructions/alloy_assembler.py">
+    <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/alloy_assembler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="56" column="44" lean-forward="true" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alloy/nodes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="204">
+          <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alloy/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="94" column="11" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <last-edited>Code</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+          <order>
+            <scope name="Code" />
+          </order>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

@@ -42,7 +42,7 @@ IMPORT_MAPPING = {
     'cookielib': 'http.cookiejar',
     'BaseHTTPServer': 'http.server',
     'test.test_support': 'test.support',
-    'commands': 'subprocess',
+    'instrs': 'subprocess',
     'urlparse' : 'urllib.parse',
     'robotparser' : 'urllib.robotparser',
     'urllib2': 'urllib.request',

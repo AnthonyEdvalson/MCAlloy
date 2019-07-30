@@ -782,7 +782,7 @@ def list2cmdline(seq):
     return ''.join(result)
 
 
-# Various tools for executing commands and looking at their output and status.
+# Various tools for executing instrs and looking at their output and status.
 #
 
 def getstatusoutput(cmd):

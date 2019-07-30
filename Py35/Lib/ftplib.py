@@ -93,7 +93,7 @@ class FTP:
     which have an open file as argument (see their definitions
     below for details).
     The download/upload functions first issue appropriate TYPE
-    and PORT or PASV commands.
+    and PORT or PASV instrs.
     '''
 
     debugging = 0
@@ -167,7 +167,7 @@ class FTP:
         '''Set the debugging level.
         The required argument level means:
         0: no debugging output (default)
-        1: print commands and responses but not body text etc.
+        1: print instrs and responses but not body text etc.
         2: also print raw lines read and sent before stripping CR/LF'''
         self.debugging = level
     debug = set_debuglevel

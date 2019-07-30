@@ -64,7 +64,7 @@
 #            to cover up situations where platforms don't have os.popen
 #            (e.g. Mac) or fail on socket.gethostname(); fixed libc
 #            detection RE
-#    0.5.0 - changed the API names referring to system commands to *syscmd*;
+#    0.5.0 - changed the API names referring to system instrs to *syscmd*;
 #            added java_ver(); made syscmd_ver() a private
 #            API (was system_ver() in previous versions) -- use uname()
 #            instead; extended the win32_ver() to also return processor

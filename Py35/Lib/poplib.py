@@ -193,7 +193,7 @@ class POP3:
         self._debugging = level
 
 
-    # Here are all the POP commands:
+    # Here are all the POP instrs:
 
     def user(self, user):
         """Send user name, return response
@@ -298,7 +298,7 @@ class POP3:
     #__del__ = quit
 
 
-    # optional commands:
+    # optional instrs:
 
     def rpop(self, user):
         """Not sure what this does."""

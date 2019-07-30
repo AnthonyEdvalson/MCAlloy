@@ -277,7 +277,7 @@ class HTMLParser(_markupbase.ParserBase):
             self.handle_comment(rawdata[i+2:pos])
         return pos + 1
 
-    # Internal -- parse processing instr, return end or -1 if not terminated
+    # Internal -- parse processing assembler, return end or -1 if not terminated
     def parse_pi(self, i):
         rawdata = self.rawdata
         assert rawdata[i:i+2] == '<?', 'unexpected call to parse_pi()'

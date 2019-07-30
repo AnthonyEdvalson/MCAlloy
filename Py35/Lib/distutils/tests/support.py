@@ -180,7 +180,7 @@ def fixup_build_ext(cmd):
     find libpython<blah>.so, because regrtest runs in a tempdir, not in the
     source directory where the .so lives.
 
-    When Python was built with in debug mode on Windows, build_ext commands
+    When Python was built with in debug mode on Windows, build_ext instrs
     need their debug attribute set, and it is not done automatically for
     some reason.
 

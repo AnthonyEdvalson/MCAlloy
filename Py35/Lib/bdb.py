@@ -215,7 +215,7 @@ class Bdb:
     def set_step(self):
         """Stop after one line of code."""
         # Issue #13183: pdb skips frames after hitting a breakpoint and running
-        # step commands.
+        # step instrs.
         # Restore the trace function in the caller (that may not have been set
         # for performance reasons) when returning from the current frame.
         if self.frame_returning:

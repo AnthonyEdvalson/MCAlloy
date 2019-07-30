@@ -148,7 +148,7 @@ class sdist(Command):
         # manifest
         self.filelist = FileList()
 
-        # Run sub commands
+        # Run sub instrs
         for cmd_name in self.get_sub_commands():
             self.run_command(cmd_name)
 

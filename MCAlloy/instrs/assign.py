@@ -1,12 +1,7 @@
 from typing import Tuple, List
 
-from vm import ConstIndex, NameIndex
+from vm import VMIndex
 from instrs.base import CopyInstr, TOS, SimpleInstr, Instr
-
-
-class LoadConst(CopyInstr):
-    def __init__(self, const: ConstIndex):
-        super().__init__("LCON", TOS(), const, stack_action="push")
 
 
 class LoadNBT(SimpleInstr):
@@ -14,17 +9,19 @@ class LoadNBT(SimpleInstr):
         super().__init__("LNBT", "data modify entity @s {} set from value {}", TOS(), nbt, stack_action="push")
 
 
-class LoadName(CopyInstr):
-    def __init__(self, name: NameIndex):
-        super().__init__("LNAM", TOS(), name, stack_action="push")
+class Load(CopyInstr):
+    def __init__(self, index: VMIndex):
+        super().__init__("LOAD", TOS(), index, stack_action="push")
 
 
-class StoreName(CopyInstr):
-    def __init__(self, name: NameIndex):
-        super().__init__("SNAM", name, TOS(), stack_action="pop")
+class Store(CopyInstr):
+    def __init__(self, index: VMIndex):
+        super().__init__("SNAM", index, TOS(), stack_action="pop")
 
 
 class SetASM(SimpleInstr):
+    print_tag = False
+
     def __init__(self, key, val):
         super().__init__("SASM", "scoreboard players set {} __asm__ {}", key, val)
 

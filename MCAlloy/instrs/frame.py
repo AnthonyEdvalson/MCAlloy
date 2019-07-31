@@ -59,7 +59,7 @@ class StartFrame(Instr):
             yield 'function {}'.format(Path("__callfunc__"))
 
     def str(self):
-        return "IFRM", self.height, self.consts
+        return "IFRM", self.height
 
 
 class StartCall(Instr):

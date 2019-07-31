@@ -3,7 +3,7 @@ from dis import dis
 
 from alloy.generator import AlloyGenerator
 from assembler.alloy_assembler import assemble_alloy
-from instrs import InitContext, Call, LoadConst
+from instrs import InitContext, Call, Load
 from containers import ILModule, ILFrame, ILBlock
 from vm import ConstIndex
 
@@ -38,6 +38,6 @@ class ILModuleGenerator:
         frame.root_block = ILBlock(self.path)
         frame.root_block.push(InitContext(mod_ctx.code))
         frame.root_block.push(Call(self.mod_path))
-        frame.root_block.push(LoadConst(ConstIndex(0)))
+        frame.root_block.push(Load(ConstIndex(0)))
 
         return frame

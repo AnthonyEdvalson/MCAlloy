@@ -9,6 +9,7 @@ class Direct(SimpleInstr):
 
 
 class Comment(SimpleInstr):
+    print_tag = False
     warn_fail = False
 
     def __init__(self, message):
@@ -16,6 +17,7 @@ class Comment(SimpleInstr):
 
 
 class Seek(Instr):
+    print_tag = False
     def __init__(self, delta):
         self.delta = delta
 
@@ -28,6 +30,7 @@ class Seek(Instr):
 
 
 class NOOP(Instr):
+    print_tag = False
     def __init__(self):
         pass
 

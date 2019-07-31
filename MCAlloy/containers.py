@@ -26,7 +26,7 @@ class Path:
             ("", self.namespace),
             (":", self.module),
             (".", self.frame),
-            ("_", self.block)
+            ("" if self.frame and self.frame.endswith("_") else "_", self.block)
         ]
 
         for pre, text in d:
@@ -45,7 +45,7 @@ class Path:
             if self.frame is not None:
                 s.append("." + self.frame)
             if self.block is not None:
-                s.append("_" + self.block)
+                s.append(("" if self.frame and self.frame.endswith("_") else "_") + self.block)
 
         return "".join(s)
 

@@ -376,9 +376,8 @@ Compiles everything in it's bytecode to MCAlloy's instructions, below are all su
 |:-----------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | CompareOp   | COMPARE_OP          |
 | BinaryOp    | BINARY_MULTIPLY BINARY_FLOOR_DIVIDE BINARY_MODULO BINARY_ADD BINARY_SUBTRACT INPLACE_MULTIPLY INPLACE_FLOOR_DIVIDE INPLACE_MODULO INPLACE_ADD INPLACE_SUBTRACT |
-| StoreName   | STORE_NAME          |
-| LoadConst   | LOAD_CONST          |
-| LoadName    | LOAD_NAME LOAD_FAST |
+| Store       | STORE_NAME          |
+| Load        | LOAD_NAME LOAD_FAST LOAD_CONST |
 | StoreAttr   | STORE_ATTR          |
 | LoadAttr    | LOAD_ATTR           |
 |             | CALL_FUNCTION       |
@@ -492,5 +491,5 @@ is a planned feature
 
 The volatile tag is used whenever an object is made or destroyed. All created function contexts have the \_\_volatile\_\_ tag, and before destroying any
 function contexts, the tag is checked for. This gives additional flexibility and security. The primary reason the tag exists is because the kill command
-is devastating if it goes wrong, possibly killing important entities or players. So as a rule, all entities in MCAlloy have to "elect" to be killable by 
-adding the \_\_volatile\_\_ tag. Those entities can also remove this tag at any time, if they need be kept around for whatever reason.
+is devastating if it goes wrong. Players won't be happy if running any function in generated data pack with `/function` results in instant death. 
+So as a rule, all entities in MCAlloy have to "elect" to be killable by adding the \_\_volatile\_\_ tag.

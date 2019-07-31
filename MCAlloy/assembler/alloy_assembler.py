@@ -1,6 +1,7 @@
 from instrs import *
 from containers import ILBlock, ILFrame, ILModule
 from alloy import nodes
+from vm import ConstIndex
 
 
 def assemble_alloy(doc: str, alloy: nodes.AlloyNode):
@@ -21,21 +22,18 @@ class AlloyAssembler:
         return self.module
 
     def visit(self, node: nodes.AlloyNode):
-        s = "---"
-
         if node.line is not None:
             s = "{}: {}".format(node.line, self.doc.split("\n")[node.line - 1])
-
-        if self.block:
-            self.write(Comment(s))
-        print(s)
+            print(s)
+            if self.block:
+                self.write(Comment(s))
 
         visitor = getattr(self, "assemble_" + type(node).__name__.lower())
         visitor(node)
 
     def assemble_module(self, node: nodes.Module):
         self.module = ILModule(node.path)
-        [self.visit(frame) for frame in node.frames]
+        [self.visit(f) for f in node.frames]
 
     def assemble_frame(self, node: nodes.Frame):
         self.frame = ILFrame(node.path, node.code)
@@ -47,35 +45,43 @@ class AlloyAssembler:
         parent = self.block
         self.block = ILBlock(node.path)
 
-        # Connect the new block into the block hierarchy
+        # Assemble body
+        with CommentTags(self, str(node.path)):
+            [self.visit(n) for n in node.body]
+
+        # Add and assemble links
+        for link in node.links:
+            tag = {None: "Bridge", True: "Bridge if true", False: "Bridge if false"}[link.condition]
+            tag += ": " + str(link.path)
+            with CommentTags(self, tag):
+                self.visit(link)
+
         if node.is_root:
-            self.frame.root_block = self.block
-            # TODO pull None from co_consts
-            self.write(LoadConst(ConstIndex(0)))
-            self.write(Return())
-            self.write_start(StartFrame(self.frame.code, True))
+            self.wrap_root_block()
         else:
             parent.targets.append(self.block)
 
-        # Assemble body
-        with CommentTags(self, str(node.path), node.line):
-            [self.visit(n) for n in node.body]
-
-        [self.visit(link) for link in node.links]
-
         self.block = parent
 
+    def wrap_root_block(self):
+        self.frame.root_block = self.block
+
+        # Start frame code
+        self.write_start(StartFrame(self.frame.code, True))
+
+        # End frame code
+        self.write(Return(None))
+
     def assemble_link(self, node: nodes.Link):
-        if node.condition is None:
-            self.write(BlockBridge(node.path))
-        if node.condition is False:
-            self.write(CallBlockIf(node.path, True))
-        if node.condition is True:
-            self.write(CallBlockIf(node.path))
+        self.write({
+            None: BlockBridge(node.path),
+            True: CallBlockIf(node.path),
+            False: CallBlockIf(node.path, True)
+        }[node.condition])
 
         if node.block:
             parent = self.block
-            [self.visit(item) for item in node.block.body]
+            self.visit(node.block)
             self.block = parent
 
     def assemble_byte(self, node: nodes.Byte):
@@ -85,11 +91,11 @@ class AlloyAssembler:
             op = instr.opname
             if op == "LOAD_CONST":
                 ci = ConstIndex(instr.arg)
-                write(LoadConst(ci))
+                write(Load(ci))
 
             elif op in ["LOAD_NAME", "LOAD_FAST"]:
                 sym = NameIndex(instr.argrepr)
-                write(LoadName(sym))
+                write(Load(sym))
 
             elif op.startswith("BINARY_") or op.startswith("INPLACE_"):
                 write(BinaryOp(binops[op.split("_", 1)[1]]))
@@ -108,7 +114,7 @@ class AlloyAssembler:
 
             elif op == "STORE_NAME":
                 ni = NameIndex(instr.argval)
-                write(StoreName(ni))
+                write(Store(ni))
 
             elif op == "LOAD_ATTR":
                 ni = NameIndex(instr.argval)
@@ -135,7 +141,7 @@ class AlloyAssembler:
 
     def assemble_functiondef(self, node: nodes.FunctionDef):
         self.write(LoadNBT('{{v: {}, t: "fptr"}}'.format(node.fptr)))
-        self.write(StoreName(node.name))
+        self.write(Store(node.name))
 
     def assemble_classdef(self, node: nodes.ClassDef):
         pass
@@ -181,24 +187,24 @@ class AlloyAssembler:
 
 
 class CommentTags:
-    def __init__(self, ilbg: AlloyAssembler, text: str, line: int):
+    indent = 0
+
+    def __init__(self, ilbg: AlloyAssembler, text: str):
         self.ilbg = ilbg
         self.text = text
-        self.line = line
+        self.line_label = ""
 
     def __enter__(self):
+        self.line_label += "  " * CommentTags.indent
         self.tag(True)
+        CommentTags.indent += 1
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        CommentTags.indent -= 1
         self.tag(False)
 
     def tag(self, start):
-        if self.line is not None:
-            s = "{}: ".format(self.line)
-        else:
-            s = ""
-
-        s += "<{}{}>".format("" if start else "/", self.text)
+        s = "{}<{}{} >".format(self.line_label, " " if start else "/", self.text)
         self.ilbg.write(Comment(s))
         print(s)
 

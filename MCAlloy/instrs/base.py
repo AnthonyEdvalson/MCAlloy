@@ -1,9 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Tuple, Union
 
-from containers import Path
 from util import escape
-from vm import StackIndex, VMIndex, NameIndex, ConstIndex
+from vm import StackIndex, VMIndex
 
 
 class TOS:
@@ -18,6 +17,7 @@ class BaseInstr(ABC):
 class Instr(BaseInstr):
     debug_before = False
     warn_fail = True
+    print_tag = True
 
     @abstractmethod
     def gen(self, i: StackIndex):
@@ -30,27 +30,21 @@ class Instr(BaseInstr):
     def debug_str(self, i: StackIndex) -> str:
         s = self.str()
 
-        tellraw = 'execute if entity @a[scores={{..DEBUG=1..}}] run tellraw @a ["",{}]'
-
         dat2 = ['{{"text":" >>> {: <5}"}}'.format(escape(str(s[0])))]
         for d in s[1:]:
-            str_types = {str, bool, int, Path, NameIndex, ConstIndex, StackIndex}
-            if type(d) in str_types:
-                dat2.append('{{"text":"{}"}}'.format(escape(str(d))))
-            elif type(d) is TOS:
+            if type(d) is TOS:
                 dat2.append('{{"text":"[{}]"}}'.format(i.index))
             else:
-                raise Exception("Illegal type {} in debug() of {}".format(type(d), type(self)))
+                dat2.append('{{"text":"{}"}}'.format(escape(str(d))))
 
-        vm_info = ",".join([
-            '{"text":" >>> STACK: "},{"nbt":"ArmorItems[0].tag.Stack","entity":"@s"}',
-            '{"text":"NAMES: "},{"nbt":"ArmorItems[0].tag.Names","entity":"@s"}',
-            '{"text":"CONSTS: "},{"nbt":"ArmorItems[0].tag.Consts","entity":"@s"}',
-            '{"text":"TAGS: "},{"nbt":"Tags","entity":"@s"}'
-        ])
-
+        tellraw = 'execute if entity @a[scores={{..DEBUG=1..}}] run tellraw @a ["",{}]'
         yield tellraw.format(',{"text":"    "},'.join(dat2))
-        yield tellraw.format(vm_info)
+
+        if self.print_tag:
+            yield tellraw.format(",".join([
+                '{"text":" >>> STACK: "},{"nbt":"ArmorItems[0].tag","entity":"@s"}',
+                '{"text":"TAGS: "},{"nbt":"Tags","entity":"@s"}'
+            ]))
 
     def generate(self, i: StackIndex, gs):
         buf = ' ' * 200
@@ -96,8 +90,8 @@ class SimpleInstr(Instr):
         self.stack_action = stack_action
 
     def gen(self, i):
-        args = map(lambda a: i if isinstance(a, TOS) else a, self.args)
-        args = map(lambda a: repr(a) if isinstance(a, VMIndex) else a, args)
+        args = [i if isinstance(a, TOS) else a for a in self.args]
+        args = [repr(a) if isinstance(a, VMIndex) else a for a in args]
 
         if self.stack_action == "push":
             i.push()

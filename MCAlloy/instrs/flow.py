@@ -1,9 +1,10 @@
-from instrs import SetASM
-from instrs import Instr, TOS
+from instrs import SetASM, Instr, TOS, LoadNBT
+from util import to_nbt
 from containers import Path
 
 
 class Call(Instr):
+    print_tag = False
     debug_before = True
 
     def __init__(self, path: Path):
@@ -21,6 +22,8 @@ class Call(Instr):
 
 
 class CallBlock(Call):
+    print_tag = False
+
     def __init__(self, path: Path):
         """
         Make a call to another mcfunction without changing @s
@@ -33,6 +36,8 @@ class CallBlock(Call):
 
 
 class BlockBridge(CallBlock):
+    print_tag = False
+
     def __init__(self, path):
         """
         Make a bridge to another block, the target block will only be called if not returning
@@ -69,16 +74,25 @@ class CallBlockIf(CallBlock):
 
 
 class Return(Instr):
-    def __init__(self):
+    print_tag = False
+
+    def __init__(self, value=TOS()):
         """
         Return by setting ret flag and tagging @s with __ret__
+        Can pass a constant value to be set as TOS
         """
-        pass
+        self.value = value
 
     def gen(self, i):
-        yield from SetASM("ret", 1).gen(i)
+        for line in list(self._gen(i)):
+            yield 'execute if score ret __asm__ matches 0 run ' + line
+
+    def _gen(self, i):
+        if not isinstance(self.value, TOS):
+            yield from LoadNBT(to_nbt(self.value)).gen(i)
         yield 'tag @s add __ret__'
+        yield from SetASM("ret", 1).gen(i)
         i.pop()
 
     def str(self):
-        return "RTRN", TOS()
+        return "RTRN", self.value

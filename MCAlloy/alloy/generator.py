@@ -13,6 +13,8 @@ class AlloyGenerator(NodeVisitor):
         self.frame_stack = []
         self.block = None
 
+        self.block_names = set()
+
     def frame_path(self):
         return self.frame_stack[-1].path
 
@@ -20,7 +22,7 @@ class AlloyGenerator(NodeVisitor):
         self.frame_stack.append(Frame(self.module.path, name, code))
         self.block = Block(self.frame_path(), None, True)
         self.frame_stack[-1].root_block = self.block
-        self.bud(self.block, nodes, None)
+        self.bud(self.block, nodes, 0, None)
         return self.frame_stack.pop()
 
     """def resolve_block(self, nodes, name, first=False, last=False):
@@ -28,13 +30,16 @@ class AlloyGenerator(NodeVisitor):
         self.resolve(nodes)
         return self.block_stack.pop()"""
 
-    def bud(self, parent, nodes, name, condition=None):
-
+    def bud(self, parent, nodes, line, name, condition=None):
         # iterate over all the nodes
         i = 0
+        blocks_made = {None: 0, True: 0, False: 0}
         while i < len(nodes):
+            full_name = self.make_block_name(line, condition, blocks_made, name)
+            blocks_made[condition] += 1
+
             # Make a new block and link it to the parent
-            self.block = Block(self.frame_path(), name)
+            self.block = Block(self.frame_path(), full_name)
             parent.links.append(Link(self.block, condition=condition))
 
             # Add nodes to the new bud block, unless it has to end (Return, If, While, etc.)
@@ -46,6 +51,11 @@ class AlloyGenerator(NodeVisitor):
                     break
 
         return self.block  # Return the last block that was added
+
+    @staticmethod
+    def make_block_name(line, condition, blocks_made, name):
+        blocks_label = blocks_made[condition] if blocks_made[condition] > 1 or condition is None else ""
+        return "{}.{}".format(line, name or blocks_label)
 
     def write(self, node, target=None):
         target = target or self.block
@@ -82,7 +92,6 @@ class AlloyGenerator(NodeVisitor):
     def visit_Return(self, node):
         self.visit(node.value)
         self.write(Return(node.lineno))
-        self.split(self.block, "{}return".format(node.lineno))
         return True
 
     def visit_While(self, node):
@@ -90,8 +99,8 @@ class AlloyGenerator(NodeVisitor):
         line = node.lineno
 
         pre = self.block
-        test_block = self.bud(pre, [node.test], "{}test".format(line))
-        while_block = self.bud(test_block, node.body, "{}while".format(line), True)
+        test_block = self.bud(pre, [node.test], line, "test")
+        while_block = self.bud(test_block, node.body, line, "while", True)
         while_block.links.append(Link(path=test_block.path))  # While always calls test when done
         return True
 
@@ -101,8 +110,8 @@ class AlloyGenerator(NodeVisitor):
         self.visit_eval(node.test)
 
         pre = self.block
-        self.bud(pre, node.body, "{}true".format(line), True)
-        self.bud(pre, node.orelse, "{}false".format(line), False)
+        self.bud(pre, node.body, line, "true", True)
+        self.bud(pre, node.orelse, line, "false", False)
         return True
 
     def visit_Expr(self, node):

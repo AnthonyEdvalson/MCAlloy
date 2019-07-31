@@ -12,6 +12,7 @@ class DatapackGenerator:
     def __init__(self, gs):
         self.gs = gs
         self.stack_histories = OrderedDict()
+        self.files_made = set()
 
     def generate(self, dp_folder: str, namespaces: List[ILNamespace]):
         if not os.path.exists(dp_folder):
@@ -52,7 +53,11 @@ class DatapackGenerator:
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
+        print()
         print(file_name)
+        if file_name in self.files_made:
+            raise Exception("{} has already been created".format(file_name))
+        self.files_made.add(file_name)
 
         self.stack_histories[file_name] = []
         with open(file_name, "w+") as output:

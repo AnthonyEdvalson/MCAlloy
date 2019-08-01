@@ -31,13 +31,15 @@ class ILModuleGenerator:
         alloy = gen.visit(tree)
         alloy.pprint()
 
-        return assemble_alloy(source_text, alloy)
+        module = assemble_alloy(source_text, alloy)
+        module.push(self.launch_frame())
 
-    def launch_frame(self, mod_ctx):
-        frame = ILFrame(self.path, mod_ctx.code)
+        return module
+
+    def launch_frame(self):
+        frame = ILFrame(self.path, None)
         frame.root_block = ILBlock(self.path)
-        frame.root_block.push(InitContext(mod_ctx.code))
+        frame.root_block.push(InitContext(0))
         frame.root_block.push(Call(self.mod_path))
-        frame.root_block.push(Load(ConstIndex(0)))
 
         return frame

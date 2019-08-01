@@ -1,21 +1,13 @@
-#   < dpack:main.__module__0.0 >
-# 19: """
-data modify entity @s ArmorItems[0].tag.Stack[-1] set from entity @s ArmorItems[0].tag.Consts[0]
-data modify entity @s ArmorItems[0].tag.Names.__doc__ set from entity @s ArmorItems[0].tag.Stack[0]
-# 21: if 1 == 2:
-data modify entity @s ArmorItems[0].tag.Stack[-1] set from entity @s ArmorItems[0].tag.Consts[0]
-data modify entity @s ArmorItems[0].tag.Stack[0] set from entity @s ArmorItems[0].tag.Consts[1]
-execute store result score t1 __asm__ run data get entity @s ArmorItems[0].tag.Stack[1].v
-execute store result score t0 __asm__ run data get entity @s ArmorItems[0].tag.Stack[0].v
-scoreboard players set t2 __asm__ 0
-execute if score t0 __asm__ = t1 __asm__ run scoreboard players set t2 __ASM__ 1
-execute store result entity @s ArmorItems[0].tag.Stack[0].v int 1 run scoreboard players get t2 __ASM__
-#   </dpack:main.__module__0.0 >
-#   < Bridge if true: dpack:main.__module__21.true >
-execute store result score test __asm__ run data get entity @s ArmorItems[0].tag.Stack[0].v
-execute if score test __asm__ matches 1 run function dpack:main.__module__21.true
-#   </Bridge if true: dpack:main.__module__21.true >
-#   < Bridge if false: dpack:main.__module__21.false >
-execute store result score test __asm__ run data get entity @s ArmorItems[0].tag.Stack[0].v
-execute if score test __asm__ matches 0 run function dpack:main.__module__21.false
-#   </Bridge if false: dpack:main.__module__21.false >
+###########################################  < body >
+########################################### 2: def print(x):
+########################################### - LNBT, TOS, {v: 0, t: "fptr"}
+execute store success score pass __asm__ run data modify entity @s ArmorItems[0].tag.Stack[-1] set from value {v: 0, t: "fptr"}
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Stack[-1] set from value {v: 0, t: \"fptr\"}"}]
+                                                                                                                                                                                                        execute if entity @a[scores={__DEBUG__=1..}] run tellraw @a ["",{"text":" >>> LNBT "},{"text":"    "},{"text":"[0]"},{"text":"    "},{"text":"{v: 0, t: \"fptr\"}"}]execute if entity @a[scores={__DEBUG__=1..}] run tellraw @a ["",{"text":" >>> STACK: "},{"nbt":"ArmorItems[0].tag","entity":"@s"},{"text":"TAGS: "},{"nbt":"Tags","entity":"@s"}]
+########################################### - SNAM, __module__.print, TOS
+execute store success score pass __asm__ run data modify entity @s __module__.print set from entity @s ArmorItems[0].tag.Stack[0]
+                                                                                                                                                                                                        execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s __module__.print set from entity @s ArmorItems[0].tag.Stack[0]"}]
+                                                                                                                                                                                                        execute if entity @a[scores={__DEBUG__=1..}] run tellraw @a ["",{"text":" >>> SNAM "},{"text":"    "},{"text":"__module__.print"},{"text":"    "},{"text":"[-1]"}]execute if entity @a[scores={__DEBUG__=1..}] run tellraw @a ["",{"text":" >>> STACK: "},{"nbt":"ArmorItems[0].tag","entity":"@s"},{"text":"TAGS: "},{"nbt":"Tags","entity":"@s"}]
+###########################################  </body >
+###########################################  < links >
+###########################################  </links >

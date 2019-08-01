@@ -8,16 +8,23 @@ class Direct(SimpleInstr):
         super().__init__("/", "{}", command)
 
 
-class Comment(SimpleInstr):
-    print_tag = False
-    warn_fail = False
-
+class Comment(Instr):
     def __init__(self, message):
-        super().__init__("#", "# {}", message)
+        self.message = message
+
+    def gen(self, i):
+        pass
+
+    def generate(self, i, gs):
+        return self.comment_line(self.message, gs.warn_fail, gs.comment)
+
+    def str(self):
+        return "#", self.message
 
 
 class Seek(Instr):
     print_tag = False
+
     def __init__(self, delta):
         self.delta = delta
 
@@ -31,6 +38,7 @@ class Seek(Instr):
 
 class NOOP(Instr):
     print_tag = False
+
     def __init__(self):
         pass
 

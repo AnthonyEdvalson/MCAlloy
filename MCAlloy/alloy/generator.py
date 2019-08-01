@@ -18,11 +18,12 @@ class AlloyGenerator(NodeVisitor):
     def frame_path(self):
         return self.frame_stack[-1].path
 
-    def resolve_frame(self, nodes, code, name):
+    def resolve_frame(self, nodes, code, name, args=None):
         self.frame_stack.append(Frame(self.module.path, name, code))
         self.block = Block(self.frame_path(), None, True)
         self.frame_stack[-1].root_block = self.block
         self.bud(self.block, nodes, 0, None)
+        self.frame_stack[-1].args = args or []
         return self.frame_stack.pop()
 
     """def resolve_block(self, nodes, name, first=False, last=False):
@@ -75,13 +76,15 @@ class AlloyGenerator(NodeVisitor):
         raise NameError("Cannot find code object named " + name)
 
     def visit_FunctionDef(self, node):
+        parent = self.block
+
         args = [arg.arg for arg in node.args.args]
         code = self.find_code(node.name)
         frame_name = "{}.{}".format(self.frame_path().frame, node.name)
-        frame = self.resolve_frame(node.body, code, frame_name)
-        frame.args = args
+        frame = self.resolve_frame(node.body, code, frame_name, args)
+
         self.module.frames.append(frame)
-        self.write(FunctionDef(node.lineno, frame_name, frame))
+        self.write(FunctionDef(node.lineno, frame_name, frame), parent)
 
     def visit_ClassDef(self, node):
         code = self.find_code(node.name)

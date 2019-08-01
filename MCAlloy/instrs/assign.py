@@ -33,7 +33,7 @@ class LoadAttr(Instr):
     def gen(self, i):
         # TODO dereferencing is a very common instruction, but it's very slow, need to look into speeding it up
         yield "execute store result score t0 __asm__ run data get entity @s {}.v".format(repr(i))
-        yield "execute as @e run execute if score @s ..addr = t0 __asm__ run tag @s add __deref__"
+        yield "execute as @e run execute if score @s __addr__ = t0 __asm__ run tag @s add __deref__"
         yield "data modify set @s {} from entity @e[tag=__deref__,limit=1] {}".format(repr(i), repr(self.name_index))
         yield "tag @e[tag=__deref__,limit=1] remove __deref__"
 
@@ -47,7 +47,7 @@ class StoreAttr(Instr):
 
     def gen(self, i):
         yield "execute store result score t0 __asm__ run data get entity @s {}.v".format(repr(i))
-        yield "execute as @e run execute if score @s ..addr = t0 __asm__ run tag @s add __deref__"
+        yield "execute as @e run execute if score @s __addr__ = t0 __asm__ run tag @s add __deref__"
         yield "data modify @e[tag=__deref__,limit=1] {} from entity set @s {}".format(repr(self.name_index), repr(i))
         yield "tag @e[tag=__deref__,limit=1] remove __deref__"
         i.pop(2)

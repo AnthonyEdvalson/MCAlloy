@@ -99,7 +99,7 @@ class FunctionDef(AlloyNode):
 
     def __str__(self):
         return "\n".join([
-            "FunctionDef: {}: ({})".format(self.name, ", ".join(map(str, self.args))),
+            "FunctionDef: {}({})".format(self.name, ", ".join(map(str, self.args))),
             indent(self.frame.path)
         ])
 

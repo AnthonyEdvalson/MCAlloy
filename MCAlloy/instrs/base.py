@@ -19,6 +19,7 @@ class Instr(BaseInstr):
     warn_fail = True
     print_tag = True
 
+
     @abstractmethod
     def gen(self, i: StackIndex):
         yield from []
@@ -37,7 +38,7 @@ class Instr(BaseInstr):
             else:
                 dat2.append('{{"text":"{}"}}'.format(escape(str(d))))
 
-        tellraw = 'execute if entity @a[scores={{..DEBUG=1..}}] run tellraw @a ["",{}]'
+        tellraw = 'execute if entity @a[scores={{__DEBUG__=1..}}] run tellraw @a ["",{}]'
         yield tellraw.format(',{"text":"    "},'.join(dat2))
 
         if self.print_tag:
@@ -47,34 +48,37 @@ class Instr(BaseInstr):
             ]))
 
     def generate(self, i: StackIndex, gs):
-        buf = ' ' * 200
-
-        pad = 43 if gs.warn_fail else 0
+        lines = self.comment_line(" - " + ", ".join(map(str, self.str())), gs.warn_fail, gs.comment)
 
         if gs.debug and self.debug_before:
-            for debug in list(self.debug_str(i)):
-                yield buf + debug
+            lines.extend(self.debug_line(i))
 
         for command in list(self.gen(i)):
-            is_comment = command[0] == "#"
-
-            if is_comment:
-                if gs.comment:
-                    yield "#" * pad + command
-                continue
-
-            if self.warn_fail and gs.warn_fail:
-                yield "execute store success score pass __asm__ run " + command
-                fail = 'tellraw @a [{{"text": " !!!!!!!! FAIL: {}"}}]'.format(escape(command))
-                yield buf + 'execute if score pass __asm__ matches 0 run {}'.format(fail)
-            elif not self.warn_fail and gs.warn_fail:
-                yield " " * pad + command
-            else:
-                yield command
+            lines.extend(self.command_line(command, gs.warn_fail and self.warn_fail))
 
         if gs.debug and not self.debug_before:
-            for debug in list(self.debug_str(i)):
-                yield buf + debug
+            lines.extend(self.debug_line(i))
+
+        return lines
+
+    def command_line(self, command, warn_fail):
+        pre = "execute store success score pass __asm__ run " if warn_fail else ""
+
+        ls = [pre + command]
+        if pre:
+            fail = 'tellraw @a [{{"text": " !!!!!!!! FAIL: {}"}}]'.format(escape(command))
+            ls.append(" " * 200 + 'execute if score pass __asm__ matches 0 run {}'.format(fail))
+        return ls
+
+    def debug_line(self, i):
+        return [" " * 200 + "".join(self.debug_str(i))]
+
+    def comment_line(self, text, warn_fail, comment):
+        if not comment:
+            return []
+
+        pad = 43 if warn_fail else 0
+        return ["#" * pad + text]
 
     def __str__(self):
         dat = list(map(str, self.str()))

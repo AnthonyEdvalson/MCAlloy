@@ -1,4 +1,4 @@
-"""
+
 def print(x):
     '/tellraw @a {"nbt":"ArmorItems[0].tag.Names.x.v","entity":"@s"}'
 
@@ -36,7 +36,7 @@ while 1 == 1:
 print(a + b)
 
 
-"""
+
 def print(x):
     '/tellraw @a {"nbt":"ArmorItems[0].tag.Names.x.v","entity":"@s"}'
 

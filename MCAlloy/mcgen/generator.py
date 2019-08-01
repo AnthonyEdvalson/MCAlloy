@@ -68,15 +68,6 @@ class DatapackGenerator:
 
                 self.stack_histories[file_name].append((instr, si.index))
 
-        # prev_result_i = None
-
         for b in block.targets:
             si2 = StackIndex(si.index)
             self.generate_block(b, dp_folder, si2)
-
-            # if prev_result_i is not None and prev_result_i != si2.i:
-            #    raise Exception("Branching path left stack in an undefined state")
-            # prev_result_i = si2.i
-
-        # if prev_result_i is not None:
-        #    si.i = prev_result_i

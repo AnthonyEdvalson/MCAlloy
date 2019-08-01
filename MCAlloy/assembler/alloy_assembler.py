@@ -26,7 +26,7 @@ class AlloyAssembler:
             s = "{}: {}".format(node.line, self.doc.split("\n")[node.line - 1])
             print(s)
             if self.block:
-                self.write(Comment(s))
+                self.write(Comment(" " + s))
 
         visitor = getattr(self, "assemble_" + type(node).__name__.lower())
         visitor(node)
@@ -46,14 +46,14 @@ class AlloyAssembler:
         self.block = ILBlock(node.path)
 
         # Assemble body
-        with CommentTags(self, str(node.path)):
+        with CommentTags(self, "body"):
             [self.visit(n) for n in node.body]
 
         # Add and assemble links
-        for link in node.links:
-            tag = {None: "Bridge", True: "Bridge if true", False: "Bridge if false"}[link.condition]
-            tag += ": " + str(link.path)
-            with CommentTags(self, tag):
+        with CommentTags(self, "links"):
+            for link in node.links:
+                tag = {None: "Bridge", True: "Bridge if true", False: "Bridge if false"}[link.condition]
+                tag += ": " + str(link.path)
                 self.visit(link)
 
         if node.is_root:
@@ -166,7 +166,8 @@ class AlloyAssembler:
         self.write(Direct(node.command))
 
     def call_function(self, arg_count):
-        self.write(InitContext(arg_count + 1))
+        self.write(InitContext(arg_count))
+        self.write(CallFuncPointer())
         self.write(EndCall())
 
     def write(self, command: BaseInstr):

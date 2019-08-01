@@ -8,7 +8,7 @@ class InitContext(Instr):
     def __init__(self, copy_count):
         """
         Creates a new armor stand with basic NBT scaffolding, as well as __dest__ and __volatile__ tags
-        Then copies over copy_count arguments from @s to __dest__'s Pre section without changing order
+        Then copies over copy_count items from @s to __dest__'s Pre section without changing order
         """
         self.copy_count = copy_count
 
@@ -39,50 +39,46 @@ class StartFrame(Instr):
         self.is_func = is_func
         self.var_names = list(code.co_varnames)
 
-        if is_func:
-            self.var_names.insert(0, "__fptr__")
-
     def gen(self, i):
         yield "tag @s remove __dest__"
-
-        for i, var_name in enumerate(self.var_names):
-            source = PreIndex(i)
-            target = NameIndex(var_name)
-            yield "data modify entity @s {} set from entity @s {}".format(repr(target), repr(source))
 
         cstr = ",".join(map(lambda c: to_nbt(c, False), self.consts))
         sstr = ",".join(["{}"] * self.height)
         cmd = 'data modify entity @s ArmorItems[0].tag set from value {{Stack:[{}],Consts:[{}],Names:{{}}}}'
         yield cmd.format(sstr, cstr)
 
-        if self.is_func:
-            yield 'function {}'.format(Path("__callfunc__"))
+        for i, var_name in enumerate(self.var_names):
+            source = PreIndex(i)
+            target = NameIndex(var_name)
+            yield "data modify entity @s {} set from entity @s {}".format(repr(target), repr(source))
 
     def str(self):
         return "IFRM", self.height
 
 
-class StartCall(Instr):
+class CallFuncPointer(Instr):
     def __init__(self):
-        pass
+        """
+        Resolves TOS as a function pointer, and calls the resolved function on __dest__
+        """
 
     def gen(self, i):
         super().gen(i)
         yield "execute store result score fptr __asm__ run data get entity @s {}".format(repr(i))
-        yield "function {}".format(Path("__callfunc__"))
-
+        yield "execute as @e[tag=__dest__] run function {}".format(Path("__callfunc__"))
         i.pop()
 
     def str(self):
-        return "XFNC"
+        return "XFNC",
 
 
 class EndCall(Instr):
     def __init__(self):
         """
-        Finish a function call. Takes BOS from __ret__ and pushes it to TOS of @s, simulating a return
-        Then kills __ret__, assuming it is tagged volatile. TODO bottom of stack always okay?
+        Finish a function call. Takes BOS from __ret__ and pushes it to @s, simulating a return
+        Afterward it kills __ret__, if it is __volatile__
         """
+        # TODO change BOS to TOS
 
     def gen(self, i):
         i.push()

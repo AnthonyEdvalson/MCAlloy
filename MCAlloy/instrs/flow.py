@@ -15,7 +15,7 @@ class Call(Instr):
         self.path = path
 
     def gen(self, i):
-        yield "execute as @e[tag=__dest__] run function {}".format(self.path)
+        yield "execute as @e[tag=__dest__,limit=1] run function {}".format(self.path)
 
     def str(self):
         return "CALL", self.path

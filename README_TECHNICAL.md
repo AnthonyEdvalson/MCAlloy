@@ -461,8 +461,8 @@ of function calls.
 ```
 # file: __callfunc__.0_3
 
-execute if fptr __ASM__ matches ..1 run function __callfunc__.0_1
-execute if ret __ASM__ matches 0 run function __callfunc__.2_3
+execute if fptr __asm__ matches ..1 run function __callfunc__.0_1
+execute if ret __asm__ matches 0 run function __callfunc__.2_3
 ``` 
 
 The function name always \_\_callfunc\_\_ followed by the range of value being considered.

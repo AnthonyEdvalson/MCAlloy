@@ -105,14 +105,15 @@ class FunctionDef(AlloyNode):
 
 
 class ClassDef(AlloyNode):
-    def __init__(self, line, name, frame):
+    def __init__(self, line, name, frame, class_fptr):
         super().__init__(line)
         self.name = name
         self.frame = frame
+        self.fptr = class_fptr
 
     def __str__(self):
         return "\n".join([
-            "ClassDef: {}".format(self.name),
+            "ClassDef: {} ({})".format(self.name, self.fptr),
             indent(self.frame.path)
         ])
 

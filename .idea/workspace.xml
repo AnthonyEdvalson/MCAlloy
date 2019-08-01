@@ -6,40 +6,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60e8f5ba-9830-4dc4-a707-9aef454b6e64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.__init__.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.__init__0.0.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase_0.0.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter_0.0.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.print.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.print_0.0.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__17.true.mcfunction" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.mcfunction" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__0.0.mcfunction" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/tony_edvalson.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/tony_edvalson.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MCAlloy/alloy/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/alloy/generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MCAlloy/alloy/nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/alloy/nodes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MCAlloy/assembler/alloy_assembler.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/assembler/alloy_assembler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MCAlloy/assembler/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/assembler/module.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCAlloy/assembler/builtins/blocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/assembler/builtins/blocks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MCAlloy/instrs/assign.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/instrs/assign.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MCAlloy/instrs/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/instrs/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCAlloy/instrs/flow.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/instrs/flow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MCAlloy/instrs/frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/instrs/frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MCAlloy/instrs/misc.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/instrs/misc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MCAlloy/mcgen/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/mcgen/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/in/dpack/dpack/main.alloy" beforeDir="false" afterPath="$PROJECT_DIR$/in/dpack/dpack/main.alloy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCAlloy/instrs/operate.py" beforeDir="false" afterPath="$PROJECT_DIR$/MCAlloy/instrs/operate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README_TECHNICAL.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_TECHNICAL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.__init__.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.__init__.mcfunction" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.__init__0.0.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.__init__0.0.mcfunction" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase.mcfunction" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase_0.0.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.increase_0.0.mcfunction" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter.mcfunction" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter_0.0.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.Counter_0.0.mcfunction" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.mcfunction" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__0.0.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__0.0.mcfunction" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__0.1.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__0.1.mcfunction" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__0.2.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__21.false.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__21.true.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__23.false.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__23.true.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__27.true.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__28.false.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__28.true.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__33.test.mcfunction" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__33.while.mcfunction" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.print.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.print.mcfunction" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__17.true.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__17.true.mcfunction" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.mcfunction" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/datapacks/dpack/pack.mcmeta" beforeDir="false" afterPath="$PROJECT_DIR$/out/datapacks/dpack/pack.mcmeta" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,11 +38,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/assign.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/dpack/dpack/main.alloy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/alloy_assembler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="139" column="23" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="23" />
+            <state relative-caret-position="164">
+              <caret line="145" column="48" lean-forward="true" selection-start-line="145" selection-start-column="48" selection-end-line="145" selection-end-column="48" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -62,23 +83,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/generator.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/nodes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="300">
+              <caret line="99" column="22" lean-forward="true" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/nodes.py">
+        <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="101" column="37" lean-forward="true" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
+            <state relative-caret-position="283">
+              <caret line="88" column="28" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,6 +139,10 @@
       <find>Function</find>
       <find>functiond</find>
       <find>functionde</find>
+      <find>__ASM</find>
+      <find>execute store result entity @s</find>
+      <find>addr</find>
+      <find>tag=.</find>
     </findStrings>
     <replaceStrings>
       <replace>Post</replace>
@@ -129,8 +154,8 @@
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\tony.edvalson\PycharmProjects\MCAlloy\Py34</dir>
-      <dir>C:\Users\tony.edvalson\PycharmProjects\MCAlloy\MCAlloy</dir>
       <dir>C:\Users\tony.edvalson\PycharmProjects\MCAlloy</dir>
+      <dir>C:\Users\tony.edvalson\PycharmProjects\MCAlloy\MCAlloy</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -139,7 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/errors.py" />
         <option value="$PROJECT_DIR$/mcalloy.py" />
         <option value="$PROJECT_DIR$/commands/__init__.py" />
         <option value="$PROJECT_DIR$/alloy_instructions/builtins/blocks.py" />
@@ -171,24 +195,25 @@
         <option value="$PROJECT_DIR$/MCAlloy/alloy_instructions/alloy_assembler.py" />
         <option value="$PROJECT_DIR$/notes.txt" />
         <option value="$PROJECT_DIR$/MCAlloy/assembler/namespace.py" />
-        <option value="$PROJECT_DIR$/MCAlloy/assembler/builtins/blocks.py" />
         <option value="$PROJECT_DIR$/MCAlloy/alloy/reversion.py" />
         <option value="$PROJECT_DIR$/MCAlloy/symbol_table.py" />
-        <option value="$PROJECT_DIR$/MCAlloy/instrs/operate.py" />
         <option value="$PROJECT_DIR$/MCAlloy/util.py" />
-        <option value="$PROJECT_DIR$/MCAlloy/instrs/flow.py" />
         <option value="$PROJECT_DIR$/MCAlloy/containers.py" />
-        <option value="$PROJECT_DIR$/README_TECHNICAL.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/MCAlloy/assembler/module.py" />
-        <option value="$PROJECT_DIR$/MCAlloy/instrs/assign.py" />
         <option value="$PROJECT_DIR$/in/dpack/dpack/main.alloy" />
         <option value="$PROJECT_DIR$/MCAlloy/mcgen/generator.py" />
         <option value="$PROJECT_DIR$/MCAlloy/instrs/misc.py" />
+        <option value="$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.mcfunction" />
+        <option value="$PROJECT_DIR$/MCAlloy/alloy/generator.py" />
+        <option value="$PROJECT_DIR$/README_TECHNICAL.md" />
+        <option value="$PROJECT_DIR$/MCAlloy/instrs/base.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/instrs/operate.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/instrs/assign.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/instrs/flow.py" />
+        <option value="$PROJECT_DIR$/MCAlloy/assembler/builtins/blocks.py" />
         <option value="$PROJECT_DIR$/MCAlloy/instrs/frame.py" />
         <option value="$PROJECT_DIR$/MCAlloy/assembler/alloy_assembler.py" />
-        <option value="$PROJECT_DIR$/MCAlloy/instrs/base.py" />
-        <option value="$PROJECT_DIR$/MCAlloy/alloy/generator.py" />
         <option value="$PROJECT_DIR$/MCAlloy/alloy/nodes.py" />
       </list>
     </option>
@@ -412,7 +437,7 @@
       <workItem from="1564520756321" duration="19000" />
       <workItem from="1564588325751" duration="47000" />
       <workItem from="1564593112362" duration="12412000" />
-      <workItem from="1564666603604" duration="7831000" />
+      <workItem from="1564666603604" duration="13079000" />
     </task>
     <task id="LOCAL-00001" summary="Finished if and while implementation, untested">
       <created>1564060729968</created>
@@ -449,13 +474,20 @@
       <option name="project" value="LOCAL" />
       <updated>1564606350930</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed FunctionDef bug, simplified Instr.generate(), fixed launch_frame">
+      <created>1564678395999</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1564678395999</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106528000" />
+    <option name="totallyTimeSpent" value="111776000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="5">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -472,8 +504,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295063" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5499426" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3295063" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5499426" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.31917337" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.22273248" />
@@ -542,11 +574,12 @@
     <MESSAGE value="Lost of little fixes, function calls move further towards the fptr system" />
     <MESSAGE value="More little fixes, refactored how blocks are stored / generated to make more sense Moved files around" />
     <MESSAGE value="Fixed bug with block generation, general cleanup. Converged LoadConst / LoadName to Load, renamed &#10;StoreName to Store" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with block generation, general cleanup. Converged LoadConst / LoadName to Load, renamed &#10;StoreName to Store" />
+    <MESSAGE value="Fixed FunctionDef bug, simplified Instr.generate(), fixed launch_frame" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed FunctionDef bug, simplified Instr.generate(), fixed launch_frame" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MCAlloy$mcalloy.coverage" NAME="mcalloy NOFAIL Coverage Results" MODIFIED="1564601363215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MCAlloy" />
-    <SUITE FILE_PATH="coverage/MCAlloy$mcalloy_DEBUG.coverage" NAME="mcalloy DEBUG Coverage Results" MODIFIED="1564678191796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MCAlloy" />
+    <SUITE FILE_PATH="coverage/MCAlloy$mcalloy_DEBUG.coverage" NAME="mcalloy DEBUG Coverage Results" MODIFIED="1564682694311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MCAlloy" />
     <SUITE FILE_PATH="coverage/MCAlloy$mcalloy_NOFAIL.coverage" NAME="mcalloy NOFAIL Coverage Results" MODIFIED="1564675824302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MCAlloy" />
   </component>
   <component name="debuggerHistoryManager">
@@ -776,28 +809,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/operate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module___0.0.mcfunction" />
     <entry file="file://$PROJECT_DIR$/MCAlloy/util.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README_TECHNICAL.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="245">
-            <caret line="493" column="119" selection-start-line="493" selection-start-column="119" selection-end-line="493" selection-end-column="119" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -835,16 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/assign.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.mcfunction">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -862,13 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/in/dpack/dpack/main.alloy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/flow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -876,38 +875,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__0.1.mcfunction">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__0.0.mcfunction">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/MCAlloy/mcgen/generator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="876">
           <caret line="72" column="39" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="39" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="50" column="38" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -926,32 +899,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.mcfunction">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="62" lean-forward="true" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.print.mcfunction">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/nodes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="101" column="37" lean-forward="true" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.print_0.0.mcfunction">
       <provider selected="true" editor-type-id="text-editor">
@@ -960,13 +909,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__.mcfunction">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__0.1.mcfunction">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README_TECHNICAL.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="76">
+            <caret line="457" lean-forward="true" selection-start-line="457" selection-end-line="457" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/datapacks/dpack/data/dpack/functions/main.__module__0.0.mcfunction">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="48" lean-forward="true" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/operate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/assign.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/instrs/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/dpack/dpack/main.alloy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MCAlloy/assembler/alloy_assembler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="139" column="23" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="23" />
+        <state relative-caret-position="164">
+          <caret line="145" column="48" lean-forward="true" selection-start-line="145" selection-start-column="48" selection-end-line="145" selection-end-column="48" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="88" column="28" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCAlloy/alloy/nodes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="99" column="22" lean-forward="true" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
         </state>
       </provider>
     </entry>

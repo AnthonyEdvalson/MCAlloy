@@ -20,10 +20,12 @@ class AlloyGenerator(NodeVisitor):
 
     def resolve_frame(self, nodes, code, name, args=None):
         self.frame_stack.append(Frame(self.module.path, name, code))
+        old_block = self.block
         self.block = Block(self.frame_path(), None, True)
         self.frame_stack[-1].root_block = self.block
         self.bud(self.block, nodes, 0, None)
         self.frame_stack[-1].args = args or []
+        self.block = old_block
         return self.frame_stack.pop()
 
     """def resolve_block(self, nodes, name, first=False, last=False):

@@ -5,8 +5,8 @@ from instrs.base import CopyInstr, TOS, SimpleInstr, Instr
 
 
 class LoadNBT(SimpleInstr):
-    def __init__(self, nbt):
-        super().__init__("LNBT", "data modify entity @s {} set from value {}", TOS(), nbt, stack_action="push")
+    def __init__(self, nbt, target=TOS()):
+        super().__init__("LNBT", "data modify entity @s {} set from value {}", target, nbt, stack_action="push")
 
 
 class Load(CopyInstr):
@@ -26,16 +26,23 @@ class SetASM(SimpleInstr):
         super().__init__("SASM", "scoreboard players set {} __asm__ {}", key, val)
 
 
+class CopyScore(SimpleInstr):
+    def __init__(self, player, score="__asm__", attr="v", target=TOS()):
+        cmd = "execute store result entity @s {}.{} int 1 run scoreboard players get {} {}"
+        super().__init__("CSCO", cmd, target, attr, player, score)
+
+
 class LoadAttr(Instr):
     def __init__(self, name_index):
         self.name_index = name_index
 
     def gen(self, i):
-        # TODO dereferencing is a very common instruction, but it's very slow, need to look into speeding it up
         yield "execute store result score t0 __asm__ run data get entity @s {}.v".format(repr(i))
-        yield "execute as @e run execute if score @s __addr__ = t0 __asm__ run tag @s add __deref__"
-        yield "data modify set @s {} from entity @e[tag=__deref__,limit=1] {}".format(repr(i), repr(self.name_index))
-        yield "tag @e[tag=__deref__,limit=1] remove __deref__"
+
+        yield "tag @s add __target__"
+        copy = "data modify set @e[tag=__target__,limit=1] {} from entity @s {}".format(repr(i), repr(self.name_index))
+        yield "execute as @e[] run execute if score @s __ptr__ = t0 __asm__ run " + copy
+        yield "tag @s remove __target__"
 
     def str(self):
         return "LATR", TOS(), self.name_index
@@ -47,10 +54,12 @@ class StoreAttr(Instr):
 
     def gen(self, i):
         yield "execute store result score t0 __asm__ run data get entity @s {}.v".format(repr(i))
-        yield "execute as @e run execute if score @s __addr__ = t0 __asm__ run tag @s add __deref__"
-        yield "data modify @e[tag=__deref__,limit=1] {} from entity set @s {}".format(repr(self.name_index), repr(i))
-        yield "tag @e[tag=__deref__,limit=1] remove __deref__"
-        i.pop(2)
+        i.pop()
+        yield "tag @s add __target__"
+        copy = "data modify set @s {} from entity @e[tag=__target__,limit=1] {}".format(repr(self.name_index), repr(i))
+        i.pop()
+        yield "execute as @e[] run execute if score @s __ptr__ = t0 __asm__ run " + copy
+        yield "tag @s remove __target__"
 
     def str(self):
         return "SATR", TOS(), self.name_index
@@ -71,4 +80,3 @@ class Shuffle(Instr):
     def str(self):
         s = ", ".join(["{} < {}".format(*a) for a in self.assigns])
         return "SHFL", s, TOS()
-

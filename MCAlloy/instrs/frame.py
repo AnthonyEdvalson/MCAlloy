@@ -1,7 +1,7 @@
 from containers import Path
 from util import to_nbt
 from vm import StackIndex, PreIndex, NameIndex
-from instrs import Instr, TOS
+from instrs import Instr, TOS, LoadNBT, CopyScore
 
 
 class InitContext(Instr):
@@ -27,6 +27,27 @@ class InitContext(Instr):
         return "ICTX", TOS()
 
 
+class InitObject(Instr):
+    def __init__(self):
+        """
+        Creates a new armor stand to store and reference data. Pointer to pushed to stack
+        """
+
+    def gen(self, i):
+        nbt = '{Tags:["__dest__", "__volatile__"]},' \
+              'ArmorItems:[{id:"minecraft:paper",Count:1b,tag:{Attr:{}}},{},{},{}]'
+        yield 'summon minecraft:armor_stand ~ ~1 ~ ' + nbt
+
+        yield 'scoreboard players operate @e[tag=__dest__,limit=1] __ptr__ = ptr_count __asm__'
+        i.push()
+        yield from LoadNBT('{v:-1,t:"ptr"}').gen(i)
+        yield from CopyScore("ptr_count").gen(i)
+        yield 'scoreboard players add ptr_count __asm__ 1'
+
+    def str(self):
+        return "IOBJ", TOS()
+
+
 class StartFrame(Instr):
     def __init__(self, code, is_func):
         """
@@ -43,7 +64,7 @@ class StartFrame(Instr):
         yield "tag @s remove __dest__"
 
         cstr = ",".join(map(lambda c: to_nbt(c, False), self.consts))
-        sstr = ",".join(["{}"] * self.height)
+        sstr = ",".join(["{}"] * (self.height + 1))  # +1 to height because some instructions use the extra spot to swap
         cmd = 'data modify entity @s ArmorItems[0].tag set from value {{Stack:[{}],Consts:[{}],Names:{{}}}}'
         yield cmd.format(sstr, cstr)
 
@@ -65,7 +86,7 @@ class CallFuncPointer(Instr):
     def gen(self, i):
         super().gen(i)
         yield "execute store result score fptr __asm__ run data get entity @s {}".format(repr(i))
-        yield "execute as @e[tag=__dest__] run function {}".format(Path("__callfunc__"))
+        yield "execute as @e[tag=__dest__,limt=1] run function {}".format(Path("__callfunc__"))
         i.pop()
 
     def str(self):

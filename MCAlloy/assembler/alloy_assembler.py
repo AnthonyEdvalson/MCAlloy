@@ -140,11 +140,13 @@ class AlloyAssembler:
                 raise Exception(self._error_msg(node, "Unknown op {}".format(op)))
 
     def assemble_functiondef(self, node: nodes.FunctionDef):
-        self.write(LoadNBT('{{v: {}, t: "fptr"}}'.format(node.fptr)))
+        self.write(LoadNBT('{{v:{},t:"fptr"}}'.format(node.fptr)))
         self.write(Store(node.name))
 
     def assemble_classdef(self, node: nodes.ClassDef):
-        pass
+        self.write(LoadNBT('{{v:{},t:"fptr"}}'.format(node.fptr)))
+        self.write(InitObject())
+        self.write(Store(NameIndex(node.name)))
 
     def assemble_return(self, node):
         self.write(Return())

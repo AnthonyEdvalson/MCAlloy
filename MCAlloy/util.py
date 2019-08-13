@@ -25,4 +25,4 @@ def to_nbt(value, hard_fail=True) -> str:
         else:
             return "{}"
 
-    return '{{v:{}, t:"{}"}}'.format(nbt, type_name)
+    return '{{f:{}, t:"{}"}}'.format(nbt, type_name)

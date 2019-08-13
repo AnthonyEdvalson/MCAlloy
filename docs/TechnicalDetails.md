@@ -1,7 +1,7 @@
 # MCALLOY - TECHNICAL DETAILS
 
-This document contains some details on the inner workings of MCAlloy, the information here isn't necessary to use MCAlloy.
-if you are interested in how MCAlloy works, this contains a full overview of the system. The document is designed to be read by people who are familiar with Python, datapacks, compilers, and the Python virtual machine
+This document contains some details on the inner workings of MCAlloy, the information here IS NOT necessary to use MCAlloy.
+If you are interested in how MCAlloy works, this contains a full overview of the system. The document was written assuming the reader is familiar with Python, datapacks, compilers, and the Python virtual machine
 
 ## EXECUTION
 
@@ -73,7 +73,7 @@ For some reason, almost every nbt structure in Minecraft has restrictions on wha
 
 All values are stored in the format of `{v: <value>, t: <type>}` so the number 3 is stored as `{v: 3, t: "int"}`, and a car object could be stored as `{v:{wheel_count: {v: 4, t: "int"}, color: {v: "red", t: "str"}}, t: "car"}`
 
-Much like Python, MCAlloy almost never ever looks at types, except when using type() or isinstance()  
+Much like Python, MCAlloy almost never ever looks at types, except when using type() or isinstance()
 
 Unlike Python, there may be many stacks existing simultaneously. For example, when calling a function, the caller creates an entirely new stack, copies over the necessary data, and then tells that new stack to execute the called function. Afterwards, the caller copies the result of the function, and then kills the new stack.
 The reason this is done, is because of scope, it prevents the names of an inner stack frame overwriting the outer, and makes recursion possible.
@@ -273,7 +273,7 @@ else:
 After the condition in the if statement is evaluated, the Pre block decides to execute either the True or False block.
 Once that block is done, they then bridge to Post. Execution never returns to Pre until the frame returns
 
-**Returning Flow** (Used in Alloy):
+**Returning Flow** (Used in MCAlloy):
 
 - Pre -> True
 - Pre -> False
@@ -298,7 +298,7 @@ while <Test>:
 <Post>
 ```
 
-**Winding Flow** (Used in Alloy):
+**Winding Flow** (Used in MCAlloy):
 
 - Pre => Test
 - Test => Post
@@ -335,7 +335,7 @@ return
 <Post>
 ```
 
-**Bridged Flow** (Used by Alloy):
+**Bridged Flow** (Used by MCAlloy):
 
 - Pre => Post
 
@@ -345,7 +345,7 @@ return
 
 Return was included here for completion's sake. When returning, the program needs to stop executing. To do that we end the current block.
 In bridged flow we have a bridge between the code before and after, in return flow we have no connection, and Post is ignored. Because of the return statement, all
-bridges will be ignored, so both flow structures are basically the same. The reason alloy uses the first is because because by default, when a block is ended
+bridges will be ignored, so both flow structures are basically the same. The reason MCAlloy uses the first is because because by default, when a block is ended
 a bridge is made to the block containing the rest of the code. So basically the first option is better because it's lazier  
 
 ##ASSEMBLING
@@ -401,7 +401,7 @@ Stops the current block, all remaining instructions in this block will not be co
 During execution, when the ret flag is 1, all `BlockBridge` instructions will not continue execution. This flag is set back to 0 at the end of a frame. This system
 ensures that code will never continue executing in a frame once a return statement is hit
 
-**FunctionDef / ClassDef**
+**FunctionDef**
 
 These nodes do nothing.
 
@@ -483,7 +483,7 @@ and imports, it adds up quickly. With 128 functions, it is an average of 10.5 co
 calls or using recursion.
 
 Optimization can help a lot here. There are a few dozen builtins, most of which are never used. And when importing a module, it's rare that all of the available
-functions are used. Optimization can scan through the code, and remove the functions that aren't being used. This has not been implemented yet in Alloy, although it
+functions are used. Optimization can scan through the code, and remove the functions that aren't being used. This has not been implemented yet in MCAlloy, although it
 is a planned feature
 
 

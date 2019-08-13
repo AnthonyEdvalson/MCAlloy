@@ -40,7 +40,7 @@ class InitObject(Instr):
 
         yield 'scoreboard players operate @e[tag=__dest__,limit=1] __ptr__ = ptr_count __asm__'
         i.push()
-        yield from LoadNBT('{v:-1,t:"ptr"}').gen(i)
+        yield from LoadNBT('{a:-1,t:"ptr"}').gen(i)
         yield from CopyScore("ptr_count").gen(i)
         yield 'scoreboard players add ptr_count __asm__ 1'
 

@@ -1,5 +1,5 @@
 from assembler.datapack import ILDatapackGenerator
-from mcgen.generator import DatapackGenerator
+from mcgen import DatapackGenerator
 import sys
 
 

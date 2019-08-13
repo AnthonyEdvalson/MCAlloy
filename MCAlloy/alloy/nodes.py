@@ -63,10 +63,11 @@ class Frame(AlloyNode):
 
 
 class Module(AlloyNode):
-    def __init__(self, path):
+    def __init__(self, path, source_path):
         super().__init__(None)
         self.frames = []
         self.path = path
+        self.source_path = source_path
 
     def __str__(self):
         return str(self.path) + ":\n" + indent(self.frames)
@@ -82,20 +83,12 @@ class Direct(AlloyNode):
 
 
 class FunctionDef(AlloyNode):
-    id_counter = 0
-
-    def __init__(self, line, name, frame):
+    def __init__(self, line, name, frame, fptr):
         super().__init__(line)
         self.name = name
         self.args = frame.args
         self.frame = frame
-        self.fptr = FunctionDef.get_fptr()
-
-    @classmethod
-    def get_fptr(cls):
-        v = FunctionDef.id_counter
-        FunctionDef.id_counter += 1
-        return v
+        self.fptr = fptr
 
     def __str__(self):
         return "\n".join([

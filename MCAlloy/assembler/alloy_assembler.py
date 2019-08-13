@@ -24,7 +24,7 @@ class AlloyAssembler:
     def visit(self, node: nodes.AlloyNode):
         if node.line is not None:
             s = "{}: {}".format(node.line, self.doc.split("\n")[node.line - 1])
-            print(s)
+            # print(s)
             if self.block:
                 self.write(Comment(" " + s))
 
@@ -32,7 +32,7 @@ class AlloyAssembler:
         visitor(node)
 
     def assemble_module(self, node: nodes.Module):
-        self.module = ILModule(node.path)
+        self.module = ILModule(node.path, node.source_path)
         [self.visit(f) for f in node.frames]
 
     def assemble_frame(self, node: nodes.Frame):
@@ -140,11 +140,11 @@ class AlloyAssembler:
                 raise Exception(self._error_msg(node, "Unknown op {}".format(op)))
 
     def assemble_functiondef(self, node: nodes.FunctionDef):
-        self.write(LoadNBT('{{v:{},t:"fptr"}}'.format(node.fptr)))
+        self.write(LoadNBT('{{f:{},t:"fptr"}}'.format(node.fptr)))
         self.write(Store(node.name))
 
     def assemble_classdef(self, node: nodes.ClassDef):
-        self.write(LoadNBT('{{v:{},t:"fptr"}}'.format(node.fptr)))
+        self.write(LoadNBT('{{f:{},t:"fptr"}}'.format(node.fptr)))
         self.write(InitObject())
         self.write(Store(NameIndex(node.name)))
 
@@ -209,7 +209,7 @@ class CommentTags:
     def tag(self, start):
         s = "{}<{}{} >".format(self.line_label, " " if start else "/", self.text)
         self.ilbg.write(Comment(s))
-        print(s)
+        # print(s)
 
 
 binops = {

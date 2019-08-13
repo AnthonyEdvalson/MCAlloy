@@ -71,8 +71,9 @@ class ILFrame:
 
 
 class ILModule:
-    def __init__(self, path: Path):
+    def __init__(self, path: Path, source_path: str):
         self.path = path
+        self.source_path = source_path
         self.frames = []
 
     def push(self, frames: ILFrame):

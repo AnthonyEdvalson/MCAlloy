@@ -29,6 +29,8 @@ class DatapackGenerator:
         for namespace in namespaces:
             shutil.rmtree(dp_folder + namespace.path.file(), ignore_errors=True)
             for module in namespace.modules:
+                print()
+                print(module.source_path)
                 for frame in module.frames:
 
                     si = StackIndex(-1)
@@ -53,16 +55,17 @@ class DatapackGenerator:
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
-        print()
-        print(file_name)
+        # print()
+        # print(file_name)
         if file_name in self.files_made:
             raise Exception("{} has already been created".format(file_name))
         self.files_made.add(file_name)
 
         self.stack_histories[file_name] = []
+        print("  " + file_name)
         with open(file_name, "w+") as output:
             for instr in block.instrs:
-                print(instr)
+                # print(instr)
                 for command in instr.generate(si, self.gs):
                     output.write(command + "\n")
 

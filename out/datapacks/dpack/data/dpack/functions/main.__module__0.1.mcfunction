@@ -1,5 +1,5 @@
 ###########################################  < body >
-########################################### 72: """
+########################################### 64: """
 ########################################### - LOAD, TOS, <Consts[0]>
 execute store success score pass __asm__ run data modify entity @s ArmorItems[0].tag.Stack[-1] set from entity @s ArmorItems[0].tag.Consts[0]
                                                                                                                                                                                                         execute if score pass __asm__ matches 0 run tellraw @a [{"text": " !!!!!!!! FAIL: data modify entity @s ArmorItems[0].tag.Stack[-1] set from entity @s ArmorItems[0].tag.Consts[0]"}]

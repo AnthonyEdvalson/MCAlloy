@@ -1,17 +1,21 @@
 import ast
 from ast import NodeVisitor
 from dis import Bytecode
+import error
 
 from alloy.nodes import *
 import types
 
 
 class AlloyGenerator(NodeVisitor):
-    def __init__(self, mod_path):
+    def __init__(self, mod_path, doc, source_path):
+        self.fptr_count = 0
         self.mod_path = mod_path
         self.module = None
         self.frame_stack = []
         self.block = None
+        self.doc = doc
+        self.source_path = source_path
 
         self.block_names = set()
 
@@ -27,11 +31,6 @@ class AlloyGenerator(NodeVisitor):
         self.frame_stack[-1].args = args or []
         self.block = old_block
         return self.frame_stack.pop()
-
-    """def resolve_block(self, nodes, name, first=False, last=False):
-        self.block_stack.append(Block(self.frame_path(), name, first, last))
-        self.resolve(nodes)
-        return self.block_stack.pop()"""
 
     def bud(self, parent, nodes, line, name, condition=None):
         # iterate over all the nodes
@@ -50,8 +49,12 @@ class AlloyGenerator(NodeVisitor):
             while i < len(nodes):
                 node = nodes[i]
                 i += 1
-                if self.visit(node):
-                    break
+                try:
+                    if self.visit(node):
+                        break
+                except UnsupportedNodeException:
+                    msg = "The '{}' feature is not supported by MCAlloy".format(type(node).__name__)
+                    error.ast_error(node, self.doc, msg)
 
         return self.block  # Return the last block that was added
 
@@ -65,34 +68,38 @@ class AlloyGenerator(NodeVisitor):
         target.body.append(node)
 
     def visit_Module(self, node):
-        self.module = Module(self.mod_path)
+        self.module = Module(self.mod_path, self.source_path)
         module_code = compile(node, str(self.mod_path), "exec")
         frame = self.resolve_frame(node.body, module_code, "__module__")
         self.module.frames.append(frame)
         return self.module
 
-    def find_code(self, name):
+    def find_code(self, node):
+        name = node.name
+
         for const in self.frame_stack[-1].code.co_consts:
             if isinstance(const, types.CodeType) and const.co_name == name:
                 return const
-        raise NameError("Cannot find code object named " + name)
+
+        raise NameError(error.ast_error(node, self.doc, "Cannot find code object for " + name))
 
     def visit_FunctionDef(self, node):
         parent = self.block
 
         args = [arg.arg for arg in node.args.args]
-        code = self.find_code(node.name)
+        code = self.find_code(node)
         frame_name = "{}.{}".format(self.frame_path().frame, node.name)
         frame = self.resolve_frame(node.body, code, frame_name, args)
 
         self.module.frames.append(frame)
-        self.write(FunctionDef(node.lineno, frame_name, frame), parent)
+        self.write(FunctionDef(node.lineno, frame_name, frame, self.get_fptr()), parent)
 
     def visit_ClassDef(self, node):
-        code = self.find_code(node.name)
-        frame = self.resolve_frame(node.body, code, node.name)
-        self.module.frames.append(frame)
-        self.write(ClassDef(node.lineno, node.name, frame))
+        self.unsupported(node)
+        # code = self.find_code(node.name)
+        # frame = self.resolve_frame(node.body, code, node.name)
+        # self.module.frames.append(frame)
+        # self.write(ClassDef(node.lineno, node.name, frame, self.get_fptr()))
 
     def visit_Return(self, node):
         self.visit(node.value)
@@ -135,8 +142,13 @@ class AlloyGenerator(NodeVisitor):
         byte_code = list(Bytecode(code))[:-1]
         self.write(Byte(node.lineno, code, byte_code))
 
+    def get_fptr(self):
+        v = self.fptr_count
+        self.fptr_count += 1
+        return v
+
     def unsupported(self, node):
-        raise Exception("{} is not a supported AST node".format(type(node)))
+        raise UnsupportedNodeException(node)
 
     # Simple exec
     visit_Assign = visit_exec
@@ -197,8 +209,9 @@ class AlloyGenerator(NodeVisitor):
     visit_Subscript = unsupported  # List|Tuple
     visit_Slice = unsupported  # Subscript
     visit_Index = unsupported  # Subscript
+    visit_Delete = unsupported  # List
 
-    # Impossible / Useless
+    # Impossible
     visit_Interactive = unsupported
     visit_Expression = unsupported
     visit_AsyncFunctionDef = unsupported
@@ -209,7 +222,11 @@ class AlloyGenerator(NodeVisitor):
     visit_JoinedStr = unsupported
     visit_Bytes = unsupported
 
-    # Ones I'll add if people ask for
-    visit_Delete = unsupported  # Never used del, no idea why anyone would want it
+    # Ones to add if people ask for
     visit_ExtSlice = unsupported  # A bit much, I've never needed it, and it would probably be slow
     visit_Ellipsis = unsupported  # Didn't know it existed before starting this project, doesnt seem particularly useful
+
+
+class UnsupportedNodeException(Exception):
+    def __init__(self, node):
+        self.node = node

@@ -37,7 +37,7 @@ class LoadAttr(Instr):
         self.name_index = name_index
 
     def gen(self, i):
-        yield "execute store result score t0 __asm__ run data get entity @s {}.v".format(repr(i))
+        yield "execute store result score t0 __asm__ run data get entity @s {}.a".format(repr(i))
 
         yield "tag @s add __target__"
         copy = "data modify set @e[tag=__target__,limit=1] {} from entity @s {}".format(repr(i), repr(self.name_index))
@@ -53,7 +53,7 @@ class StoreAttr(Instr):
         self.name_index = name_index
 
     def gen(self, i):
-        yield "execute store result score t0 __asm__ run data get entity @s {}.v".format(repr(i))
+        yield "execute store result score t0 __asm__ run data get entity @s {}.a".format(repr(i))
         i.pop()
         yield "tag @s add __target__"
         copy = "data modify set @s {} from entity @e[tag=__target__,limit=1] {}".format(repr(self.name_index), repr(i))
